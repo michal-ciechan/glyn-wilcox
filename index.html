@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glyn Wilcox · Site Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0b0b0b; --fg:#f4f1ea; --muted:#9a958b; --card:#161616; --line:#2a2a2a; --accent:#e2401e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:Inter,system-ui,sans-serif; line-height:1.5; }
+  main { max-width:1100px; margin:0 auto; padding:48px 16px 64px; }
+  h1 { font-size:clamp(2rem,6vw,3.5rem); font-weight:800; margin:0 0 8px; letter-spacing:-.02em; }
+  h1 span { color:var(--accent); }
+  p.lead { color:var(--muted); max-width:60ch; margin:0 0 40px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
+  a.card { display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:24px; color:inherit; text-decoration:none; transition:transform .2s, border-color .2s; }
+  a.card:hover, a.card:focus-visible { transform:translateY(-3px); border-color:var(--accent); outline:none; }
+  .tag { font-size:.75rem; text-transform:uppercase; letter-spacing:.12em; color:var(--accent); font-weight:600; }
+  .card h2 { margin:6px 0 8px; font-size:1.4rem; }
+  .card p { margin:0 0 14px; color:var(--muted); font-size:.95rem; }
+  .sw { display:flex; gap:6px; }
+  .sw i { width:22px; height:22px; border-radius:50%; border:1px solid #ffffff22; }
+  footer { margin-top:48px; color:var(--muted); font-size:.85rem; }
+  @media (prefers-reduced-motion:reduce){ a.card{transition:none;} }
+</style>
+</head>
+<body>
+<main>
+  <h1>Glyn Wilcox <span>·</span> Ska Au Go Go</h1>
+  <p class="lead">Six website concepts for a Torbay ska singer, vinyl DJ and Palm Torbay radio presenter. Two elegant, two modern, two built from his own branding.</p>
+  <div class="grid">
+    <a class="card" href="samples/late-session/"><span class="tag">Elegant</span><h2>The Late Session</h2><p>A Kingston supper club after midnight, with brass, ink and a slowly spinning 7".</p><div class="sw"><i style="background:#0E0D0B"></i><i style="background:#C6A15B"></i><i style="background:#EDE4D0"></i><i style="background:#6E1F24"></i></div></a>
+    <a class="card" href="samples/liner-notes/"><span class="tag">Elegant</span><h2>Liner Notes</h2><p>An editorial reissue booklet with a typographic timeline and a catalogue-style discography.</p><div class="sw"><i style="background:#F5F1E8"></i><i style="background:#151515"></i><i style="background:#8A857A"></i><i style="background:#7A1E2C"></i></div></a>
+    <a class="card" href="samples/offbeat/"><span class="tag">Modern</span><h2>Offbeat</h2><p>A kinetic gig poster where everything moves on the offbeat.</p><div class="sw"><i style="background:#0B0B0B"></i><i style="background:#FAFAFA"></i><i style="background:#FF4A1C"></i></div></a>
+    <a class="card" href="samples/selector/"><span class="tag">Modern</span><h2>The Selector</h2><p>A radio-first listening hub with a live countdown to Sunday 7pm.</p><div class="sw"><i style="background:#0B1410"></i><i style="background:#F2C230"></i><i style="background:#2FBF71"></i><i style="background:#E9EFEA"></i></div></a>
+    <a class="card" href="samples/boss-sounds/"><span class="tag">On-brand</span><h2>Boss Sounds</h2><p>Built from his Ska Au Go Go roundel, in the style of a 1960s Jamaican 7" label.</p><div class="sw"><i style="background:#0A0A0A"></i><i style="background:#E2401E"></i><i style="background:#FFFFFF"></i><i style="background:#F0E9DC"></i></div></a>
+    <a class="card" href="samples/ten-feet-tall/"><span class="tag">On-brand</span><h2>Ten Feet Tall</h2><p>A Two-Tone Riviera look taken from The Simmertones' album art and his mod style.</p><div class="sw"><i style="background:#F2EBDA"></i><i style="background:#8C1D38"></i><i style="background:#F5D01C"></i><i style="background:#3BA6C4"></i></div></a>
+  </div>
+  <footer>Concept samples. Facts come from public sources; items marked [Placeholder] are not real data.</footer>
+</main>
+</body>
+</html>

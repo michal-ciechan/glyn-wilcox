@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glyn Wilcox | Ska Au Go Go | The Ultimate Ska &amp; Reggae Show</title>
+<meta name="description" content="Glyn Wilcox: Torbay ska and reggae singer, vinyl DJ and radio presenter. Two hours of boss sounds every Sunday, 7 to 9pm, on Palm Torbay.">
+<meta name="theme-color" content="#0B1410">
+<link rel="icon" href="assets/mixcloud-avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B1410;
+  --surface:#13201A;
+  --surface-2:#1A2B23;
+  --gold:#F2C230;
+  --green:#2FBF71;
+  --white:#E9EFEA;
+  --muted:#A3B5AA;
+  --live:#E2401E;
+  --line:rgba(233,239,234,.10);
+  --line-strong:rgba(233,239,234,.20);
+  --glass:rgba(19,32,26,.72);
+  --ui:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --side:248px;
+  --dock:68px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--white);
+  font-family:var(--ui);font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(var(--dock) + 16px);
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.mono{font-family:var(--mono);font-feature-settings:"zero" 1}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:100;background:var(--gold);color:#0B1410;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+
+/* ---------- App shell ---------- */
+.side{
+  position:fixed;inset:0 auto 0 0;width:var(--side);z-index:30;
+  background:#0D1813;border-right:1px solid var(--line);
+  display:flex;flex-direction:column;padding:22px 16px 20px;
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;padding:4px 6px 4px 4px;border-radius:14px}
+.brand img{width:52px;height:52px;border-radius:50%;flex:none;background:#0A0A0A}
+.brand b{display:block;font-size:18px;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+.brand span{display:block;font-size:13.5px;color:var(--muted);line-height:1.3}
+.nav{margin-top:26px;display:flex;flex-direction:column;gap:2px}
+.nav a{
+  display:flex;align-items:center;gap:12px;text-decoration:none;
+  padding:10px 12px;border-radius:10px;font-weight:500;font-size:16px;color:var(--muted);
+  transition:background .2s,color .2s;
+}
+.nav a svg{width:18px;height:18px;flex:none;opacity:.85}
+.nav a:hover{color:var(--white);background:rgba(233,239,234,.05)}
+.nav a[aria-current="true"]{color:var(--white);background:var(--surface-2)}
+.nav a[aria-current="true"] svg{color:var(--gold);opacity:1}
+.side-foot{margin-top:auto;font-size:13.5px;color:var(--muted)}
+.side-foot a{display:block;margin-top:8px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.side-foot img{width:100%}
+
+main{margin-left:var(--side);min-width:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 40px}
+section{padding:72px 0 8px;scroll-margin-top:16px}
+section > .wrap > h2{
+  font-size:clamp(30px,3.6vw,44px);font-weight:700;letter-spacing:-.025em;line-height:1.08;
+  max-width:18ch;
+}
+.lede{color:var(--muted);max-width:60ch;margin-top:14px;font-size:18px}
+.head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* ---------- Buttons, chips ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:48px;padding:0 22px;border-radius:999px;border:1px solid var(--line-strong);
+  background:transparent;color:var(--white);font-weight:600;font-size:16px;text-decoration:none;cursor:pointer;
+  transition:background .2s,border-color .2s,transform .2s var(--ease);
+}
+.btn:hover{background:rgba(233,239,234,.07);border-color:rgba(233,239,234,.4)}
+.btn:active{transform:scale(.98)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#0B1410}
+.btn.gold:hover{background:#FFD44F;border-color:#FFD44F}
+.btn.small{min-height:40px;padding:0 16px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  display:inline-flex;align-items:center;min-height:34px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--line-strong);font-size:15px;font-weight:500;color:var(--white);background:rgba(233,239,234,.03);
+}
+.chip.green{border-color:rgba(47,191,113,.5);color:#7FE3AD;background:rgba(47,191,113,.08)}
+.tag-ph{
+  display:inline-block;font-family:var(--mono);font-size:12.5px;color:var(--gold);
+  border:1px dashed rgba(242,194,48,.55);border-radius:6px;padding:1px 7px;white-space:nowrap;
+}
+.live-badge{
+  display:inline-flex;align-items:center;gap:7px;background:var(--live);color:#0B1410;
+  font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.06em;
+  padding:4px 10px;border-radius:6px;
+}
+.live-badge i{width:8px;height:8px;border-radius:50%;background:#0B1410;animation:blink 1.2s steps(2,start) infinite}
+@keyframes blink{50%{opacity:.25}}
+[hidden]{display:none!important}
+
+.card{
+  background:var(--glass);border:1px solid var(--line);border-radius:18px;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+}
+.lift{transition:transform .28s var(--ease),border-color .28s,box-shadow .28s}
+.lift:hover{transform:translateY(-4px);border-color:var(--line-strong);box-shadow:0 18px 40px -18px rgba(0,0,0,.7)}
+
+/* ---------- 1. Hero player ---------- */
+#listen{padding-top:32px;position:relative}
+#listen::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:620px;pointer-events:none;
+  background:
+    radial-gradient(620px 340px at 18% 0%,rgba(47,191,113,.20),transparent 70%),
+    radial-gradient(520px 320px at 88% 8%,rgba(242,194,48,.13),transparent 70%);
+}
+.player{
+  position:relative;overflow:hidden;border-radius:28px;padding:32px 32px 112px;
+  display:grid;grid-template-columns:280px minmax(0,1fr);gap:36px;align-items:center;
+}
+.player .art{position:relative;z-index:1}
+.crop{display:block;overflow:hidden;border-radius:15%;aspect-ratio:1;background:#19D3D0}
+.crop img{width:100%;height:100%;transform:scale(1.07)}
+.player .art .crop{width:280px;box-shadow:0 24px 50px -20px rgba(0,0,0,.8)}
+.player .info{position:relative;z-index:1;min-width:0}
+.status-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-height:28px;font-size:15.5px;color:var(--muted)}
+.status-row .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none}
+h1{margin-top:12px;font-size:clamp(34px,4.6vw,60px);font-weight:800;letter-spacing:-.035em;line-height:1}
+h1 small{display:block;margin-top:12px;font-size:clamp(19px,2vw,24px);font-weight:500;letter-spacing:-.01em;color:var(--gold);line-height:1.2}
+.tagline{margin-top:14px;color:var(--muted);font-size:18px;max-width:44ch}
+.transport{margin-top:26px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.play{
+  flex:none;width:84px;height:84px;border-radius:50%;background:var(--gold);color:#0B1410;
+  display:grid;place-items:center;text-decoration:none;
+  box-shadow:0 0 0 0 rgba(242,194,48,.45);transition:transform .2s var(--ease),background .2s;
+}
+.play:hover{transform:scale(1.06);background:#FFD44F}
+.play svg{width:32px;height:32px;margin-left:4px}
+.onair .play{animation:ring 1.8s ease-out infinite}
+@keyframes ring{to{box-shadow:0 0 0 22px rgba(242,194,48,0)}}
+.count{display:flex;gap:6px;align-items:flex-start}
+.count div{min-width:58px;text-align:center}
+.count b{display:block;font-family:var(--mono);font-weight:500;font-size:clamp(30px,3.4vw,42px);line-height:1;font-feature-settings:"zero" 1;font-variant-numeric:tabular-nums}
+.count span{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+.count .sep{min-width:0;font-family:var(--mono);font-size:clamp(26px,3vw,36px);line-height:1.05;color:rgba(233,239,234,.3)}
+.count-label{font-size:15px;color:var(--muted);margin-bottom:8px}
+.when{margin-top:18px;font-size:15.5px;color:var(--muted)}
+.when b{color:var(--white);font-weight:600}
+.hero-actions{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.wave{position:absolute;left:0;right:0;bottom:0;width:100%;height:88px;z-index:0;opacity:.5;color:var(--green);pointer-events:none}
+.onair .wave{color:var(--gold);opacity:.6}
+.wave rect{transform-box:fill-box;transform-origin:center bottom;animation:bar 1.5s ease-in-out infinite alternate}
+.onair .wave rect{animation-duration:.8s}
+@keyframes bar{from{transform:scaleY(.25)}to{transform:scaleY(1)}}
+
+.week{margin-top:16px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.week li{
+  border:1px solid var(--line);border-radius:12px;padding:10px 6px 9px;text-align:center;
+  font-size:14px;color:var(--muted);background:rgba(19,32,26,.5);min-width:0;
+}
+.week li b{display:block;font-weight:600;color:var(--white);font-size:14.5px}
+.week li span{display:block;font-family:var(--mono);font-size:12px;margin-top:3px;min-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.week li.show{border-color:rgba(242,194,48,.55);background:rgba(242,194,48,.10)}
+.week li.show span{color:var(--gold)}
+.week li.zone span{color:#7FE3AD}
+.week li.today{box-shadow:inset 0 0 0 2px var(--green)}
+.week-key{margin-top:10px;font-size:14px;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
+.week-key i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+
+/* ---------- 2. On air ---------- */
+.rail-ctrl{display:flex;gap:8px}
+.icon-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:transparent;display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.icon-btn:hover{background:rgba(233,239,234,.08)}
+.icon-btn svg{width:18px;height:18px}
+.rail{
+  margin-top:26px;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;
+  padding:6px 2px 18px;scrollbar-width:thin;scrollbar-color:var(--surface-2) transparent;
+}
+.ep{flex:0 0 232px;scroll-snap-align:start;padding:14px;display:flex;flex-direction:column}
+.ep .tile{aspect-ratio:1;border-radius:12px;overflow:hidden;position:relative;background:var(--surface-2)}
+.ep .tile img{width:100%;height:100%;object-fit:cover}
+.ep .tile.crop{border-radius:15%;background:#19D3D0}
+.ep .tile.ph{
+  display:grid;place-items:center;border:1px dashed rgba(233,239,234,.22);
+  background:repeating-linear-gradient(135deg,rgba(233,239,234,.035) 0 10px,transparent 10px 20px);
+}
+.ep .tile.ph b{font-family:var(--mono);font-weight:500;font-size:40px;color:rgba(233,239,234,.34)}
+.ep h3{margin-top:14px;font-size:17px;font-weight:600;line-height:1.3;letter-spacing:-.005em}
+.ep .meta{margin-top:4px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.ep .acts{margin-top:auto;padding-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.embed{margin-top:4px;padding:14px;border-radius:16px}
+.embed iframe{display:block;width:100%;height:120px;border:0;border-radius:10px}
+.embed p{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+.air-grid{margin-top:28px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px}
+.air-grid .card{padding:26px}
+.air-grid h3{font-size:21px;font-weight:700;letter-spacing:-.015em;line-height:1.2}
+.air-grid p{color:var(--muted);margin-top:10px;max-width:56ch}
+.air-grid .chips{margin-top:18px}
+.palm{display:flex;flex-direction:column;gap:14px}
+.palm img{width:200px;border-radius:8px}
+.palm .btn{align-self:flex-start;margin-top:auto}
+
+/* ---------- 3. Ska Au Go Go ---------- */
+.nights{margin-top:30px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:40px;align-items:center}
+.roundel{width:260px;height:260px;border-radius:50%;background:#0A0A0A;overflow:hidden;border:1px solid var(--line-strong);box-shadow:0 30px 60px -30px #000}
+.roundel img{width:100%;height:100%}
+.nights p{max-width:58ch;color:var(--muted)}
+.nights p + p{margin-top:12px}
+.nights p strong{color:var(--white);font-weight:600}
+.specs{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.specs div{border-top:2px solid var(--gold);padding-top:12px}
+.specs dt{font-weight:700;font-size:18px;letter-spacing:-.01em}
+.specs dd{color:var(--muted);font-size:15.5px;margin-top:2px}
+.nights .hero-actions{margin-top:26px}
+
+/* ---------- 4. Simmertones ---------- */
+.discs{margin-top:30px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.disc{padding:12px}
+.disc .cover{aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--surface-2)}
+.disc .cover img{width:100%;height:100%;object-fit:cover}
+.disc .cover.ph{display:grid;place-items:center;text-align:center;border:1px dashed rgba(233,239,234,.22);padding:12px;
+  background:radial-gradient(circle at 50% 50%,transparent 0 9%,rgba(233,239,234,.10) 9.5% 10.5%,transparent 11% 30%,rgba(233,239,234,.06) 30.5% 31.5%,transparent 32% 46%,rgba(233,239,234,.06) 46.5% 47.5%,transparent 48%)}
+.disc h3{margin-top:12px;font-size:16.5px;font-weight:600;line-height:1.25}
+.disc .meta{margin-top:4px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.credits{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.credits .card{padding:24px}
+.credits h3{font-size:15.5px;font-weight:600;color:var(--muted)}
+.credits .big{margin-top:8px;font-size:22px;font-weight:700;letter-spacing:-.015em;line-height:1.2}
+.credits p.note{margin-top:8px;color:var(--muted);font-size:15.5px}
+.credits .chips{margin-top:12px}
+.credits blockquote{margin:8px 0 0;font-size:22px;font-weight:700;letter-spacing:-.015em;line-height:1.2}
+.credits cite{display:block;margin-top:8px;font-style:normal;color:var(--muted);font-size:15px}
+
+/* ---------- 5. Story ---------- */
+.story{margin-top:30px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:48px;align-items:start}
+.story .bio p{max-width:62ch;font-size:18px}
+.story .bio p + p{margin-top:16px}
+.story .bio .src{font-size:14.5px;color:var(--muted);margin-top:18px}
+.portrait{float:right;width:150px;margin:4px 0 14px 22px}
+.portrait img{width:150px;border-radius:14px;border:1px solid var(--line-strong)}
+.portrait figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.35}
+.tracks{padding:10px 8px 8px}
+.tracks h3{padding:12px 14px 10px;font-size:15.5px;font-weight:600;color:var(--muted)}
+.tracks li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:13px 14px;border-top:1px solid var(--line);border-radius:0}
+.tracks li .n{font-family:var(--mono);font-size:13.5px;color:var(--muted)}
+.tracks li b{display:block;font-weight:600;font-size:17px;line-height:1.3}
+.tracks li p{color:var(--muted);font-size:15px;line-height:1.4;margin-top:2px}
+.tracks li .t{font-family:var(--mono);font-size:13.5px;color:var(--gold);white-space:nowrap}
+.tracks li.now b::after{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-left:8px;vertical-align:2px}
+
+/* ---------- 6. Gigs ---------- */
+.gig-group{margin-top:30px}
+.gig-group h3{font-size:15.5px;font-weight:600;color:var(--muted);margin-bottom:10px}
+.gigs li{
+  display:grid;grid-template-columns:132px minmax(0,1fr) auto;gap:20px;align-items:center;
+  padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--glass);
+}
+.gigs li + li{margin-top:8px}
+.gigs .d{font-family:var(--mono);font-size:14px;line-height:1.4;color:var(--muted)}
+.gigs .d b{display:block;color:var(--white);font-weight:500;font-size:16px}
+.gigs h4{margin:0;font-size:18px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.gigs p{color:var(--muted);font-size:15.5px;margin-top:2px}
+.gigs .past{background:transparent}
+.gigs .ph{border-style:dashed;background:transparent}
+.gigs .end{display:flex;justify-content:flex-end}
+
+/* ---------- 7. Contact ---------- */
+.contact{margin-top:30px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start}
+form.card{padding:28px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:15px;font-weight:600}
+label small{font-weight:400;color:var(--muted);font-size:14px}
+input,select,textarea{
+  width:100%;min-height:48px;padding:11px 14px;border-radius:10px;background:#0B1410;
+  border:1px solid rgba(233,239,234,.28);font-size:16px;
+}
+textarea{min-height:128px;resize:vertical}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 14px) 21px;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#FF8A6E}
+.err{color:#FF9C84;font-size:14.5px}
+.form-foot{margin-top:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.form-note{font-size:14.5px;color:var(--muted);flex:1 1 220px}
+.form-status{margin-top:16px;padding:14px 16px;border-radius:10px;border:1px solid rgba(242,194,48,.5);background:rgba(242,194,48,.08);font-size:15.5px}
+.reach{padding:8px}
+.reach li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;padding:15px 16px;border-top:1px solid var(--line)}
+.reach li:first-child{border-top:0}
+.reach span{color:var(--muted);font-size:15.5px}
+.reach .tag-ph{color:var(--gold);font-size:12.5px;white-space:normal}
+.disc .tag-ph{white-space:normal}
+.reach a{font-weight:600;text-underline-offset:3px}
+.reach a:hover{color:var(--gold)}
+
+footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0 10px;color:var(--muted);font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ---------- Dock ---------- */
+.dock{
+  position:fixed;left:var(--side);right:0;bottom:0;height:var(--dock);z-index:40;
+  background:rgba(13,24,19,.92);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border-top:1px solid var(--line-strong);
+  display:flex;align-items:center;gap:14px;padding:0 20px;
+  transition:transform .35s var(--ease);
+}
+.dock.tucked{transform:translateY(100%);visibility:hidden;transition:transform .35s var(--ease),visibility 0s .35s}
+.dock .crop{width:44px;flex:none}
+.dock .txt{min-width:0;flex:1}
+.dock .txt b{display:block;font-size:15.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+.dock .txt span{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden}
+.dock .live-badge{font-size:11px;padding:2px 7px}
+.dock .btn{flex:none}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1180px){
+  .player{grid-template-columns:220px minmax(0,1fr);gap:28px}
+  .player .art .crop{width:220px}
+  .credits{grid-template-columns:1fr}
+  .story{grid-template-columns:1fr}
+  .contact{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:920px){
+  body{font-size:16.5px}
+  .side{
+    position:sticky;top:0;inset:auto;width:auto;flex-direction:column;padding:10px 0 0;
+    border-right:0;border-bottom:1px solid var(--line);
+    background:rgba(11,20,16,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  }
+  .brand{padding:0 16px}
+  .brand img{width:40px;height:40px}
+  .brand b{font-size:16.5px}
+  .brand span{font-size:13px}
+  .nav{margin-top:8px;flex-direction:row;overflow-x:auto;gap:4px;padding:0 12px 10px;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex:none;padding:8px 13px;font-size:15px;border-radius:999px;border:1px solid var(--line)}
+  .nav a svg{display:none}
+  .nav a[aria-current="true"]{background:var(--white);color:#0B1410;border-color:var(--white)}
+  .side-foot{display:none}
+  main{margin-left:0}
+  .dock{left:0}
+  .wrap{padding:0 20px}
+  section{padding-top:56px;scroll-margin-top:112px}
+  #listen{padding-top:20px}
+  .air-grid{grid-template-columns:minmax(0,1fr)}
+  .nights{grid-template-columns:1fr;gap:26px}
+  .roundel{width:200px;height:200px}
+}
+@media (max-width:640px){
+  .player{grid-template-columns:1fr;padding:20px;border-radius:22px;gap:20px}
+  .player .art{display:flex;align-items:center;gap:14px}
+  .player .art .crop{width:104px}
+  .player{padding-bottom:84px}
+  .wave{height:56px}
+  .transport{gap:16px}
+  .play{width:68px;height:68px}
+  .play svg{width:26px;height:26px}
+  .count div{min-width:44px}
+  .count{gap:3px}
+  .week{gap:4px}
+  .week li{padding:8px 2px;border-radius:9px}
+  .week li b{font-size:13px}
+  .week li span{font-size:10.5px}
+  .specs{grid-template-columns:1fr}
+  .gigs li{grid-template-columns:1fr;gap:8px;padding:16px}
+  .gigs .end{justify-content:flex-start}
+  .gigs .d b{display:inline;margin-right:8px}
+  .fields{grid-template-columns:1fr}
+  form.card{padding:20px}
+  .ep{flex-basis:208px}
+  .portrait{width:120px;margin-left:16px}
+  .portrait img{width:120px}
+  .dock{padding:0 12px;gap:10px}
+  .dock .btn{padding:0 14px}
+  .air-grid .card,.credits .card{padding:20px}
+  .discs{gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .disc{padding:9px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .wave rect{transform:scaleY(.7)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="side">
+  <a class="brand" href="#listen" aria-label="Glyn Wilcox, Ska Au Go Go: back to top">
+    <img src="assets/mixcloud-avatar.jpg" width="52" height="52" alt="Ska Au Go Go roundel logo: Boss Sounds, Ska Reggae Rocksteady">
+    <div><b>Glyn Wilcox</b><span>Ska Au Go Go</span></div>
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#listen" aria-current="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Listen</a>
+    <a href="#on-air"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><path d="M7 7a7 7 0 0 0 0 10M17 7a7 7 0 0 1 0 10M4 4a11.5 11.5 0 0 0 0 16M20 4a11.5 11.5 0 0 1 0 16"/></svg>On air</a>
+    <a href="#nights"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="3"/></svg>DJ nights</a>
+    <a href="#band"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>The Simmertones</a>
+    <a href="#story"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>About</a>
+    <a href="#gigs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Gigs</a>
+    <a href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>Book</a>
+  </nav>
+  <div class="side-foot">
+    As heard on
+    <a href="https://www.palmtorbay.com" target="_blank" rel="noopener"><img src="assets/palm-torbay.png" width="480" height="146" alt="Palm Torbay radio (opens in a new tab)"></a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 1. HERO / PLAYER -->
+<section id="listen" aria-labelledby="h-listen">
+  <div class="wrap">
+    <div class="player card" id="player">
+      <svg class="wave" id="wave" viewBox="0 0 960 150" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
+      <div class="art">
+        <span class="crop"><img src="assets/mixcloud-show-art.jpg" width="280" height="280" alt="Show artwork: Glyn Wilcox in a grey pork-pie hat and striped polo, The Ska and Reggae Show on Palm Torbay"></span>
+      </div>
+      <div class="info">
+        <p class="status-row">
+          <span class="live-badge" id="liveBadge" hidden><i></i>LIVE</span>
+          <span class="dot" id="offDot" aria-hidden="true"></span>
+          <span id="statusText">Sundays, 7 to 9pm on Palm Torbay</span>
+        </p>
+        <h1 id="h-listen">The Ultimate Ska &amp; Reggae Show <small>with Glyn Wilcox of Ska Au Go Go</small></h1>
+        <p class="tagline">Two hours of boss sounds, every Sunday. Ska, rocksteady, reggae and dub from the English Riviera.</p>
+
+        <div class="transport">
+          <a class="play" id="playBtn" href="https://player.aiir.com/palmtorbay/" target="_blank" rel="noopener" aria-label="Listen live on Palm Torbay (opens the station player in a new tab)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>
+          </a>
+          <div>
+            <p class="count-label" id="countLabel">Next show starts in</p>
+            <div class="count" id="count" role="timer" aria-label="Countdown to the next show">
+              <div><b id="cD">--</b><span>days</span></div><i class="sep" aria-hidden="true">:</i>
+              <div><b id="cH">--</b><span>hrs</span></div><i class="sep" aria-hidden="true">:</i>
+              <div><b id="cM">--</b><span>min</span></div><i class="sep" aria-hidden="true">:</i>
+              <div><b id="cS">--</b><span>sec</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="when" id="when">Sundays 19:00 to 21:00, UK time.</p>
+        <p class="vh" id="srStatus" role="status" aria-live="polite"></p>
+
+        <div class="hero-actions">
+          <a class="btn gold" href="https://player.aiir.com/palmtorbay/" target="_blank" rel="noopener">Listen live</a>
+          <a class="btn" href="#contact">Enquire about a booking</a>
+        </div>
+      </div>
+    </div>
+
+    <ol class="week" id="week" aria-label="Glyn's week on Palm Torbay">
+      <li data-d="1"><b>Mon</b><span>&nbsp;</span></li>
+      <li data-d="2"><b>Tue</b><span>&nbsp;</span></li>
+      <li data-d="3" class="zone"><b>Wed</b><span>Love Zone</span></li>
+      <li data-d="4"><b>Thu</b><span>&nbsp;</span></li>
+      <li data-d="5"><b>Fri</b><span>&nbsp;</span></li>
+      <li data-d="6"><b>Sat</b><span>&nbsp;</span></li>
+      <li data-d="0" class="show"><b>Sun</b><span>19:00</span></li>
+    </ol>
+    <p class="week-key">
+      <span><i style="background:var(--gold)"></i>The Ultimate Ska &amp; Reggae Show, Sunday 19:00 to 21:00</span>
+      <span><i style="background:var(--green)"></i>Today in Torbay</span>
+    </p>
+  </div>
+</section>
+
+<!-- 2. ON AIR -->
+<section id="on-air" aria-labelledby="h-air">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <h2 id="h-air">Catch up on past shows</h2>
+        <p class="lede">Missed Sunday? The archive lives on Mixcloud. Show 24 is up now; more are on the way.</p>
+      </div>
+      <div class="rail-ctrl">
+        <button class="icon-btn" type="button" id="railPrev" aria-label="Scroll past shows left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
+        <button class="icon-btn" type="button" id="railNext" aria-label="Scroll past shows right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <ul class="rail" id="rail" tabindex="0" aria-label="Past shows, scrollable">
+      <li class="ep card lift">
+        <div class="tile crop"><img src="assets/mixcloud-show-art.jpg" width="204" height="204" loading="lazy" alt="Artwork for show 24"></div>
+        <h3>Ska Au Go Go: Palm Torbay Show 24</h3>
+        <p class="meta">#24 / 1h 55m / Mixcloud</p>
+        <div class="acts">
+          <button class="btn gold small" type="button" id="embedBtn" aria-expanded="false" aria-controls="embed">Play here</button>
+          <a class="btn small" href="https://www.mixcloud.com/JayofTheBay/glyn-wilcox-ska-au-go-go-palm-torbay-show-24/" target="_blank" rel="noopener" aria-label="Open show 24 on Mixcloud (new tab)">Mixcloud</a>
+        </div>
+      </li>
+      <li class="ep card"><div class="tile ph" aria-hidden="true"><b>#--</b></div><h3>Earlier show</h3><p class="meta"><span class="tag-ph">[Placeholder]</span> episode to add</p></li>
+      <li class="ep card"><div class="tile ph" aria-hidden="true"><b>#--</b></div><h3>Earlier show</h3><p class="meta"><span class="tag-ph">[Placeholder]</span> episode to add</p></li>
+      <li class="ep card"><div class="tile ph" aria-hidden="true"><b>#--</b></div><h3>Earlier show</h3><p class="meta"><span class="tag-ph">[Placeholder]</span> episode to add</p></li>
+      <li class="ep card"><div class="tile ph" aria-hidden="true"><b>#--</b></div><h3>Earlier show</h3><p class="meta"><span class="tag-ph">[Placeholder]</span> episode to add</p></li>
+      <li class="ep card"><div class="tile ph" aria-hidden="true"><b>#--</b></div><h3>Earlier show</h3><p class="meta"><span class="tag-ph">[Placeholder]</span> episode to add</p></li>
+    </ul>
+    <div class="embed card" id="embed" hidden></div>
+
+    <div class="air-grid">
+      <div class="card">
+        <h3>What gets played</h3>
+        <p>Two hours, Sunday nights from 7. Original ska, rocksteady, reggae, dub and vintage sounds, picked by a singer who has collected the records since he was ten.</p>
+        <ul class="chips" aria-label="Genres played">
+          <li class="chip">Ska</li><li class="chip">Rocksteady</li><li class="chip">Reggae</li><li class="chip">Dub</li><li class="chip">Vintage</li>
+        </ul>
+        <p>Glyn also appears on the Wednesday night edition of The Love Zone.</p>
+      </div>
+      <div class="card palm">
+        <h3>Listen live on Palm Torbay</h3>
+        <img src="assets/palm-torbay.png" width="480" height="146" loading="lazy" alt="Palm Torbay logo">
+        <p>A volunteer-run local station on the English Riviera. Its strapline: &ldquo;Reinventing Local Radio&rdquo;.</p>
+        <a class="btn" href="https://player.aiir.com/palmtorbay/" target="_blank" rel="noopener">Open the station player</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SKA AU GO GO -->
+<section id="nights" aria-labelledby="h-nights">
+  <div class="wrap">
+    <h2 id="h-nights">Ska Au Go Go: vinyl nights</h2>
+    <div class="nights">
+      <div class="roundel"><img src="assets/mixcloud-avatar.jpg" width="260" height="260" loading="lazy" alt="Ska Au Go Go logo: black disc with chunky white lettering inside a red-orange ring reading Boss Sounds, Ska Reggae Rocksteady"></div>
+      <div>
+        <p><strong>Away from the radio, Glyn takes the records out.</strong> Ska Au Go Go is a vinyl-only night of boss sounds: original ska, reggae and rocksteady on 45s, played across South Devon as DJ Glyn Wilcox.</p>
+        <p>The dress code is sharp and the dancefloor never sits still. As one listing put it: get dressed up and start skanking.</p>
+        <dl class="specs">
+          <div><dt>Vinyl only</dt><dd>Original 7-inch 45s</dd></div>
+          <div><dt>Boss sounds</dt><dd>Ska, reggae, rocksteady</dd></div>
+          <div><dt>South Devon</dt><dd>Torquay, Teignmouth, Newton Abbot</dd></div>
+        </dl>
+        <div class="hero-actions">
+          <a class="btn gold" href="#contact" data-topic="Ska Au Go Go vinyl night">Enquire about a ska night</a>
+          <a class="btn" href="#gigs">See the dates</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. THE SIMMERTONES -->
+<section id="band" aria-labelledby="h-band">
+  <div class="wrap">
+    <h2 id="h-band">Lead vocals, The Simmertones</h2>
+    <p class="lede">Nine-piece. Devon. Authentic ska. Glyn has sung and toasted out front since the band got going around 2007.</p>
+
+    <ul class="discs" aria-label="Discography">
+      <li class="disc card lift">
+        <div class="cover"><img src="assets/simmertones-ten-feet-tall-2019.jpg" width="300" height="300" loading="lazy" alt="Ten Feet Tall cover: a man in a burgundy suit and pork-pie hat shot from below, boot toward the camera"></div>
+        <h3>Ten Feet Tall</h3><p class="meta">Album / 2019</p>
+      </li>
+      <li class="disc card lift">
+        <div class="cover"><img src="assets/simmertones-something-for-the-weekend-2013.jpg" width="300" height="300" loading="lazy" alt="Something for the Weekend? cover: a cartoon barber with a razor on a green background"></div>
+        <h3>Something for the Weekend?</h3><p class="meta">Album / 2013</p>
+      </li>
+      <li class="disc card lift">
+        <div class="cover"><img src="assets/simmertones-everythings-comin-up-ska-2011.jpg" width="300" height="300" loading="lazy" alt="Everything's Comin' Up Ska cover: the word ska in big black letters on orange with a band photo inside"></div>
+        <h3>Everything's Comin' Up Ska</h3><p class="meta">EP / 2011</p>
+      </li>
+      <li class="disc card">
+        <div class="cover ph"><span class="tag-ph">[Cover placeholder]</span></div>
+        <h3>Presenting The Simmertones, Volume 1</h3><p class="meta">EP / 2009 / with Richard Digby Smith</p>
+      </li>
+    </ul>
+
+    <div class="credits">
+      <div class="card">
+        <h3>Supported</h3>
+        <p class="big">Madness, House of Fun Weekender, 2018</p>
+        <p class="note">Their Doctor Who theme cover was played on BBC Radio 1, Radio 2 and 6 Music.</p>
+      </div>
+      <div class="card">
+        <h3>Festivals played</h3>
+        <ul class="chips">
+          <li class="chip">Bestival</li><li class="chip">Camp Bestival</li><li class="chip">Looe Music Festival</li><li class="chip">London International Ska Festival</li><li class="chip">Respect Festival, Plymouth</li><li class="chip">Kingsbridge Music Fest</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>In the press</h3>
+        <blockquote>&ldquo;the magical vocals of Glyn Wilcox&rdquo;</blockquote>
+        <cite>The Simmertones' Last.fm biography</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. STORY -->
+<section id="story" aria-labelledby="h-story">
+  <div class="wrap">
+    <h2 id="h-story">Twenty-five years on the offbeat</h2>
+    <div class="story">
+      <div class="bio">
+        <figure class="portrait">
+          <img src="assets/glyn-palm-torbay.jpg" width="150" height="210" loading="lazy" alt="Glyn Wilcox in black-rimmed glasses and a striped polo, adjusting his headphones behind the decks">
+          <figcaption>On the decks, Torbay</figcaption>
+        </figure>
+        <p>Glyn bought his first reggae records at ten and never stopped. Over twenty-five years he has sung and toasted with ska and reggae bands, first Too Hot and then The Simmertones, the nine-piece Devon outfit behind <em>Something for the Weekend?</em> (2013) and <em>Ten Feet Tall</em> (2019).</p>
+        <p>Along the way he has shared stages with the people who wrote the rulebook: The Skatalites, Desmond Dekker, Laurel Aitken, The Pioneers, The Beat, The Selecter and Madness. There have been festival slots from Bestival to Looe, and plays on BBC Radio 1, 2 and 6 Music.</p>
+        <p>These days you'll also find him behind the decks. On Sunday nights he is on Palm Torbay with two hours of ska, rocksteady, reggae and dub. Out and about he runs Ska Au Go Go, a vinyl-only night of boss sounds where the dress code is sharp and the dancefloor never sits still.</p>
+        <p class="src">Career details are Glyn's story as told in his own Palm Torbay bio, where he is listed as DJ, singer and songwriter.</p>
+      </div>
+      <div class="tracks card">
+        <h3>The story so far, in five tracks</h3>
+        <ol>
+          <li><span class="n">01</span><div><b>First reggae records</b><p>The collection starts, and never stops.</p></div><span class="t">Age 10</span></li>
+          <li><span class="n">02</span><div><b>Too Hot</b><p>Singing and toasting in ska and reggae bands.</p></div><span class="t">Early days</span></li>
+          <li><span class="n">03</span><div><b>The Simmertones</b><p>Lead vocals with the nine-piece from Devon.</p></div><span class="t">c. 2007</span></li>
+          <li><span class="n">04</span><div><b>Supporting Madness</b><p>House of Fun Weekender with The Simmertones.</p></div><span class="t">2018</span></li>
+          <li class="now"><span class="n">05</span><div><b>Palm Torbay</b><p>The Ultimate Ska &amp; Reggae Show, Sundays 7 to 9pm.</p></div><span class="t">Now</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. GIGS -->
+<section id="gigs" aria-labelledby="h-gigs">
+  <div class="wrap">
+    <h2 id="h-gigs">What's on</h2>
+
+    <div class="gig-group">
+      <h3>Coming up</h3>
+      <ul class="gigs">
+        <li>
+          <p class="d"><b>Every Sun</b>19:00 to 21:00</p>
+          <div><h4>The Ultimate Ska &amp; Reggae Show</h4><p>Palm Torbay, live on air</p></div>
+          <div class="end"><a class="btn small" href="https://player.aiir.com/palmtorbay/" target="_blank" rel="noopener" aria-label="Listen live on Palm Torbay (new tab)">Listen live</a></div>
+        </li>
+        <li>
+          <p class="d"><b>Wed nights</b>Guest slot</p>
+          <div><h4>The Love Zone</h4><p>Palm Torbay, Wednesday night edition</p></div>
+          <div class="end"><a class="btn small" href="https://www.palmtorbay.com" target="_blank" rel="noopener" aria-label="Palm Torbay website (new tab)">Station site</a></div>
+        </li>
+        <li class="ph">
+          <p class="d"><b>Date TBC</b></p>
+          <div><h4>Ska Au Go Go vinyl night</h4><p>Venue to be announced</p></div>
+          <div class="end"><span class="tag-ph">[Placeholder]</span></div>
+        </li>
+        <li class="ph">
+          <p class="d"><b>Date TBC</b></p>
+          <div><h4>Live ska and reggae set</h4><p>Venue to be announced</p></div>
+          <div class="end"><span class="tag-ph">[Placeholder]</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="gig-group">
+      <h3>Recently played</h3>
+      <ul class="gigs">
+        <li class="past">
+          <p class="d"><b><time datetime="2026-09-20">20 Sep 2026</time></b>Sun, from 3pm</p>
+          <div><h4>Live ska and reggae covers set</h4><p>Railway Brewhouse, Newton Abbot</p></div>
+          <div class="end"><span class="chip green">Live set</span></div>
+        </li>
+        <li class="past">
+          <p class="d"><b><time datetime="2026-08-17">17 Aug 2026</time></b></p>
+          <div><h4>Reggae Ska-a-go-go</h4><p>Cantina, Torquay</p></div>
+          <div class="end"><span class="chip">DJ night</span></div>
+        </li>
+        <li class="past">
+          <p class="d"><b><time datetime="2023-12-16">16 Dec 2023</time></b>Sat, 8 to 11pm</p>
+          <div><h4>Ska-au-go-go with DJ Glyn Wilcox</h4><p>Richard Newton Hall, Teignmouth</p></div>
+          <div class="end"><span class="chip">Vinyl night</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CONTACT -->
+<section id="contact" aria-labelledby="h-contact">
+  <div class="wrap">
+    <h2 id="h-contact">Enquire about a booking</h2>
+    <p class="lede">Planning a ska night, after The Simmertones, or got a tune for Sunday's show? Send the details and Glyn will come back to you.</p>
+
+    <div class="contact">
+      <form class="card" id="form" novalidate>
+        <div class="fields">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+            <span class="err" id="e-name" hidden>Add your name so Glyn knows who's asking.</span>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+            <span class="err" id="e-email" hidden>Enter an email address like name@example.com.</span>
+          </div>
+          <div class="field">
+            <label for="f-topic">It's about</label>
+            <select id="f-topic" name="topic">
+              <option>Ska Au Go Go vinyl night</option>
+              <option>The Simmertones</option>
+              <option>The radio show</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-date">Date <small>(if you have one)</small></label>
+            <input id="f-date" name="date" type="date">
+          </div>
+          <div class="field full">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="message" required aria-describedby="e-msg"></textarea>
+            <span class="err" id="e-msg" hidden>Add a line or two about what you have in mind.</span>
+          </div>
+        </div>
+        <div class="form-foot">
+          <button class="btn gold" type="submit">Send enquiry</button>
+          <p class="form-note">Sample site: this form isn't connected to an inbox yet.</p>
+        </div>
+        <p class="form-status" id="formStatus" role="status" hidden></p>
+      </form>
+
+      <ul class="reach card" aria-label="Other ways to reach Glyn">
+        <li><span>Email</span><span class="tag-ph">[email placeholder]</span></li>
+        <li><span>Facebook</span><span class="tag-ph">[Facebook placeholder]</span></li>
+        <li><span>Instagram</span><span class="tag-ph">[Instagram placeholder]</span></li>
+        <li><span>Mixcloud</span><a href="https://www.mixcloud.com/JayofTheBay/glyn-wilcox-ska-au-go-go-palm-torbay-show-24/" target="_blank" rel="noopener">Show archive<span class="vh"> (new tab)</span></a></li>
+        <li><span>Radio</span><a href="https://www.palmtorbay.com" target="_blank" rel="noopener">palmtorbay.com<span class="vh"> (new tab)</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Glyn Wilcox, Ska Au Go Go. Boss sounds from the English Riviera.</p>
+    <p>Design sample: &ldquo;The Selector&rdquo;</p>
+  </div>
+</footer>
+</main>
+
+<!-- Persistent mini player -->
+<aside class="dock tucked" id="dock" aria-label="Mini player">
+  <span class="crop"><img src="assets/mixcloud-show-art.jpg" width="44" height="44" alt=""></span>
+  <div class="txt">
+    <b>The Ultimate Ska &amp; Reggae Show</b>
+    <span><span class="live-badge" id="dockLive" hidden><i></i>LIVE</span><span id="dockText">Sundays 19:00, Palm Torbay</span></span>
+  </div>
+  <a class="btn gold small" href="https://player.aiir.com/palmtorbay/" target="_blank" rel="noopener" aria-label="Listen live on Palm Torbay (new tab)">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Listen live
+  </a>
+</aside>
+
+<script>
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+  var TZ = 'Europe/London', SHOW_DOW = 0, SHOW_HOUR = 19, SHOW_LEN = 2 * 3600e3;
+
+  /* ---------- London time helpers ---------- */
+  var fmt = new Intl.DateTimeFormat('en-GB', {timeZone:TZ, hourCycle:'h23', year:'numeric', month:'numeric', day:'numeric', hour:'numeric', minute:'numeric', second:'numeric'});
+  // London wall-clock for an instant, expressed as a UTC timestamp
+  function londonWall(ms){
+    var p = {}; fmt.formatToParts(new Date(ms)).forEach(function(x){ p[x.type] = +x.value; });
+    return Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);
+  }
+  // Real instant for a given London wall-clock time (handles GMT/BST)
+  function fromLondonWall(wall){
+    var guess = wall - (londonWall(wall) - wall);
+    return wall - (londonWall(guess) - guess);
+  }
+  // Start of the show that is on now, or else the next one
+  function currentOrNextShow(now){
+    var w = new Date(londonWall(now));
+    var days = (SHOW_DOW - w.getUTCDay() + 7) % 7;
+    var wall = Date.UTC(w.getUTCFullYear(), w.getUTCMonth(), w.getUTCDate() + days, SHOW_HOUR);
+    var start = fromLondonWall(wall);
+    if (now >= start + SHOW_LEN) start = fromLondonWall(wall + 7 * 864e5);
+    return start;
+  }
+  // ?now=2026-11-22T19:30:00Z previews another moment (for testing)
+  var q = new URLSearchParams(location.search).get('now');
+  var skew = q && !isNaN(Date.parse(q)) ? Date.parse(q) - Date.now() : 0;
+  function nowMs(){ return Date.now() + skew; }
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+
+  var player = $('player'), lastState = null, lastDay = -1;
+  var dateFmt = new Intl.DateTimeFormat('en-GB', {timeZone:TZ, weekday:'long', day:'numeric', month:'long'});
+  var localFmt = new Intl.DateTimeFormat('en-GB', {weekday:'short', hour:'2-digit', minute:'2-digit', hourCycle:'h23'});
+
+  function tick(){
+    var now = nowMs(), start = currentOrNextShow(now), live = now >= start;
+    var left = Math.max(0, Math.floor(((live ? start + SHOW_LEN : start) - now) / 1000));
+    var d = Math.floor(left / 86400), h = Math.floor(left % 86400 / 3600), m = Math.floor(left % 3600 / 60), s = left % 60;
+    $('cD').textContent = pad(d); $('cH').textContent = pad(h); $('cM').textContent = pad(m); $('cS').textContent = pad(s);
+
+    var state = live ? 'live' : 'off';
+    if (state !== lastState){
+      lastState = state;
+      player.classList.toggle('onair', live);
+      $('liveBadge').hidden = !live; $('dockLive').hidden = !live; $('offDot').hidden = live;
+      $('statusText').textContent = live ? 'On air now on Palm Torbay' : 'Off air. Back on Sunday at 7pm';
+      $('countLabel').textContent = live ? 'On air now. Show ends in' : 'Next show starts in';
+      $('count').setAttribute('aria-label', live ? 'Time left in tonight\'s show' : 'Countdown to the next show');
+      var localNote = '';
+      if (londonWall(start) !== start - new Date(start).getTimezoneOffset() * 60000) localNote = ' (' + localFmt.format(new Date(start)) + ' your time)';
+      $('when').innerHTML = live
+        ? '<b>Live until 21:00 UK time.</b> Press play to open the Palm Torbay player.'
+        : 'Next show: <b>' + dateFmt.format(new Date(start)) + ', 19:00 to 21:00</b> UK time' + localNote + '.';
+      $('srStatus').textContent = live ? 'The show is on air now.' : 'Next show: ' + dateFmt.format(new Date(start)) + ' at 7pm UK time.';
+    }
+    $('dockText').textContent = live
+      ? 'On air, ' + pad(h) + ':' + pad(m) + ':' + pad(s) + ' left'
+      : 'Next show in ' + (d ? d + 'd ' : '') + pad(h) + 'h ' + pad(m) + 'm';
+
+    var dow = new Date(londonWall(now)).getUTCDay();
+    if (dow !== lastDay){
+      lastDay = dow;
+      [].forEach.call($('week').children, function(li){
+        var on = +li.dataset.d === dow;
+        li.classList.toggle('today', on);
+        if (on) li.setAttribute('aria-current', 'date'); else li.removeAttribute('aria-current');
+      });
+    }
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ---------- Waveform ---------- */
+  (function(){
+    var svg = $('wave'), ns = 'http://www.w3.org/2000/svg', n = 80, w = 960 / n, seed = 7;
+    function rnd(){ seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    for (var i = 0; i < n; i++){
+      var env = .35 + .65 * Math.abs(Math.sin(i / n * Math.PI * 3.2 + .6));
+      var h = Math.max(10, Math.round(150 * env * (.45 + .55 * rnd())));
+      var r = document.createElementNS(ns, 'rect');
+      r.setAttribute('x', (i * w + w * .22).toFixed(1)); r.setAttribute('y', 150 - h);
+      r.setAttribute('width', (w * .56).toFixed(1)); r.setAttribute('height', h);
+      r.setAttribute('rx', 2); r.setAttribute('fill', 'currentColor');
+      r.style.animationDelay = (-rnd() * 1.5).toFixed(2) + 's';
+      svg.appendChild(r);
+    }
+  })();
+
+  /* ---------- Past shows rail + Mixcloud embed ---------- */
+  var rail = $('rail');
+  function nudge(dir){
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    rail.scrollBy({left: dir * Math.max(240, rail.clientWidth * .8), behavior: reduce ? 'auto' : 'smooth'});
+  }
+  $('railPrev').addEventListener('click', function(){ nudge(-1); });
+  $('railNext').addEventListener('click', function(){ nudge(1); });
+
+  $('embedBtn').addEventListener('click', function(){
+    var box = $('embed'), open = box.hidden;
+    if (open && !box.firstChild){
+      var p = document.createElement('p'); p.textContent = 'Now playing from Mixcloud: Palm Torbay Show 24';
+      var f = document.createElement('iframe');
+      f.title = 'Mixcloud player: Glyn Wilcox, Ska Au Go Go, Palm Torbay Show 24';
+      f.allow = 'autoplay'; f.loading = 'lazy';
+      f.src = 'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=' + encodeURIComponent('/JayofTheBay/glyn-wilcox-ska-au-go-go-palm-torbay-show-24/');
+      box.appendChild(p); box.appendChild(f);
+    }
+    box.hidden = !open;
+    this.setAttribute('aria-expanded', String(open));
+    this.textContent = open ? 'Hide player' : 'Play here';
+  });
+
+  /* ---------- Nav highlight + dock visibility ---------- */
+  if ('IntersectionObserver' in window){
+    var links = {};
+    [].forEach.call(document.querySelectorAll('.nav a'), function(a){ links[a.getAttribute('href').slice(1)] = a; });
+    var spy = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        for (var k in links) links[k].removeAttribute('aria-current');
+        var a = links[e.target.id];
+        if (a){
+          a.setAttribute('aria-current', 'true');
+          var nav = a.parentNode;
+          if (nav.scrollWidth > nav.clientWidth) nav.scrollLeft = a.offsetLeft - nav.clientWidth / 2 + a.offsetWidth / 2;
+        }
+      });
+    }, {rootMargin: '-35% 0px -60% 0px'});
+    [].forEach.call(document.querySelectorAll('main section'), function(s){ spy.observe(s); });
+
+    new IntersectionObserver(function(es){
+      $('dock').classList.toggle('tucked', es[0].isIntersecting);
+    }, {threshold: 0}).observe($('playBtn'));
+  } else {
+    $('dock').classList.remove('tucked');
+  }
+
+  /* ---------- Enquiry form ---------- */
+  [].forEach.call(document.querySelectorAll('[data-topic]'), function(a){
+    a.addEventListener('click', function(){ $('f-topic').value = a.dataset.topic; });
+  });
+  $('form').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var checks = [
+      ['f-name', 'e-name', function(v){ return v.trim().length > 0; }],
+      ['f-email', 'e-email', function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }],
+      ['f-msg', 'e-msg', function(v){ return v.trim().length > 0; }]
+    ], first = null;
+    checks.forEach(function(c){
+      var el = $(c[0]), ok = c[2](el.value);
+      el.setAttribute('aria-invalid', String(!ok)); $(c[1]).hidden = ok;
+      if (!ok && !first) first = el;
+    });
+    var st = $('formStatus');
+    if (first){ st.hidden = true; first.focus(); return; }
+    st.hidden = false;
+    st.textContent = 'Nothing was sent. This is a design sample, so the enquiry form is not connected to an inbox yet. Once Glyn\'s contact details are added, this is where your enquiry will be confirmed.';
+  });
+})();
+</script>
+</body>
+</html>

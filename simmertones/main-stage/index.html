@@ -200,6 +200,14 @@ button,input,select,textarea{font:inherit;color:inherit}
 .single{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.25rem;margin-top:clamp(2rem,4vw,3rem);padding:1.1rem 0;border-top:2px solid var(--white);border-bottom:1px solid rgba(255,255,255,.3)}
 .single b{font:800 1.75rem/1 var(--display);text-transform:uppercase}
 .single span{color:var(--mute-dark)}
+.singles-h{margin-top:clamp(2.5rem,5vw,3.5rem);margin-bottom:.9rem}
+.singles{border-top:2px solid var(--white)}
+.singles li{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.25rem;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.3)}
+.singles b{font:800 clamp(1.35rem,2.4vw,1.75rem)/1 var(--display);text-transform:uppercase}
+.singles span{color:var(--mute-dark)}
+.disc details ol.tl{font-size:.95rem;padding-bottom:.5rem;list-style:none;counter-reset:t}
+.disc details ol.tl li{counter-increment:t;display:grid;grid-template-columns:1.6rem minmax(0,1fr) auto;gap:.5rem}
+.disc details ol.tl li::before{content:counter(t);color:var(--mute-dark);font-variant-numeric:tabular-nums}
 .listen{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center;margin-top:1.5rem}
 .listen a{font-weight:600}
 @media (max-width:900px){.discs{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -338,16 +346,16 @@ button,input,select,textarea{font:inherit;color:inherit}
       </div>
       <dl class="rider main">
         <div><dt>Act</dt><dd>The Simmertones</dd></div>
-        <div><dt>Line-up</dt><dd>Nine-piece: lead vocals, a horn section and a rhythm section.<small>Lead vocals and toasting: Glyn Wilcox. Other members: <span class="ph">[Placeholder: names and instruments]</span></small></dd></div>
+        <div><dt>Line-up</dt><dd>Nine-piece: lead vocals, four horns and a four-piece rhythm section.<small>Glyn Wilcox (lead vocals and toasting), Sam Massey (trumpet), Sam Smith (trombone), Keith Waller and Jade Gall (tenor saxes), Martin Vowles (guitar), Pete Morris (keys), Del Anning (bass) and Rob Murphy (drums). This is the line-up as last published, around 2016–17: <span class="ph">[Placeholder: confirm current line-up]</span></small></dd></div>
         <div><dt>Based in</dt><dd>Torbay, South Devon</dd></div>
         <div><dt>Playing since</dt><dd>About 2007</dd></div>
         <div><dt>Plays</dt><dd>Authentic ska, rocksteady and reggae. Original songs plus classic covers.</dd></div>
         <div><dt>Set lengths</dt><dd><span class="ph">[Placeholder: e.g. one long set or two shorter sets]</span></dd></div>
         <div><dt>Stage needs</dt><dd>Room for nine, with a drum riser. See the <a href="#stage">example stage plot</a>.<small>Stage size, inputs and power: <span class="ph">[Placeholder]</span></small></dd></div>
-        <div><dt>Records</dt><dd>Four releases, 2009 to 2019. The latest is <i>Ten Feet Tall</i> (2019).</dd></div>
-        <div><dt>Festivals</dt><dd>Bestival, Camp Bestival, Looe Music Festival, London International Ska Festival, Respect Festival (Plymouth), Kingsbridge Music Fest</dd></div>
-        <div><dt>Support slots</dt><dd>Madness, House of Fun Weekender, 2018</dd></div>
-        <div><dt>Airplay</dt><dd>BBC Radio 1, Radio 2 and 6 Music, for their cover of the <i>Doctor Who</i> theme</dd></div>
+        <div><dt>Records</dt><dd>Four releases and four singles, 2009 to 2019, mostly on their own label, Windrush Recordings. The latest is <i>Ten Feet Tall</i> (2019).</dd></div>
+        <div><dt>Festivals</dt><dd>Bestival (2017), Looe Music Festival (2017), London International Ska Festival (2016), Boomtown Fair (2015), Respect Festival, Exeter (2014), Kingsbridge Music Fest</dd></div>
+        <div><dt>Big bills</dt><dd>Madness’s House of Fun Weekender (2016 and 2018). The Garage, London, with U-Roy and Dennis Bovell (2016).</dd></div>
+        <div><dt>Airplay</dt><dd>The band says the 2011 EP was played on BBC Radio 2 and 6 Music.</dd></div>
         <div><dt>Booking contact</dt><dd><span class="ph">[Placeholder: bookings email]</span> or the <a href="#book">enquiry form</a></dd></div>
       </dl>
     </div>
@@ -359,7 +367,7 @@ button,input,select,textarea{font:inherit;color:inherit}
   <div class="wrap">
     <h2 class="h2" id="stage-h">Stage plot</h2>
     <div class="split" style="margin-bottom:clamp(1.5rem,3vw,2.25rem)">
-      <p class="intro side">Nine musicians and one drum riser. Hover, tap or tab through the stage to see who stands where.</p>
+      <p class="intro side">Nine musicians and one drum riser, with the line-up as last published around 2016–17. Hover, tap or tab through the stage to see who stands where.</p>
     </div>
     <div class="plot-wrap">
       <div class="plot-card">
@@ -372,30 +380,30 @@ button,input,select,textarea{font:inherit;color:inherit}
           <text class="tiny" x="246" y="68">Riser</text>
           <path class="wedge" d="M290 424 h60 l-10 20 h-40 z"/>
 
-          <g class="pos rhythm" data-k="dr" tabindex="0" role="button" aria-pressed="false" aria-label="Drums">
+          <g class="pos rhythm" data-k="dr" tabindex="0" role="button" aria-pressed="false" aria-label="Drums: Rob Murphy">
             <circle class="ring" cx="320" cy="98" r="35"/><circle cx="320" cy="98" r="26"/>
             <text class="lbl" x="320" y="157" text-anchor="middle">Drums</text></g>
-          <g class="pos rhythm" data-k="bs" tabindex="0" role="button" aria-pressed="false" aria-label="Bass">
+          <g class="pos rhythm" data-k="bs" tabindex="0" role="button" aria-pressed="false" aria-label="Bass: Del Anning">
             <circle class="ring" cx="140" cy="104" r="35"/><circle cx="140" cy="104" r="26"/>
             <text class="lbl" x="140" y="163" text-anchor="middle">Bass</text></g>
-          <g class="pos rhythm" data-k="ky" tabindex="0" role="button" aria-pressed="false" aria-label="Keys">
+          <g class="pos rhythm" data-k="ky" tabindex="0" role="button" aria-pressed="false" aria-label="Keys: Pete Morris">
             <circle class="ring" cx="500" cy="104" r="35"/><circle cx="500" cy="104" r="26"/>
             <text class="lbl" x="500" y="163" text-anchor="middle">Keys</text></g>
-          <g class="pos rhythm" data-k="gt" tabindex="0" role="button" aria-pressed="false" aria-label="Guitar">
+          <g class="pos rhythm" data-k="gt" tabindex="0" role="button" aria-pressed="false" aria-label="Guitar: Martin Vowles">
             <circle class="ring" cx="78" cy="252" r="35"/><circle cx="78" cy="252" r="26"/>
             <text class="lbl" x="78" y="311" text-anchor="middle">Guitar</text></g>
-          <g class="pos horn" data-k="tp" tabindex="0" role="button" aria-pressed="false" aria-label="Trumpet">
+          <g class="pos horn" data-k="tp" tabindex="0" role="button" aria-pressed="false" aria-label="Trumpet: Sam Massey">
             <circle class="ring" cx="205" cy="238" r="35"/><circle cx="205" cy="238" r="26"/>
             <text class="lbl" x="205" y="297" text-anchor="middle">Trumpet</text></g>
-          <g class="pos horn" data-k="tb" tabindex="0" role="button" aria-pressed="false" aria-label="Trombone">
+          <g class="pos horn" data-k="tb" tabindex="0" role="button" aria-pressed="false" aria-label="Trombone: Sam Smith">
             <circle class="ring" cx="318" cy="262" r="35"/><circle cx="318" cy="262" r="26"/>
             <text class="lbl" x="318" y="321" text-anchor="middle">Trombone</text></g>
-          <g class="pos horn" data-k="ts" tabindex="0" role="button" aria-pressed="false" aria-label="Tenor sax">
+          <g class="pos horn" data-k="ts" tabindex="0" role="button" aria-pressed="false" aria-label="Tenor sax: Keith Waller">
             <circle class="ring" cx="434" cy="238" r="35"/><circle cx="434" cy="238" r="26"/>
-            <text class="lbl" x="434" y="297" text-anchor="middle">Tenor sax</text></g>
-          <g class="pos horn" data-k="as" tabindex="0" role="button" aria-pressed="false" aria-label="Alto sax">
+            <text class="lbl" x="434" y="297" text-anchor="middle">Tenor 1</text></g>
+          <g class="pos horn" data-k="t2" tabindex="0" role="button" aria-pressed="false" aria-label="Tenor sax: Jade Gall">
             <circle class="ring" cx="556" cy="262" r="35"/><circle cx="556" cy="262" r="26"/>
-            <text class="lbl" x="556" y="321" text-anchor="middle">Alto sax</text></g>
+            <text class="lbl" x="556" y="321" text-anchor="middle">Tenor 2</text></g>
           <g class="pos vox" data-k="vx" tabindex="0" role="button" aria-pressed="false" aria-label="Lead vocals: Glyn Wilcox">
             <circle class="ring" cx="320" cy="380" r="38"/><circle cx="320" cy="380" r="29"/>
             <text class="lbl" x="364" y="388">Lead vocals</text></g>
@@ -447,12 +455,12 @@ button,input,select,textarea{font:inherit;color:inherit}
         </fieldset>
         <div class="bio-box" id="bio-text">
           <div data-bio="short">
-            <p>The Simmertones are a nine-piece authentic ska band from Torbay, South Devon. Fronted by singer and toaster Glyn Wilcox, they mix their own songs with classic ska and rocksteady covers. They have played Bestival and Looe Music Festival, supported Madness in 2018, and had their cover of the Doctor Who theme played on BBC Radio 1, 2 and 6 Music.</p>
+            <p>The Simmertones are a nine-piece authentic ska band from Torbay, South Devon. Fronted by singer and toaster Glyn Wilcox, they mix their own songs with classic ska and rocksteady covers, and put records out on their own label, Windrush Recordings. They have played Bestival, Boomtown and the London International Ska Festival, and Madness’s House of Fun Weekender twice.</p>
           </div>
           <div data-bio="long" hidden>
-            <p>The Simmertones are a nine-piece ska band from Torbay, South Devon, and have been playing since about 2007. Glyn Wilcox sings lead and toasts up front, with a horn section and a rhythm section behind him. Their sets mix original songs with classics from the Jamaican songbook, from Desmond Dekker’s “King of Ska” to The Valentines’ “Blam Blam Fever”.</p>
-            <p>They have made four records: Presenting The Simmertones, Volume 1 (2009), the Everything’s Comin’ Up Ska EP (2011), the album Something for the Weekend? (2013) and Ten Feet Tall (2019). Their cover of the Doctor Who theme was played on BBC Radio 1, Radio 2 and 6 Music.</p>
-            <p>Festival slots include Bestival, Camp Bestival, Looe Music Festival, the London International Ska Festival, Respect Festival in Plymouth and Kingsbridge Music Fest, and in 2018 they supported Madness at the House of Fun Weekender.</p>
+            <p>The Simmertones are a nine-piece ska band from Torbay, South Devon, and have been playing since about 2007. Glyn Wilcox sings lead and toasts up front, with trumpet, trombone and two tenor saxes beside him and guitar, keys, bass and drums behind. Their sets mix original songs with classics from the Jamaican songbook, from Desmond Dekker’s “King of Ska” to The Valentines’ “Blam Blam Fever”.</p>
+            <p>Their records are the mini-album Presenting The Simmertones, Volume 1 (2009), the Everything’s Comin’ Up Ska EP (2011), with Steve Cradock of Ocean Colour Scene credited on guest guitar, the album Something For The Weekend? (2013), four singles, and the thirteen-track Ten Feet Tall (2019) on their own label, Windrush Recordings. The band says the 2011 EP was played on BBC Radio 2 and 6 Music.</p>
+            <p>Festival slots include Bestival, Boomtown Fair, Looe Music Festival, the London International Ska Festival and Respect Festival in Exeter. They played Madness’s House of Fun Weekender in 2016 and 2018.</p>
           </div>
         </div>
         <div class="bio-tools">
@@ -470,7 +478,7 @@ button,input,select,textarea{font:inherit;color:inherit}
   <div class="wrap">
     <h2 class="h2" id="rec-h">Records</h2>
     <div class="split" style="margin-bottom:clamp(2rem,4vw,3rem)">
-      <p class="intro side">Four releases, from a 2009 mini-album to <i>Ten Feet Tall</i> in 2019.</p>
+      <p class="intro side">Four releases and four singles, from a 2009 mini-album to <i>Ten Feet Tall</i> in 2019.</p>
     </div>
     <ul class="discs">
       <li class="disc">
@@ -479,57 +487,78 @@ button,input,select,textarea{font:inherit;color:inherit}
         <p class="fmt">Mini-album, 2009</p>
         <details>
           <summary>Seven tracks</summary>
-          <p>Three originals and four covers. Produced with Richard Digby Smith. Track order not confirmed.</p>
+          <p>Three originals and four covers, self-released digitally on 12 Nov 2009. The track order is not confirmed, apart from the closer.</p>
           <ul>
             <li>One Time Soon</li>
             <li>Warm Your Bones</li>
-            <li>Do What You Got To Do <small>(closing track)</small></li>
-            <li>Sammy Dead <small>(cover)</small></li>
+            <li>Over The River <small>(Justin Hinds &amp; the Dominoes cover)</small></li>
+            <li>Ball of Fire <small>(The Skatalites cover)</small></li>
+            <li>Sammy Dead <small>(traditional)</small></li>
             <li>Doctor Who theme <small>(cover)</small></li>
-            <li><span class="ph">[Placeholder: Justin Hinds cover]</span></li>
-            <li><span class="ph">[Placeholder: Skatalites cover]</span></li>
+            <li>Do What You Got To Do <small>(closing track)</small></li>
           </ul>
         </details>
       </li>
       <li class="disc">
         <img class="art" src="assets/everythings-comin-up-ska.jpg" width="300" height="300" alt="Everything's Comin' Up Ska cover: orange, with a band photo inside the big black letters of the word ska">
         <h3>Everything’s Comin’ Up Ska</h3>
-        <p class="fmt">EP, 2011, self-released</p>
+        <p class="fmt">EP, 2011, Windrush Recordings</p>
         <details>
           <summary>Four tracks</summary>
           <ul>
-            <li>Bring Your Love To Me</li>
-            <li>Blam Blam Fever <small>(The Valentines cover)</small></li>
-            <li>King of Ska <small>(Desmond Dekker cover)</small></li>
-            <li>A Little Time</li>
+            <li>Bring Your Love To Me <small>4:13</small></li>
+            <li>Blam Blam Fever <small>(The Valentines cover) 3:22</small></li>
+            <li>King Of Ska <small>(Desmond Dekker cover) 2:41</small></li>
+            <li>A Little Time <small>3:28</small></li>
           </ul>
+          <p>Engineered and co-produced by Richard Digby Smith at The Music Mill, Devon. Steve Cradock (Ocean Colour Scene) is credited on guest lead guitar. The originals have music by Rich Mills with the band and words by Glyn Wilcox.</p>
         </details>
       </li>
       <li class="disc">
         <img class="art" src="assets/something-for-the-weekend.jpg" width="300" height="300" alt="Something for the Weekend? cover: a cartoon barber holding a cut-throat razor beside a barber pole, on green">
         <h3>Something for the Weekend?</h3>
-        <p class="fmt">Album, 2013. 12" vinyl, Music Mill Records, MMTONES1</p>
+        <p class="fmt">Album, 2013</p>
         <details>
-          <summary>Twelve tracks</summary>
-          <p>Released 10 May 2013.</p>
-          <ul><li><span class="ph">[Placeholder: 12 track titles]</span></li></ul>
+          <summary>Tracks</summary>
+          <p>Label and catalogue number: <span class="ph">[Placeholder]</span></p>
+          <ul><li><span class="ph">[Placeholder: tracklist]</span></li></ul>
         </details>
       </li>
       <li class="disc">
         <img class="art" src="assets/ten-feet-tall.jpg" width="300" height="300" alt="Ten Feet Tall cover: a man in a burgundy suit and pork-pie hat steps toward the camera, with coral and teal hand-lettering">
         <h3>Ten Feet Tall</h3>
-        <p class="fmt">Album, 2019</p>
+        <p class="fmt">Album, 9 Aug 2019, Windrush Recordings</p>
         <details>
-          <summary>Tracks</summary>
-          <ul><li><span class="ph">[Placeholder: tracklist]</span></li></ul>
+          <summary>Thirteen tracks</summary>
+          <ol class="tl">
+            <li>El Gringo <small>3:43</small></li>
+            <li>Travelling Man <small>2:49</small></li>
+            <li>Silly Girl <small>3:11</small></li>
+            <li>What I Need <small>3:37</small></li>
+            <li>Missing You <small>3:42</small></li>
+            <li>Bring It Down <small>3:55</small></li>
+            <li>Fat Back (Tear It Up) <small>2:57</small></li>
+            <li>Lullaby <small>2:57</small></li>
+            <li>Stand Firm <small>2:54</small></li>
+            <li>Down By the Shore <small>3:14</small></li>
+            <li>Ten Feet Tall <small>3:16</small></li>
+            <li>The Place That I Know <small>3:09</small></li>
+            <li>Winter’s Call <small>5:42</small></li>
+          </ol>
         </details>
       </li>
     </ul>
-    <p class="single"><b>Perhaps Perhaps Perhaps</b><span>Single, 2:28</span><span class="ph">[Placeholder: year]</span></p>
+    <h3 class="h3 singles-h">Singles</h3>
+    <ul class="singles">
+      <li><b>Perhaps Perhaps Perhaps</b><span>25 Aug 2014</span></li>
+      <li><b>Run For Your Life</b><span>25 Mar 2016</span></li>
+      <li><b>Travelling Man</b><span>18 May 2018, later on <i>Ten Feet Tall</i></span></li>
+      <li><b>Winter’s Call</b><span>4 Jan 2019, later on <i>Ten Feet Tall</i></span></li>
+    </ul>
     <div class="listen">
+      <a href="https://music.apple.com/gb/artist/the-simmertones/445546495" rel="noopener">Listen on Apple Music</a>
       <a href="https://www.last.fm/music/The+Simmertones" rel="noopener">The Simmertones on Last.fm</a>
       <span class="ph">[Placeholder: Spotify link]</span>
-      <span class="ph">[Placeholder: Bandcamp link]</span>
     </div>
   </div>
 </section>
@@ -539,7 +568,7 @@ button,input,select,textarea{font:inherit;color:inherit}
   <div class="wrap">
     <h2 class="h2" id="live-h">Live</h2>
     <div class="split" style="margin-bottom:clamp(2rem,4vw,3rem)">
-      <p class="intro side">Festival stages, winter headline nights at the Exeter Phoenix, and a support slot for Madness.</p>
+      <p class="intro side">Festival stages, winter headline nights at the Exeter Phoenix, and two House of Fun Weekenders on Madness’s bill.</p>
     </div>
     <div class="live-cols">
       <div>
@@ -553,17 +582,21 @@ button,input,select,textarea{font:inherit;color:inherit}
       <div>
         <h3 class="h3">Played</h3>
         <ul class="dates">
+          <li><span class="d">21 Aug 2021</span><span class="v">The Big Sheep, Devon<span class="x">With RatRace</span></span></li>
           <li><span class="d">1 Feb 2020</span><span class="v">Exeter Phoenix<span class="x">With The Embezzlers and The Mighty Offbeats</span></span></li>
           <li><span class="d">2 Feb 2019</span><span class="v">Exeter Phoenix<span class="x">With The Embezzlers and Skatatones</span></span></li>
-          <li><span class="d">2018</span><span class="v">House of Fun Weekender<span class="x">Supporting Madness</span></span></li>
+          <li><span class="d">2018</span><span class="v">House of Fun Weekender<span class="x">Madness’s weekender</span></span></li>
           <li><span class="d">28 Jan 2017</span><span class="v">Exeter Phoenix<span class="x">Headline show</span></span></li>
+          <li><span class="d">Nov 2016</span><span class="v">House of Fun Weekender<span class="x">Madness’s weekender</span></span></li>
+          <li><span class="d">26 Mar 2016</span><span class="v">The Garage, London<span class="x">With U-Roy, Dennis Bovell and Sonic Boom Six</span></span></li>
+          <li><span class="d">30 Aug 2013</span><span class="v">The Fleece, Bristol<span class="x">With The Clunks</span></span></li>
         </ul>
       </div>
     </div>
     <div class="fests">
       <h3 class="h3">Festivals played</h3>
       <ul class="fest-list">
-        <li>Bestival</li><li>Camp Bestival</li><li>Looe Music Festival</li><li>London International Ska Festival</li><li>Respect Festival</li><li>Kingsbridge Music Fest</li>
+        <li>Bestival</li><li>Boomtown Fair</li><li>Looe Music Festival</li><li>London International Ska Festival</li><li>Respect Festival, Exeter</li><li>Kingsbridge Music Fest</li>
       </ul>
     </div>
   </div>
@@ -582,8 +615,12 @@ button,input,select,textarea{font:inherit;color:inherit}
         <blockquote><p>The vocals are good, the horns are perfect…</p></blockquote>
         <figcaption><b>ReadJunk</b>, reviewing <i>Everything’s Comin’ Up</i>, October 2011</figcaption>
       </figure>
+      <figure class="quote small">
+        <blockquote><p>A Devon-based authentic ska ’n’ reggae outfit</p></blockquote>
+        <figcaption><b>Scootering</b> magazine, reviewing <i>Ten Feet Tall</i>, July 2019</figcaption>
+      </figure>
     </div>
-    <p class="airplay">Their cover of the <i>Doctor Who</i> theme was played on BBC Radio 1, Radio 2 and 6 Music.</p>
+    <p class="airplay">The band says the 2011 EP was played on BBC Radio 2 and 6 Music.</p>
 
     <div class="kit">
       <div>
@@ -612,8 +649,9 @@ button,input,select,textarea{font:inherit;color:inherit}
         <p class="intro">Festivals, venues and private events. Tell us the date and the place, and we’ll come back to you.</p>
         <ul class="contacts">
           <li><b>Email</b><span class="ph">[Placeholder: bookings email]</span></li>
-          <li><b>Facebook</b><span class="ph">[Placeholder]</span></li>
+          <li><b>Facebook</b><a href="https://www.facebook.com/simmertones" rel="noopener">facebook.com/simmertones</a></li>
           <li><b>Instagram</b><span class="ph">[Placeholder]</span></li>
+          <li><b>Apple Music</b><a href="https://music.apple.com/gb/artist/the-simmertones/445546495" rel="noopener">The Simmertones</a></li>
           <li><b>Last.fm</b><a href="https://www.last.fm/music/The+Simmertones" rel="noopener">The Simmertones</a></li>
         </ul>
       </div>
@@ -645,7 +683,7 @@ button,input,select,textarea{font:inherit;color:inherit}
       <p class="radio">Sunday nights, the band’s singer Glyn Wilcox presents <i>The Ultimate Ska &amp; Reggae Show</i> on Palm Torbay, 7–9pm. <a href="https://player.aiir.com/palmtorbay/" rel="noopener">Listen live on Palm Torbay</a></p>
       <div class="small-print">
         <p>Sample site concept for The Simmertones. Anything marked [Placeholder] is not real data.</p>
-        <p><a href="../../index.html">See all site concepts</a></p>
+        <p><a href="../">All Simmertones concepts</a></p>
       </div>
     </div>
   </div>
@@ -707,14 +745,14 @@ button,input,select,textarea{font:inherit;color:inherit}
   var TBC = '[Placeholder]';
   var POS = {
     vx:{role:'Lead vocals', grp:'Vocals', who:'Glyn Wilcox, lead vocals and toasting', needs:'Vocal mic and a wedge. Details ' + TBC},
-    dr:{role:'Drums', grp:'Rhythm section', who:TBC, needs:'Drum riser and kit mics. Details ' + TBC},
-    bs:{role:'Bass', grp:'Rhythm section', who:TBC, needs:'Bass amp or DI ' + TBC},
-    ky:{role:'Keys', grp:'Rhythm section', who:TBC, needs:'Stereo DI ' + TBC},
-    gt:{role:'Guitar', grp:'Rhythm section', who:TBC, needs:'Amp mic ' + TBC},
-    tp:{role:'Trumpet', grp:'Horns', who:TBC, needs:'Horn mic and shared wedge ' + TBC},
-    tb:{role:'Trombone', grp:'Horns', who:TBC, needs:'Horn mic and shared wedge ' + TBC},
-    ts:{role:'Tenor sax', grp:'Horns', who:TBC, needs:'Horn mic and shared wedge ' + TBC},
-    as:{role:'Alto sax', grp:'Horns', who:TBC, needs:'Horn mic and shared wedge ' + TBC}
+    dr:{role:'Drums', grp:'Rhythm section', who:'Rob “Big Rob” Murphy', needs:'Drum riser and kit mics. Details ' + TBC},
+    bs:{role:'Bass', grp:'Rhythm section', who:'Del “Del Boy” Anning', needs:'Bass amp or DI ' + TBC},
+    ky:{role:'Keys', grp:'Rhythm section', who:'Pete Morris', needs:'Stereo DI ' + TBC},
+    gt:{role:'Guitar', grp:'Rhythm section', who:'Martin Vowles', needs:'Amp mic ' + TBC},
+    tp:{role:'Trumpet', grp:'Horns', who:'Sam Massey', needs:'Horn mic and shared wedge ' + TBC},
+    tb:{role:'Trombone', grp:'Horns', who:'Sam Smith', needs:'Horn mic and shared wedge ' + TBC},
+    ts:{role:'Tenor sax', grp:'Horns', who:'Keith Waller', needs:'Horn mic and shared wedge ' + TBC},
+    t2:{role:'Tenor sax', grp:'Horns', who:'Jade Gall', needs:'Horn mic and shared wedge ' + TBC}
   };
   var posEls = [].slice.call(document.querySelectorAll('.pos'));
   var el = function(id){ return document.getElementById(id); };

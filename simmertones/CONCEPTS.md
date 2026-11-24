@@ -17,19 +17,20 @@ The three concepts take different angles:
 
 - Put each site at `simmertones/<slug>/index.html`: a single self-contained HTML file with inline CSS/JS, Google Fonts only, no build step, and its own `assets/` folder (copy images in from `reference/images/`).
 - Use only real facts. Unknowns are written as a visible `[Placeholder]`. Never invent members, tracks, quotes, prices or dates.
-- Glyn Wilcox (lead vocals and toasting) is the only confirmed member. The other eight are placeholders. Show realistic ska roles (horns, rhythm section, keys) as an *example* line-up and label it as such.
+- **Line-up:** use the nine names and instruments in REFERENCE.md ("line-up as last published, c. 2016–17"), labelled as to be confirmed. Where there's room, list the 2011 players as former members.
 - The album covers are 300×300. Never show them larger than 300px CSS. There are no band photos, so use a clearly marked `[Band photo placeholder]` frame where a photo would go.
 - The site must be responsive down to 360px with no horizontal scroll. It needs visible keyboard focus, must respect `prefers-reduced-motion`, and needs real alt text.
 - The enquiry form has no backend: on submit, show an inline note that this is a sample.
+- **Real links:** Facebook and Apple Music (in REFERENCE.md). The Bandcamp page no longer exists, so don't link it.
 - Include a small cross-link to Glyn's own Sunday show (Palm Torbay, Sundays 7–9pm, https://player.aiir.com/palmtorbay/).
 
 ### Band site map (all three)
 1. **Hero**: The Simmertones, nine-piece authentic ska from Torbay, South Devon. CTAs: *Book the band* and *Hear the records*.
-2. **The band**: active since about 2007; originals plus classic ska and rocksteady covers; Glyn on lead vocals and toasting. Their *Doctor Who* theme cover was played on BBC Radio 1, 2 and 6 Music.
-3. **Line-up**: Glyn plus eight placeholders.
-4. **Records**: Vol. 1 (2009), *Everything's Comin' Up Ska* (2011), *Something for the Weekend?* (2013, MMTONES1), *Ten Feet Tall* (2019), and the single "Perhaps Perhaps Perhaps". Show the known tracks; the rest are placeholders.
-5. **Live**: festivals (Bestival, Camp Bestival, Looe Music Festival, London International Ska Festival, Respect Festival Plymouth, Kingsbridge Music Fest), support for Madness at the House of Fun Weekender 2018, past Exeter Phoenix dates (2017/2019/2020), and upcoming dates as `[Placeholder]`.
-6. **Press**: "the magical vocals of Glyn Wilcox" (Last.fm); "The vocals are good, the horns are perfect…" (ReadJunk, 2011); airplay on BBC Radio 1, 2 and 6 Music.
+2. **The band**: active since about 2007; originals plus classic ska and rocksteady covers; Glyn on lead vocals and toasting; their own label, Windrush Recordings.
+3. **Line-up**: the nine named players, labelled as to be confirmed.
+4. **Records**: Vol. 1 (2009 mini-album), *Everything's Comin' Up Ska* (2011 EP, with a Steve Cradock guest credit), *Something For The Weekend?* (2013), the four singles (2014–19), and *Ten Feet Tall* (2019, full 13-track list). Follow REFERENCE.md exactly.
+5. **Live**: the confirmed festivals and shows in REFERENCE.md (Respect Festival is in **Exeter**; no Camp Bestival), Madness's House of Fun Weekender (2016 and 2018), and upcoming dates as `[Placeholder]`.
+6. **Press**: Last.fm, ReadJunk (2011) and Scootering (2019) quotes. Airplay only as "the band says the 2011 EP was played on BBC Radio 2 and 6 Music".
 7. **Book the band**: an enquiry form (name, email, date, venue/event, message), with placeholder email and socials.
 
 ---
@@ -84,3 +85,43 @@ The three concepts take different angles:
 - **Signature moment:** on load the nine faders rise to their levels one after another, like a count-in on fader automation, with a single VU needle settling. Under reduced motion they appear at their final levels.
 - **Copy voice:** studio shorthand, warm and knowing. Tagline: *"Nine channels. One sound."*
 - **Avoid:** spinning reels everywhere and fake skeuomorphic gloss. Keep it flat, crafted and legible.
+
+---
+
+# Round 2: three modern restyles
+
+These follow the 2026-11-24 research. Each one takes its technique from an award-winning artist site, while the heritage comes from ska. In the gallery they sit **above** A–C.
+
+| # | Concept | Reference technique | Feel | Signature | Key colours |
+|---|---|---|---|---|---|
+| D | Two Tone | Paul Kalkbrenner (Awwwards Site of the Day, Sep 2026): strict black and white | Monochrome editorial | Name across a checkerboard with `mix-blend-mode:difference`, and a width axis that stretches on scroll | `#000` · `#fff` only |
+| E | Toon Torbay | Yamê "The Molazone" (Site of the Day, Sep 2025): toon-shaded 3D WebGL | A cartoon world on a turntable | A Three.js toon-shaded Torbay built on a spinning 7" record | the *Ten Feet Tall* cover palette |
+| F | Windrush | Damso (Site of the Day, Sep 2025): shop-led site with 3D | Premium record-label shop | 3D 7" records you can spin, with view transitions between releases | label yellow · label blue · vinyl black |
+
+## D. "Two Tone": monochrome editorial
+- **Rule:** only `#000` and `#fff`. Greys come from opacity. Covers are shown in greyscale and turn to colour on hover or focus (the one break from the rule).
+- **Type:** *Anybody* (a variable font with width and weight axes) for display, and *Instrument Sans* for the body.
+- **Hero:** a full-viewport checkerboard. "THE SIMMERTONES" is set huge across it with `mix-blend-mode:difference`, so each letter flips colour square by square. As the page scrolls, the width axis stretches from condensed to expanded, using CSS `animation-timeline: scroll()` / `view()` behind `@supports`. Without support, the type is static.
+- **Line-up:** a 3×3 checker grid, one cell per player, alternating black and white, with the instrument huge and the name small.
+- **Records:** full-bleed rows. Selecting one swaps the detail panel using `document.startViewTransition` (with a fallback).
+- **Live and press:** big list rows that invert on hover, and one giant pull-quote.
+- **Motion:** scroll-driven only. Under reduced motion everything is static.
+
+## E. "Toon Torbay": toon-shaded WebGL
+- **Scene (Three.js from a CDN through an import map, built only from primitives):** a giant 7" record is the turntable platform. On it sits a toy-scale Torbay: palm trees, striped beach huts, a lighthouse, a small festival tent, a speaker stack, and a microphone on a stand.
+  - Materials are `MeshToonMaterial` with a three-step gradient map, plus inverted-hull black outlines.
+  - Scrolling turns the record, bringing a new "world" to the front for each section.
+  - The pixel ratio is capped at 2. Rendering pauses when the tab is hidden.
+- **Palette:** cream `#F2EBDA`, burgundy `#8C1D38`, yellow `#F5D01C`, coral `#E8574F`, teal `#3BA6C4`, ink `#14161C`.
+- **Type:** a chunky rounded display face such as *Rammetto One* or *Lilita One* (not Bangers or Yellowtail, which Glyn's concept 6 uses) and a friendly sans for the body.
+- **Layout:** a sticky canvas sits behind content panels that scroll past.
+- **Fallbacks:** if WebGL fails, or under reduced motion, show a static flat illustration (SVG). The content must always be readable.
+
+## F. "Windrush": the label shop
+- **Idea:** the band's own label, Windrush Recordings, is the brand. It works like a premium indie label store.
+- **Records:** each release is a 3D 7" or LP built from CSS 3D transforms. Grooves use `repeating-radial-gradient`, the label is an SVG with title, side, catalogue number where real, and "Windrush Recordings · England". Visitors can drag or use the arrow keys to spin it.
+- **Switching releases:** view transitions morph the record and its details.
+- **Buying:** buttons go to Apple Music, the only working store link. Formats and prices show `[Price]` / `[Placeholder]`. A small "crate" keeps picks client-side, and checkout is a "sample" note.
+- **Palette:** label yellow `#F2C200`, label blue `#1D3B8B`, vinyl black `#000`, sleeve white `#FFFFFF`, pressing-plant grey `#D7D8D4`.
+- **Type:** a wide display face such as *Unbounded*, paired with a neutral grotesk for the body.
+- It must look clearly different from Glyn's Boss Sounds, which is a red-orange 7" label rather than a shop.

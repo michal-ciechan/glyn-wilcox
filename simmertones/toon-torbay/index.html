@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Simmertones | Nine-piece authentic ska from Torbay</title>
+<meta name="description" content="The Simmertones: a nine-piece authentic ska and reggae band from Torbay, South Devon, on their own label, Windrush Recordings. Records, live history, line-up and bookings.">
+<link rel="icon" href="assets/ten-feet-tall.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F2EBDA; --paper:#FFFBF1; --burgundy:#8C1D38; --yellow:#F5D01C;
+  --coral:#E8574F; --teal:#3BA6C4; --ink:#14161C;
+  --teal-deep:#17667C;  /* teal dark enough for small text on paper */
+  --coral-deep:#B8322B; /* coral dark enough for small text on paper */
+  --sand:#E2B270;
+  --display:"Lilita One","Arial Rounded MT Bold",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --line:3px solid var(--ink);
+  --pop:6px 6px 0 var(--ink);
+  --r:22px;
+  --gut:clamp(1rem,4vw,3.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 1.0625rem/1.6 var(--body);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,figure,dl,dd,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 7px var(--yellow);border-radius:8px}
+.skip{position:absolute;left:-999px;top:0;z-index:60;background:var(--yellow);border:var(--line);padding:.6rem 1rem;font-weight:800}
+.skip:focus{left:10px;top:10px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ph{display:inline-block;font-weight:700;font-size:.92em;color:var(--burgundy);background:#fff0f1;border:2px dashed var(--burgundy);border-radius:8px;padding:0 .35em;line-height:1.45}
+
+/* ---------- backdrop: sky, sun, sea (static), then the WebGL canvas ---------- */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.sky svg{position:absolute;inset:0;width:100%;height:100%}
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:1;display:none;pointer-events:none}
+.webgl #scene{display:block}
+.fallback{position:fixed;z-index:1;pointer-events:none;right:3vw;top:52%;transform:translateY(-50%);width:min(50vw,660px)}
+.webgl .fallback{display:none}
+.fallback svg{display:block;width:100%;height:auto}
+
+/* ---------- header ---------- */
+.top{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:1rem;justify-content:space-between;
+  padding:.7rem var(--gut);background:var(--paper);border-bottom:var(--line)}
+.brand{font:400 1.45rem/1 var(--display);text-decoration:none;letter-spacing:.01em;white-space:nowrap}
+.brand span{color:var(--coral-deep)}
+.nav{display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav::-webkit-scrollbar{display:none}
+.nav a{display:inline-block;padding:.45rem .8rem;border-radius:999px;text-decoration:none;font-weight:700;font-size:.95rem;white-space:nowrap;border:2px solid transparent}
+.nav a:hover{border-color:var(--ink);background:var(--yellow)}
+.nav a.book{background:var(--coral);color:#fff;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.nav a.book:hover{background:var(--burgundy)}
+
+/* ---------- sections and panels ---------- */
+main{position:relative;z-index:2}
+.sec{min-height:100vh;display:flex;align-items:center;padding:7.5rem var(--gut) 4rem}
+.sec[data-side="right"]{justify-content:flex-end}
+.panel{position:relative;width:min(100%,520px);background:var(--paper);border:var(--line);border-radius:var(--r);box-shadow:var(--pop);padding:clamp(1.35rem,3vw,2.3rem)}
+.panel.wide{width:min(100%,640px)}
+.where{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.85rem;color:var(--teal-deep);margin-bottom:.8rem}
+.where::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid var(--ink)}
+h2{font:400 clamp(2.2rem,5vw,3.3rem)/1 var(--display);letter-spacing:.01em;margin-bottom:.9rem}
+h3{font:400 1.45rem/1.1 var(--display);letter-spacing:.01em}
+.lede{font-size:1.15rem;line-height:1.55}
+.panel p + p{margin-top:.8rem}
+.note{font-size:.9rem;color:#4a4d57;margin-top:.9rem}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;padding:.8rem 1.35rem;font:400 1.2rem/1 var(--display);letter-spacing:.02em;
+  text-decoration:none;color:var(--ink);background:var(--yellow);border:var(--line);border-radius:999px;box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn.alt{background:var(--paper)}
+.btn.coral{background:var(--coral);color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem}
+.textlink{font-weight:700;color:var(--teal-deep);text-decoration-thickness:2px;text-underline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{flex-direction:column;align-items:flex-start;justify-content:center}
+.hero h1{font:400 clamp(3.4rem,7.2vw,7.2rem)/.86 var(--display);letter-spacing:.005em;color:var(--yellow);
+  text-shadow:3px 0 0 var(--ink),-3px 0 0 var(--ink),0 3px 0 var(--ink),0 -3px 0 var(--ink),2px 2px 0 var(--ink),-2px -2px 0 var(--ink),2px -2px 0 var(--ink),-2px 2px 0 var(--ink),
+  8px 8px 0 var(--ink);margin-bottom:1.6rem}
+.hero h1 small{display:block;font-size:.42em;line-height:1;color:var(--coral);margin-bottom:.3em;
+  text-shadow:2px 0 0 var(--ink),-2px 0 0 var(--ink),0 2px 0 var(--ink),0 -2px 0 var(--ink),4px 4px 0 var(--ink)}
+.hero .panel{width:min(100%,500px)}
+
+/* ---------- band ---------- */
+.photo{margin-top:1.3rem;aspect-ratio:3/2;border:var(--line);border-radius:16px;display:grid;place-items:center;text-align:center;padding:1rem;
+  background:repeating-linear-gradient(135deg,#fff 0 14px,#f6efdf 14px 28px)}
+.photo span{font-size:.9rem;color:#4a4d57;max-width:24ch}
+
+/* ---------- line-up ---------- */
+.players{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));gap:.6rem;margin-top:.4rem}
+.players li{border:var(--line);border-radius:14px;padding:.55rem .8rem .6rem;background:#fff;box-shadow:3px 3px 0 var(--ink)}
+.players li:nth-child(4n+1){background:#FFF3B8}
+.players li:nth-child(4n+2){background:#E3F3F8}
+.players li:nth-child(4n+3){background:#FDE3E1}
+.players b{display:block;font-weight:800;line-height:1.25}
+.players span{font-size:.9rem;color:#3f424b}
+.players li.lead{grid-column:1/-1;background:var(--yellow)}
+.former{margin-top:1.1rem;font-size:.95rem}
+.former b{font-weight:800}
+
+/* ---------- records ---------- */
+.feature{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:1.2rem;align-items:start;margin-bottom:1.2rem}
+.cover{border:var(--line);border-radius:12px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);background:#fff;max-width:300px}
+.cover img{width:100%;aspect-ratio:1;object-fit:cover}
+.cover.blank{aspect-ratio:1;display:grid;place-items:center;text-align:center;font-size:.8rem;font-weight:700;color:var(--burgundy);
+  background:repeating-linear-gradient(45deg,#fff 0 10px,#FDE3E1 10px 20px)}
+.meta{font-size:.95rem;color:#3f424b;margin-top:.3rem}
+.tracks{counter-reset:t;columns:2 14rem;column-gap:1.4rem;margin-top:.8rem;font-size:.95rem}
+.tracks li{counter-increment:t;display:flex;gap:.5rem;break-inside:avoid;padding:.18rem 0;border-bottom:1px dashed rgba(20,22,28,.22)}
+.tracks li::before{content:counter(t);font-weight:800;min-width:1.4em;color:var(--coral-deep)}
+.tracks li span{margin-left:auto;font-variant-numeric:tabular-nums;color:#4a4d57}
+.tracks.plain li::before{content:"♪";color:var(--teal-deep)}
+.rel{border-top:var(--line);padding-top:1rem;margin-top:1rem}
+.rel-head{display:grid;grid-template-columns:72px minmax(0,1fr);gap:.9rem;align-items:center}
+.rel-head .cover{border-width:2px;box-shadow:3px 3px 0 var(--ink);border-radius:8px}
+.rel-head .cover.blank{font-size:.6rem;line-height:1.2;padding:.2rem}
+details{margin-top:.55rem}
+summary{cursor:pointer;font-weight:800;color:var(--teal-deep);list-style:none;display:inline-flex;align-items:center;gap:.4rem;border-radius:8px;padding:.1rem .2rem}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:grid;place-items:center;width:1.35rem;height:1.35rem;border:2px solid var(--ink);border-radius:50%;background:var(--yellow);color:var(--ink);font-size:1rem;line-height:1}
+details[open] summary::before{content:"–"}
+.credit{font-size:.9rem;color:#3f424b;margin-top:.5rem}
+.singles li{display:flex;flex-wrap:wrap;gap:.2rem .7rem;justify-content:space-between;padding:.35rem 0;border-bottom:1px dashed rgba(20,22,28,.22);font-size:.95rem}
+.singles b{font-weight:700}
+.singles span{color:#4a4d57}
+
+/* ---------- live ---------- */
+.upcoming{display:grid;gap:.5rem;margin:.2rem 0 1.2rem}
+.upcoming li{display:flex;flex-wrap:wrap;gap:.4rem .8rem;align-items:center;border:var(--line);border-radius:14px;padding:.6rem .85rem;background:var(--yellow);box-shadow:3px 3px 0 var(--ink);font-weight:700}
+.years{display:grid;gap:.25rem}
+.year{display:grid;grid-template-columns:4.2rem minmax(0,1fr);gap:.8rem;padding:.55rem 0;border-top:2px solid var(--ink)}
+.year > b{font:400 1.35rem/1.2 var(--display);color:var(--burgundy)}
+.year li{padding:.05rem 0;line-height:1.45}
+.year li + li{margin-top:.3rem}
+.year small{display:block;color:#4a4d57;font-size:.88rem}
+
+/* ---------- press ---------- */
+.quotes{display:grid;gap:.9rem}
+.quote{border:var(--line);border-radius:16px;padding:1rem 1.1rem;background:#fff;box-shadow:3px 3px 0 var(--ink)}
+.quote:nth-child(1){background:#E3F3F8}
+.quote:nth-child(2){background:#FFF3B8}
+.quote:nth-child(3){background:#FDE3E1}
+.quote p{font:400 1.45rem/1.15 var(--display);letter-spacing:.01em}
+.quote footer{margin-top:.45rem;font-size:.9rem;color:#3f424b}
+.airplay{margin-top:1rem;font-size:.95rem}
+
+/* ---------- book ---------- */
+.contact{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.35rem 1rem;margin:.4rem 0 1.2rem;font-size:.95rem;align-items:center}
+.contact dt{font-weight:800}
+form{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+label{display:grid;gap:.25rem;font-weight:700;font-size:.92rem}
+label.full{grid-column:1/-1}
+input,textarea{font:inherit;font-weight:500;width:100%;padding:.65rem .75rem;border:var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+textarea{min-height:110px;resize:vertical}
+input:focus-visible,textarea:focus-visible{border-radius:12px}
+form .btn{grid-column:1/-1;justify-self:start}
+.sent{grid-column:1/-1;border:var(--line);border-radius:12px;background:var(--yellow);padding:.7rem .9rem;font-weight:600}
+.radio{margin-top:1.2rem;border:2px dashed var(--ink);border-radius:14px;padding:.8rem 1rem;font-size:.95rem;background:#fff}
+
+/* ---------- footer ---------- */
+.foot{position:relative;z-index:2;background:var(--ink);color:var(--cream);padding:2rem var(--gut);display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:center;border-top:var(--line)}
+.foot .brand{color:var(--yellow)}
+.foot p{font-size:.92rem;max-width:56ch}
+.foot a{color:var(--yellow);font-weight:700}
+
+/* ---------- responsive ---------- */
+@media (max-width:760px){
+  .top{flex-direction:column;align-items:stretch;gap:.35rem;padding:.55rem .8rem .5rem}
+  .brand{font-size:1.3rem}
+  .nav{margin:0 -.3rem;-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent);padding-right:2rem}
+  .nav a{padding:.35rem .65rem;font-size:.9rem}
+  .sec{display:block;min-height:0;padding:0 .8rem 2.2rem}
+  .sec::before{content:"";display:block;height:58vh}
+  .hero::before{height:52vh}
+  .hero h1{margin-bottom:1.2rem}
+  .panel,.panel.wide,.hero .panel{width:100%}
+  .feature{grid-template-columns:minmax(0,140px) minmax(0,1fr)}
+  form{grid-template-columns:1fr}
+  .fallback{right:auto;left:50%;top:7.2rem;transform:translateX(-50%);width:min(94vw,520px)}
+}
+@media (max-width:420px){
+  .feature{grid-template-columns:1fr}
+  .feature .cover{max-width:200px}
+  .year{grid-template-columns:3.4rem minmax(0,1fr);gap:.6rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn{transition:none}
+}
+</style>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Static backdrop: cream sky, sun and sea -->
+<div class="sky" aria-hidden="true">
+  <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+    <circle cx="1260" cy="250" r="190" fill="#F5D01C" stroke="#14161C" stroke-width="5"/>
+    <g fill="#FFFBF1" stroke="#14161C" stroke-width="5" stroke-linejoin="round">
+      <path d="M160 210c0-30 26-50 56-44 10-30 52-40 74-16 26-10 56 8 54 38 24 4 34 34 14 50H176c-20-4-30-16-16-28z"/>
+      <path d="M760 120c0-22 20-36 42-32 8-22 38-30 54-12 20-8 42 6 40 28 18 3 25 25 10 37H772c-15-3-22-12-12-21z"/>
+    </g>
+    <path d="M0 760h1600v240H0z" fill="#3BA6C4"/>
+    <path d="M0 760h1600" stroke="#14161C" stroke-width="5"/>
+    <g fill="none" stroke="#FFFBF1" stroke-width="5" stroke-linecap="round" opacity=".85">
+      <path d="M90 820q30-16 60 0t60 0"/><path d="M420 870q30-16 60 0t60 0"/><path d="M820 812q30-16 60 0t60 0"/>
+      <path d="M1180 880q30-16 60 0t60 0"/><path d="M1420 818q30-16 60 0t60 0"/><path d="M260 940q30-16 60 0t60 0"/><path d="M1000 950q30-16 60 0t60 0"/>
+    </g>
+  </svg>
+</div>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<!-- Fallback: a flat illustration of the record world, shown under reduced motion or without WebGL -->
+<div class="fallback" aria-hidden="true">
+  <svg viewBox="0 0 640 450" fill="none" stroke="#14161C" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="320" cy="410" rx="270" ry="30" fill="#14161C" opacity=".16" stroke="none"/>
+    <path d="M24 300v30a296 100 0 0 0 592 0v-30" fill="#8C1D38"/>
+    <g fill="#FFFBF1" stroke="none"><circle cx="70" cy="352" r="5"/><circle cx="130" cy="372" r="5"/><circle cx="200" cy="385" r="5"/><circle cx="280" cy="392" r="5"/><circle cx="360" cy="392" r="5"/><circle cx="440" cy="385" r="5"/><circle cx="510" cy="372" r="5"/><circle cx="570" cy="352" r="5"/></g>
+    <ellipse cx="320" cy="300" rx="296" ry="100" fill="#8C1D38"/>
+    <ellipse cx="320" cy="292" rx="280" ry="94" fill="#14161C"/>
+    <g stroke="#30333d" stroke-width="2"><ellipse cx="320" cy="292" rx="250" ry="84"/><ellipse cx="320" cy="292" rx="215" ry="72"/><ellipse cx="320" cy="292" rx="180" ry="60"/><ellipse cx="320" cy="292" rx="145" ry="49"/></g>
+    <ellipse cx="320" cy="292" rx="92" ry="31" fill="#F5D01C"/>
+    <ellipse cx="320" cy="292" rx="8" ry="3" fill="#14161C"/>
+    <!-- lighthouse on rocks, back right -->
+    <path d="M430 236c10-22 70-26 88-6 8 10 2 22-10 26h-70c-12-4-14-12-8-20z" fill="#D8CBB0"/>
+    <path d="M452 236l10-120h36l10 120z" fill="#FFFBF1"/>
+    <path d="M458 196l4-40h36l4 40z" fill="#8C1D38"/>
+    <path d="M454 226l3-12h46l3 12z" fill="#8C1D38"/>
+    <rect x="456" y="96" width="48" height="10" rx="3" fill="#14161C"/>
+    <rect x="464" y="74" width="32" height="22" rx="4" fill="#F5D01C"/>
+    <path d="M458 76l22-24 22 24z" fill="#8C1D38"/>
+    <!-- festival tent, back left -->
+    <path d="M150 238v-34h110v34" fill="#FFFBF1"/>
+    <path d="M168 204v34M188 204v34M208 204v34M228 204v34M248 204v34" stroke="#E8574F" stroke-width="8"/>
+    <path d="M150 238v-34h110v34z"/>
+    <path d="M140 206l65-70 65 70z" fill="#E8574F"/>
+    <path d="M205 136l-30 70M205 136l0 70M205 136l30 70" stroke="#FFFBF1" stroke-width="7"/>
+    <path d="M140 206l65-70 65 70z"/>
+    <path d="M205 136v-26l26 9-26 9" fill="#8C1D38"/>
+    <!-- beach huts, front -->
+    <g>
+      <rect x="170" y="300" width="56" height="62" fill="#FFFBF1"/><path d="M182 300v62M198 300v62M214 300v62" stroke="#E8574F" stroke-width="8"/><rect x="170" y="300" width="56" height="62"/><path d="M162 302l36-30 36 30z" fill="#8C1D38"/><rect x="190" y="326" width="16" height="36" fill="#14161C"/>
+      <rect x="248" y="306" width="56" height="62" fill="#FFFBF1"/><path d="M260 306v62M276 306v62M292 306v62" stroke="#3BA6C4" stroke-width="8"/><rect x="248" y="306" width="56" height="62"/><path d="M240 308l36-30 36 30z" fill="#14161C"/><rect x="268" y="332" width="16" height="36" fill="#8C1D38"/>
+      <rect x="326" y="306" width="56" height="62" fill="#FFFBF1"/><path d="M338 306v62M354 306v62M370 306v62" stroke="#F5D01C" stroke-width="8"/><rect x="326" y="306" width="56" height="62"/><path d="M318 308l36-30 36 30z" fill="#E8574F"/><rect x="346" y="332" width="16" height="36" fill="#14161C"/>
+      <rect x="404" y="300" width="56" height="62" fill="#FFFBF1"/><path d="M416 300v62M432 300v62M448 300v62" stroke="#8C1D38" stroke-width="8"/><rect x="404" y="300" width="56" height="62"/><path d="M396 302l36-30 36 30z" fill="#3BA6C4"/><rect x="424" y="326" width="16" height="36" fill="#14161C"/>
+    </g>
+    <!-- palms -->
+    <path d="M110 344c-6-50 4-96 26-130" stroke="#14161C" stroke-width="16"/><path d="M110 344c-6-50 4-96 26-130" stroke="#E2B270" stroke-width="9"/>
+    <g fill="#3BA6C4"><path d="M136 214c-30-24-64-20-84 4 28-6 54-4 84-4z"/><path d="M136 214c-4-34-30-52-58-50 24 12 42 28 58 50z"/><path d="M136 214c22-26 54-28 76-10-30 0-52 4-76 10z"/><path d="M136 214c30-6 56 10 64 36-20-18-42-28-64-36z"/><path d="M136 214c-20 10-30 34-24 58 6-24 14-42 24-58z"/></g>
+    <path d="M548 352c4-46-6-88-30-118" stroke="#14161C" stroke-width="16"/><path d="M548 352c4-46-6-88-30-118" stroke="#E2B270" stroke-width="9"/>
+    <g fill="#3BA6C4"><path d="M518 234c30-24 64-20 84 4-28-6-54-4-84-4z"/><path d="M518 234c4-34 30-52 58-50-24 12-42 28-58 50z"/><path d="M518 234c-22-26-54-28-76-10 30 0 52 4 76 10z"/><path d="M518 234c-30-6-56 10-64 36 20-18 42-28 64-36z"/></g>
+    <!-- beach ball -->
+    <circle cx="470" cy="388" r="16" fill="#FFFBF1"/><path d="M470 372a16 16 0 0 1 0 32M470 372c-10 8-10 24 0 32" fill="#E8574F"/><circle cx="470" cy="388" r="16"/>
+  </svg>
+</div>
+
+<header class="top">
+  <a class="brand" href="#top">The <span>Simmertones</span></a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#band">The band</a>
+    <a href="#lineup">Line-up</a>
+    <a href="#records">Records</a>
+    <a href="#live">Live</a>
+    <a href="#press">Press</a>
+    <a class="book" href="#book">Book the band</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- 1. HERO -->
+  <section class="sec hero" id="top" data-world="seafront" data-side="left" aria-labelledby="hero-h">
+    <h1 id="hero-h"><small>The</small>Simmertones</h1>
+    <div class="panel">
+      <p class="where">On the record: the seafront</p>
+      <p class="lede">Nine-piece authentic ska and reggae from Torbay, South Devon. A whole seaside town of horns, offbeats and rocksteady, spinning since about 2007.</p>
+      <div class="btns">
+        <a class="btn coral" href="#book">Book the band</a>
+        <a class="btn alt" href="#records">Hear the records</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. THE BAND -->
+  <section class="sec" id="band" data-world="bandstand" data-side="right" aria-labelledby="band-h">
+    <div class="panel">
+      <p class="where">On the record: the bandstand</p>
+      <h2 id="band-h">The band</h2>
+      <p>The Simmertones are a nine-piece authentic ska and reggae band from Torbay in South Devon, gigging since about 2007. They play their own songs next to classic ska and rocksteady covers, with a full horn section and Glyn Wilcox singing lead and toasting.</p>
+      <p>They put their records out on their own label, Windrush Recordings, and they've played everywhere from Boomtown to Madness's House of Fun Weekender.</p>
+      <div class="photo"><span><span class="ph">[Band photo placeholder]</span><br>All nine on stage, landscape, at least 1600px wide</span></div>
+    </div>
+  </section>
+
+  <!-- 3. LINE-UP -->
+  <section class="sec" id="lineup" data-world="bandstand-close" data-side="left" aria-labelledby="lineup-h">
+    <div class="panel wide">
+      <p class="where">On the record: the bandstand, up close</p>
+      <h2 id="lineup-h">Nine on the stand</h2>
+      <ul class="players">
+        <li class="lead"><b>Glyn Wilcox</b><span>Lead vocals and toasting</span></li>
+        <li><b>Rob “Big Rob” Murphy</b><span>Drums</span></li>
+        <li><b>Del “Del Boy” Anning</b><span>Bass</span></li>
+        <li><b>Pete Morris</b><span>Keys</span></li>
+        <li><b>Martin Vowles</b><span>Guitar</span></li>
+        <li><b>Keith Waller</b><span>Tenor sax</span></li>
+        <li><b>Jade Gall</b><span>Tenor sax</span></li>
+        <li><b>Sam Smith</b><span>Trombone</span></li>
+        <li><b>Sam Massey</b><span>Trumpet</span></li>
+      </ul>
+      <p class="note">This is the line-up as last published, around 2016–17. <span class="ph">[To be confirmed with the band]</span></p>
+      <p class="former"><b>On the 2011 EP:</b> Jamie “Stretch” Watkin (guitar), Tom Crowe (keys), Ray Beavis (lead tenor sax) and Rich Mills (trumpet and cornet), alongside Glyn, Rob, Del, Keith and Sam Smith.</p>
+    </div>
+  </section>
+
+  <!-- 4. RECORDS -->
+  <section class="sec" id="records" data-world="label" data-side="right" aria-labelledby="records-h">
+    <div class="panel wide">
+      <p class="where">On the record: the label, from above</p>
+      <h2 id="records-h">The records</h2>
+
+      <div class="feature">
+        <div class="cover"><img src="assets/ten-feet-tall.jpg" alt="Ten Feet Tall cover: a man in a burgundy suit and pork-pie hat stepping towards the camera in DM boots, under a yellow starburst Simmertones logo" width="300" height="300"></div>
+        <div>
+          <h3>Ten Feet Tall</h3>
+          <p class="meta">Album, released 9 August 2019 on Windrush Recordings. Thirteen tracks.</p>
+          <p class="btns" style="margin-top:.8rem"><a class="btn" href="https://music.apple.com/gb/album/ten-feet-tall/1475400789" rel="noopener">Listen on Apple Music</a></p>
+        </div>
+      </div>
+      <ol class="tracks" aria-label="Ten Feet Tall tracklist">
+        <li>El Gringo<span>3:43</span></li>
+        <li>Travelling Man<span>2:49</span></li>
+        <li>Silly Girl<span>3:11</span></li>
+        <li>What I Need<span>3:37</span></li>
+        <li>Missing You<span>3:42</span></li>
+        <li>Bring It Down<span>3:55</span></li>
+        <li>Fat Back (Tear It Up)<span>2:57</span></li>
+        <li>Lullaby<span>2:57</span></li>
+        <li>Stand Firm<span>2:54</span></li>
+        <li>Down By the Shore<span>3:14</span></li>
+        <li>Ten Feet Tall<span>3:16</span></li>
+        <li>The Place That I Know<span>3:09</span></li>
+        <li>Winter’s Call<span>5:42</span></li>
+      </ol>
+
+      <div class="rel">
+        <div class="rel-head">
+          <div class="cover"><img src="assets/something-for-the-weekend.jpg" alt="Something For The Weekend? cover: a cartoon barber with a cut-throat razor beside a barber pole, on green" width="300" height="300" loading="lazy"></div>
+          <div><h3>Something For The Weekend?</h3><p class="meta">Album, 2013. Label, catalogue number and track count <span class="ph">[Placeholder]</span></p></div>
+        </div>
+      </div>
+
+      <div class="rel">
+        <div class="rel-head">
+          <div class="cover"><img src="assets/everythings-comin-up-ska.jpg" alt="Everything's Comin' Up Ska cover: orange, with a band photo inside the big black letters of the word ska" width="300" height="300" loading="lazy"></div>
+          <div><h3>Everything’s Comin’ Up Ska</h3><p class="meta">EP, 2011, on CD from Windrush Recordings.</p></div>
+        </div>
+        <details>
+          <summary>Four tracks and credits</summary>
+          <ol class="tracks">
+            <li>Bring Your Love To Me<span>4:13</span></li>
+            <li>Blam Blam Fever <small>(The Valentines)</small><span>3:22</span></li>
+            <li>King Of Ska <small>(Desmond Dekker)</small><span>2:41</span></li>
+            <li>A Little Time<span>3:28</span></li>
+          </ol>
+          <p class="credit">The two originals have music by Rich Mills with the band and words by Glyn Wilcox. Engineered and co-produced by Richard Digby Smith at The Music Mill, Devon. Steve Cradock (Ocean Colour Scene, Paul Weller) is credited as guest lead guitarist.</p>
+        </details>
+      </div>
+
+      <div class="rel">
+        <div class="rel-head">
+          <div class="cover blank">[Cover placeholder]</div>
+          <div><h3>Presenting The Simmertones, Volume 1</h3><p class="meta">Mini-album, seven tracks, self-released. Digital release 12 November 2009.</p></div>
+        </div>
+        <details>
+          <summary>Seven tracks</summary>
+          <ul class="tracks plain">
+            <li>One Time Soon</li>
+            <li>Warm Your Bones</li>
+            <li>Over The River <small>(Justin Hinds &amp; the Dominoes)</small></li>
+            <li>Ball of Fire <small>(The Skatalites)</small></li>
+            <li>Sammy Dead <small>(traditional)</small></li>
+            <li><i>Doctor Who</i> theme</li>
+            <li>Do What You Got To Do <small>(the closer)</small></li>
+          </ul>
+          <p class="credit">Three originals and four covers. The running order isn’t confirmed, apart from the closer.</p>
+        </details>
+      </div>
+
+      <div class="rel">
+        <h3>Singles</h3>
+        <ul class="singles">
+          <li><b>Perhaps Perhaps Perhaps</b><span>25 Aug 2014</span></li>
+          <li><b>Run For Your Life</b><span>25 Mar 2016</span></li>
+          <li><b>Travelling Man</b><span>18 May 2018, later on <i>Ten Feet Tall</i></span></li>
+          <li><b>Winter’s Call</b><span>4 Jan 2019, later on <i>Ten Feet Tall</i></span></li>
+        </ul>
+        <p class="note"><a class="textlink" href="https://music.apple.com/gb/artist/the-simmertones/445546495" rel="noopener">The Simmertones on Apple Music</a> · Spotify <span class="ph">[Placeholder]</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. LIVE -->
+  <section class="sec" id="live" data-world="festival" data-side="left" aria-labelledby="live-h">
+    <div class="panel wide">
+      <p class="where">On the record: the festival field</p>
+      <h2 id="live-h">Live</h2>
+      <h3 class="vh">Coming up</h3>
+      <ul class="upcoming" aria-label="Coming up">
+        <li>Next date <span class="ph">[Placeholder: date, venue, town]</span></li>
+        <li>Festival <span class="ph">[Placeholder: festival, date]</span></li>
+      </ul>
+      <h3 style="margin-bottom:.4rem">Where they’ve played</h3>
+      <div class="years">
+        <div class="year"><b>2021</b><ul><li>The Big Sheep, Devon <small>21 Aug, with RatRace</small></li></ul></div>
+        <div class="year"><b>2020</b><ul><li>Exeter Phoenix <small>1 Feb, with The Embezzlers and The Mighty Offbeats</small></li></ul></div>
+        <div class="year"><b>2019</b><ul><li>Exeter Phoenix <small>2 Feb, with The Embezzlers and Skatatones</small></li></ul></div>
+        <div class="year"><b>2018</b><ul><li>House of Fun Weekender <small>Madness’s weekender</small></li></ul></div>
+        <div class="year"><b>2017</b><ul><li>Exeter Phoenix <small>28 Jan</small></li><li>Looe Music Festival</li><li>Bestival</li></ul></div>
+        <div class="year"><b>2016</b><ul><li>London International Ska Festival <small>March</small></li><li>The Garage, London <small>26 Mar, on a bill with U-Roy, Dennis Bovell and Sonic Boom Six</small></li><li>House of Fun Weekender <small>November, Madness’s weekender</small></li></ul></div>
+        <div class="year"><b>2015</b><ul><li>Boomtown Fair <small>16 Aug. The band says they headlined the Chinatown stage.</small></li></ul></div>
+        <div class="year"><b>2014</b><ul><li>Respect Festival, Exeter <small>31 May</small></li></ul></div>
+        <div class="year"><b>2013</b><ul><li>The Fleece, Bristol <small>30 Aug, with The Clunks</small></li></ul></div>
+        <div class="year"><b>Also</b><ul><li>Kingsbridge Music Fest <small>Year <span class="ph">[Placeholder]</span></small></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PRESS -->
+  <section class="sec" id="press" data-world="lighthouse" data-side="right" aria-labelledby="press-h">
+    <div class="panel">
+      <p class="where">On the record: the lighthouse</p>
+      <h2 id="press-h">What they said</h2>
+      <div class="quotes">
+        <figure class="quote">
+          <blockquote><p>“A Devon-based authentic ska ’n’ reggae outfit.”</p></blockquote>
+          <footer>Sarge, <cite>Scootering</cite> magazine, reviewing <i>Ten Feet Tall</i>, July 2019</footer>
+        </figure>
+        <figure class="quote">
+          <blockquote><p>“The vocals are good, the horns are perfect…”</p></blockquote>
+          <footer><cite>ReadJunk</cite>, reviewing the 2011 EP, October 2011</footer>
+        </figure>
+        <figure class="quote">
+          <blockquote><p>“The magical vocals of Glyn Wilcox.”</p></blockquote>
+          <footer><cite>Last.fm</cite>, The Simmertones artist page</footer>
+        </figure>
+      </div>
+      <p class="airplay">The band says the 2011 EP was played on BBC Radio 2 and 6 Music.</p>
+    </div>
+  </section>
+
+  <!-- 7. BOOK -->
+  <section class="sec" id="book" data-world="town" data-side="left" aria-labelledby="book-h">
+    <div class="panel wide">
+      <p class="where">On the record: the whole town</p>
+      <h2 id="book-h">Book the band</h2>
+      <p>Festivals, venues and private parties. Tell us the date and the place, and the band will come back to you.</p>
+      <dl class="contact">
+        <dt>Email</dt><dd><span class="ph">[Bookings email placeholder]</span></dd>
+        <dt>Facebook</dt><dd><a class="textlink" href="https://www.facebook.com/simmertones" rel="noopener">facebook.com/simmertones</a></dd>
+        <dt>Instagram</dt><dd><span class="ph">[Placeholder]</span></dd>
+        <dt>Listen</dt><dd><a class="textlink" href="https://music.apple.com/gb/artist/the-simmertones/445546495" rel="noopener">Apple Music</a></dd>
+      </dl>
+      <form id="enquiry" novalidate>
+        <label>Your name<input name="name" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Date of the event<input name="date" type="date"></label>
+        <label>Venue or event<input name="venue"></label>
+        <label class="full">Anything else we should know<textarea name="message"></textarea></label>
+        <button class="btn coral" type="submit">Send enquiry</button>
+        <p class="sent" id="sent" role="status" hidden></p>
+      </form>
+      <p class="radio">Sunday nights, Glyn presents <i>The Ultimate Ska &amp; Reggae Show</i> on Palm Torbay, 7–9pm. <a class="textlink" href="https://player.aiir.com/palmtorbay/" rel="noopener">Listen live on Palm Torbay</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span class="brand">The Simmertones</span>
+  <p>Nine-piece authentic ska from Torbay, South Devon. Concept sample: items marked [Placeholder] are not real data. <a href="../">All Simmertones concepts</a></p>
+</footer>
+
+<script>
+// Enquiry form: there is no backend in this sample.
+(function(){
+  var form = document.getElementById('enquiry'), sent = document.getElementById('sent');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!form.elements.name.value.trim() || !form.elements.email.checkValidity() || !form.elements.email.value.trim()){
+      sent.textContent = 'Add your name and a valid email address so the band can reply.';
+      sent.hidden = false;
+      (form.elements.name.value.trim() ? form.elements.email : form.elements.name).focus();
+      return;
+    }
+    sent.textContent = 'Thanks, ' + form.elements.name.value.trim() + '. This is a sample site, so nothing was sent. When it goes live, enquiries will go to the band’s booking email [Placeholder].';
+    sent.hidden = false;
+  });
+})();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+
+const root = document.documentElement;
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduceMotion) start().catch(err => { root.classList.remove('webgl'); console.warn('3D scene off:', err); });
+
+async function start(){
+  const canvas = document.getElementById('scene');
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  } catch (e) { return; }               // no WebGL: the SVG fallback stays
+  try { await document.fonts.load('80px "Lilita One"'); } catch (e) {}
+
+  const C = { cream:'#F2EBDA', paper:'#FFFBF1', burg:'#8C1D38', yellow:'#F5D01C', coral:'#E8574F', teal:'#3BA6C4', ink:'#14161C', sand:'#E2B270', stone:'#D8CBB0', deep:'#1F6F86' };
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.debug.checkShaderErrors = false; // production setting: skips synchronous shader checks
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 300);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 1.3));
+  const sun = new THREE.DirectionalLight(0xffffff, 1.9);
+  sun.position.set(-6, 12, 9);
+  scene.add(sun);
+
+  // 3-step toon ramp
+  const ramp = new THREE.DataTexture(new Uint8Array([95, 185, 255]), 3, 1, THREE.RedFormat);
+  ramp.minFilter = ramp.magFilter = THREE.NearestFilter; ramp.generateMipmaps = false; ramp.needsUpdate = true;
+  const matCache = {};
+  const toon = (color, map) => {
+    if (!map && matCache[color]) return matCache[color];
+    const m = new THREE.MeshToonMaterial({ color: map ? 0xffffff : color, gradientMap: ramp, map: map || null });
+    if (!map) matCache[color] = m;
+    return m;
+  };
+  const inkMat = new THREE.MeshBasicMaterial({ color: C.ink, side: THREE.BackSide });
+
+  // Inverted-hull outline: a slightly bigger copy, back faces only, in ink.
+  function outline(mesh, t = 0.045){
+    const g = mesh.geometry; g.computeBoundingBox();
+    const size = new THREE.Vector3(), c = new THREE.Vector3();
+    g.boundingBox.getSize(size); g.boundingBox.getCenter(c);
+    const ms = mesh.scale;
+    const f = (s, k) => s * k > 1e-4 ? (s * k + 2 * t) / (s * k) : 1;
+    const o = new THREE.Mesh(g, inkMat);
+    o.scale.set(f(size.x, ms.x), f(size.y, ms.y), f(size.z, ms.z));
+    o.position.set(c.x * (1 - o.scale.x), c.y * (1 - o.scale.y), c.z * (1 - o.scale.z));
+    mesh.add(o);
+    return mesh;
+  }
+  function mesh(geo, mat, parent, pos, t){
+    const m = new THREE.Mesh(geo, mat);
+    if (pos) m.position.set(pos[0], pos[1], pos[2]);
+    if (parent) parent.add(m);
+    if (t !== 0) outline(m, t === undefined ? 0.045 : t);
+    return m;
+  }
+  function canvasTex(w, h, draw, repeatX = 1, repeatY = 1){
+    const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+    draw(cv.getContext('2d'), w, h);
+    const tx = new THREE.CanvasTexture(cv);
+    tx.colorSpace = THREE.SRGBColorSpace;
+    tx.wrapS = tx.wrapT = THREE.RepeatWrapping;
+    tx.repeat.set(repeatX, repeatY);
+    tx.anisotropy = 4;
+    return tx;
+  }
+  const stripes = (a, b, n, vertical = true) => canvasTex(256, 256, (g, w, h) => {
+    g.fillStyle = a; g.fillRect(0, 0, w, h); g.fillStyle = b;
+    for (let i = 0; i < n; i++) vertical ? g.fillRect((i + .5) * w / n, 0, w / n / 2, h) : g.fillRect(0, (i + .5) * h / n, w, h / n / 2);
+  });
+
+  // ---------- the turntable ----------
+  const world = new THREE.Group();          // bobs gently
+  const spin = new THREE.Group();           // turns with the scroll
+  scene.add(world); world.add(spin);
+
+  const R = 6.5;
+  const grooves = canvasTex(1024, 1024, (g, w) => {
+    const c = w / 2; g.fillStyle = '#17191F'; g.fillRect(0, 0, w, w);
+    for (let r = 175; r < 506; r += 4.5) {
+      const gap = [240, 300, 360, 420].some(x => Math.abs(r - x) < 3);
+      g.strokeStyle = gap ? 'rgba(255,255,255,.18)' : (Math.round(r) % 3 ? 'rgba(255,255,255,.045)' : 'rgba(255,255,255,.09)');
+      g.lineWidth = gap ? 3 : 1.2;
+      g.beginPath(); g.arc(c, c, r, 0, Math.PI * 2); g.stroke();
+    }
+    g.strokeStyle = C.ink; g.lineWidth = 10; g.beginPath(); g.arc(c, c, 507, 0, Math.PI * 2); g.stroke();
+  });
+  const recordTop = new THREE.MeshToonMaterial({ map: grooves, gradientMap: ramp });
+  const recordSide = toon('#1d1f26');
+  const record = new THREE.Mesh(new THREE.CylinderGeometry(R, R, 0.3, 96), [recordSide, recordTop, recordSide]);
+  record.position.y = 0.15; spin.add(record); outline(record, 0.07);
+
+  const strobe = canvasTex(2048, 64, (g, w, h) => {
+    g.fillStyle = C.burg; g.fillRect(0, 0, w, h); g.fillStyle = C.paper;
+    for (let i = 0; i < 72; i++) { g.beginPath(); g.arc((i + .5) * w / 72, h / 2, 9, 0, Math.PI * 2); g.fill(); }
+  });
+  const platter = new THREE.Mesh(new THREE.CylinderGeometry(R + 0.45, R + 0.45, 0.6, 96),
+    [new THREE.MeshToonMaterial({ map: strobe, gradientMap: ramp }), toon(C.burg), toon(C.burg)]);
+  platter.position.y = -0.3; spin.add(platter); outline(platter, 0.07);
+
+  // The label: ring text all the way round, a starburst in the middle
+  const label = canvasTex(1024, 1024, (g, w) => {
+    const c = w / 2; g.translate(c, c);
+    g.fillStyle = C.yellow; g.beginPath(); g.arc(0, 0, 510, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = C.burg; g.lineWidth = 16; g.beginPath(); g.arc(0, 0, 478, 0, Math.PI * 2); g.stroke();
+    g.lineWidth = 6; g.beginPath(); g.arc(0, 0, 318, 0, Math.PI * 2); g.stroke();
+    const ring = 'THE SIMMERTONES ★ AUTHENTIC SKA ★ TORBAY ★ WINDRUSH RECORDINGS ★ ';
+    g.fillStyle = C.burg; g.font = '64px "Lilita One"'; g.textBaseline = 'middle'; g.textAlign = 'center';
+    const total = [...ring].reduce((s, ch) => s + g.measureText(ch).width, 0);
+    const scale = (Math.PI * 2 * 395) / total;
+    let a = -Math.PI / 2 - (g.measureText('THE SIMMERTONES').width * scale) / 395 / 2;
+    for (const ch of ring) {
+      const cw = g.measureText(ch).width * scale, mid = a + cw / 395 / 2;
+      g.save(); g.rotate(mid + Math.PI / 2); g.translate(0, -395); g.scale(scale, 1); g.fillText(ch, 0, 0); g.restore();
+      a += cw / 395;
+    }
+    // starburst
+    g.beginPath();
+    for (let i = 0; i < 28; i++) { const rr = i % 2 ? 150 : 255, an = i / 28 * Math.PI * 2; g.lineTo(Math.cos(an) * rr, Math.sin(an) * rr); }
+    g.closePath(); g.fillStyle = C.coral; g.fill(); g.lineWidth = 8; g.strokeStyle = C.ink; g.stroke();
+    g.fillStyle = C.paper; g.font = '92px "Lilita One"'; g.fillText('45', 0, -78); g.font = '50px "Lilita One"'; g.fillText('RPM', 0, 96);
+    g.fillStyle = C.ink; g.beginPath(); g.arc(0, 0, 26, 0, Math.PI * 2); g.fill();
+  });
+  const labelMesh = new THREE.Mesh(new THREE.CircleGeometry(2.25, 64), new THREE.MeshToonMaterial({ map: label, gradientMap: ramp }));
+  labelMesh.rotation.x = -Math.PI / 2; labelMesh.rotation.z = Math.PI; labelMesh.position.y = 0.305; spin.add(labelMesh);
+  const spindle = mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.45, 16), toon('#C9C2B4'), spin, [0, 0.45, 0], 0.03);
+
+  // Soft floor shadow under the floating turntable
+  const shadowTex = canvasTex(256, 256, (g, w) => {
+    const gr = g.createRadialGradient(w / 2, w / 2, 0, w / 2, w / 2, w / 2);
+    gr.addColorStop(0, 'rgba(20,22,28,.34)'); gr.addColorStop(.62, 'rgba(20,22,28,.2)'); gr.addColorStop(1, 'rgba(20,22,28,0)');
+    g.fillStyle = gr; g.fillRect(0, 0, w, w);
+  });
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(17, 17), new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = -2.3; scene.add(floor);
+
+  // A world is a group facing outwards at angle phi: local +z points to the rim.
+  const anim = [];
+  function makeWorld(phi){ const g = new THREE.Group(); g.rotation.y = phi; spin.add(g); return g; }
+  function patch(g, color, r = 2.05, z = 4.3){ return mesh(new THREE.CylinderGeometry(r, r, 0.12, 48), toon(color), g, [0, 0.36, z], 0.04); }
+  const top = 0.42; // standing height on a patch
+
+  // ---------- 1. the seafront: beach huts, palms, a beach ball ----------
+  function hut(g, x, z, stripeCol, roofCol, doorCol, ry = 0){
+    const h = new THREE.Group(); h.position.set(x, top, z); h.rotation.y = ry; g.add(h);
+    const body = new THREE.BoxGeometry(0.82, 1.0, 0.78); body.translate(0, 0.5, 0);
+    mesh(body, toon(null, stripes(C.paper, stripeCol, 4)), h);
+    const tri = new THREE.Shape(); tri.moveTo(-0.52, 0); tri.lineTo(0.52, 0); tri.lineTo(0, 0.46); tri.closePath();
+    const roof = new THREE.ExtrudeGeometry(tri, { depth: 0.94, bevelEnabled: false }); roof.translate(0, 1.0, -0.47);
+    mesh(roof, toon(roofCol), h);
+    mesh(new THREE.BoxGeometry(0.3, 0.56, 0.04), toon(doorCol), h, [0, 0.3, 0.4], 0);
+    return h;
+  }
+  function palm(g, x, z, lean = 0.2, hgt = 6, ry = 0){
+    const p = new THREE.Group(); p.position.set(x, top, z); p.rotation.y = ry; g.add(p);
+    let px = 0, py = 0;
+    for (let i = 0; i < hgt; i++) {
+      const seg = mesh(new THREE.CylinderGeometry(0.085 - i * 0.004, 0.1 - i * 0.004, 0.34, 10), toon(C.sand), p, [px, py + 0.17, 0], 0.035);
+      seg.rotation.z = -lean * (i / hgt) * 0.8;
+      px += Math.sin(lean * (i / hgt) * 0.8) * 0.34; py += 0.32;
+    }
+    const crown = new THREE.Group(); crown.position.set(px, py + 0.05, 0); p.add(crown);
+    for (let i = 0; i < 7; i++) {
+      const arm = new THREE.Group(); arm.rotation.y = i / 7 * Math.PI * 2 + 0.3; crown.add(arm);
+      const leaf = mesh(new THREE.SphereGeometry(1, 12, 8), toon(C.teal), arm, [0.42, -0.08, 0], 0);
+      leaf.scale.set(0.5, 0.06, 0.17); leaf.rotation.z = -0.45; outline(leaf, 0.03);
+    }
+    for (let i = 0; i < 3; i++) mesh(new THREE.SphereGeometry(0.07, 10, 8), toon(C.burg), crown, [Math.cos(i * 2.1) * 0.1, -0.1, Math.sin(i * 2.1) * 0.1], 0.02);
+    anim.push(t => { crown.rotation.z = Math.sin(t * 1.3 + x) * 0.06; crown.rotation.x = Math.cos(t * 1.1 + z) * 0.04; });
+    return p;
+  }
+  const sea = makeWorld(0);
+  patch(sea, C.sand);
+  hut(sea, -1.35, 3.55, C.coral, C.burg, C.ink, 0.28);
+  hut(sea, -0.45, 3.3, C.teal, C.ink, C.burg, 0.09);
+  hut(sea, 0.45, 3.3, C.yellow, C.coral, C.ink, -0.09);
+  hut(sea, 1.35, 3.55, C.burg, C.teal, C.ink, -0.28);
+  palm(sea, -1.85, 5.0, 0.35, 6);
+  palm(sea, 1.95, 4.75, -0.3, 7);
+  palm(sea, 0.05, 2.6, 0.15, 8);
+  const ballTex = canvasTex(256, 128, (g, w, h) => { const cols = [C.coral, C.paper, C.teal, C.paper, C.yellow, C.paper]; cols.forEach((c, i) => { g.fillStyle = c; g.fillRect(i * w / 6, 0, w / 6 + 1, h); }); });
+  const ball = mesh(new THREE.SphereGeometry(0.2, 20, 14), toon(null, ballTex), sea, [0.7, top + 0.2, 5.35], 0.03);
+  anim.push(t => { ball.position.y = top + 0.2 + Math.abs(Math.sin(t * 2.4)) * 0.18; ball.rotation.y = t; });
+
+  // ---------- 2. the bandstand: nine players and a mic ----------
+  const stand = makeWorld(Math.PI / 2);
+  const baseGeo = new THREE.CylinderGeometry(1.6, 1.68, 0.34, 8);
+  const base = new THREE.Mesh(baseGeo, [toon(C.burg), toon(C.paper), toon(C.burg)]);
+  base.position.set(0, 0.47, 4.2); stand.add(base); outline(base, 0.045);
+  const deck = 0.64;
+  for (let i = 0; i < 8; i++) {
+    const a = (i + 0.5) / 8 * Math.PI * 2;
+    mesh(new THREE.CylinderGeometry(0.045, 0.045, 1.85, 8), toon(C.paper), stand, [Math.sin(a) * 1.45, deck + 0.92, 4.2 + Math.cos(a) * 1.45], 0.025);
+  }
+  const roof = mesh(new THREE.ConeGeometry(1.85, 0.85, 8, 1), toon(null, stripes(C.paper, C.coral, 8)), stand, [0, deck + 1.85 + 0.42, 4.2]);
+  roof.rotation.y = Math.PI / 8;
+  mesh(new THREE.SphereGeometry(0.13, 12, 10), toon(C.yellow), stand, [0, deck + 2.75, 4.2], 0.03);
+
+  const players = [];
+  function player(x, z, suit, hornDir){
+    const p = new THREE.Group(); p.position.set(x, deck, 4.2 + z); stand.add(p);
+    const body = new THREE.CapsuleGeometry(0.13, 0.3, 4, 10); body.translate(0, 0.28, 0);
+    mesh(body, toon(suit), p, null, 0.028);
+    mesh(new THREE.SphereGeometry(0.11, 14, 10), toon('#F4D9B8'), p, [0, 0.62, 0], 0.025);
+    mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.02, 16), toon(C.ink), p, [0, 0.69, 0], 0);
+    mesh(new THREE.CylinderGeometry(0.085, 0.095, 0.08, 16), toon(C.ink), p, [0, 0.74, 0], 0);
+    if (hornDir) {
+      const horn = mesh(new THREE.ConeGeometry(0.07, 0.3, 12, 1, true), toon(C.yellow), p, [0.05, 0.47, 0.18], 0.02);
+      horn.rotation.x = Math.PI / 2 + hornDir; horn.material.side = THREE.DoubleSide;
+    }
+    players.push(p);
+    return p;
+  }
+  // back row: drums (behind a kit), keys, guitar, bass
+  player(0, -1.0, C.burg);
+  const kit = mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.2, 18), toon(null, stripes(C.paper, C.burg, 1, false)), stand, [0, deck + 0.24, 4.2 - 0.72], 0.025);
+  kit.rotation.x = Math.PI / 2;
+  player(-0.95, -0.5, C.burg);
+  mesh(new THREE.BoxGeometry(0.5, 0.1, 0.22), toon(C.ink), stand, [-0.95, deck + 0.42, 4.2 - 0.25], 0.02);
+  player(0.95, -0.5, C.burg);
+  player(-0.45, -0.45, C.burg);
+  player(0.45, -0.45, C.burg);
+  // horns: trumpet, trombone, two tenors
+  player(-1.0, 0.25, C.burg, -0.35);
+  player(-0.35, 0.3, C.burg, -0.2);
+  player(0.35, 0.3, C.burg, 0.2);
+  player(1.0, 0.25, C.burg, 0.35);
+  // Glyn, front and centre, at the mic
+  const glyn = player(0, 0.95, C.coral);
+  const mic = new THREE.Group(); mic.position.set(0, deck, 4.2 + 1.3); stand.add(mic);
+  mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.03, 16), toon(C.ink), mic, [0, 0.015, 0], 0);
+  mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.62, 8), toon(C.ink), mic, [0, 0.33, 0], 0);
+  mesh(new THREE.SphereGeometry(0.06, 12, 10), toon('#C9C2B4'), mic, [0, 0.66, -0.04], 0.02);
+  anim.push(t => {
+    // a little skank on the offbeat
+    players.forEach((p, i) => { const s = Math.sin(t * 5.2 + (i % 2) * Math.PI); p.position.y = deck + Math.max(0, s) * 0.05; p.rotation.z = Math.sin(t * 2.6 + i) * 0.05; });
+  });
+
+  // ---------- 3. the festival field: tents, speakers, bunting ----------
+  const fest = makeWorld(Math.PI);
+  patch(fest, C.yellow);
+  function tent(x, z, s, c1, flag){
+    const t = new THREE.Group(); t.position.set(x, top, z); t.scale.setScalar(1); fest.add(t);
+    mesh(new THREE.CylinderGeometry(0.95 * s, 0.95 * s, 0.72 * s, 20), toon(null, stripes(C.paper, c1, 6)), t, [0, 0.36 * s, 0]);
+    mesh(new THREE.ConeGeometry(1.12 * s, 0.95 * s, 20), toon(null, stripes(c1, C.paper, 6)), t, [0, 0.72 * s + 0.47 * s, 0]);
+    mesh(new THREE.BoxGeometry(0.36 * s, 0.5 * s, 0.05), toon(C.ink), t, [0, 0.25 * s, 0.93 * s], 0);
+    mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.5, 8), toon(C.ink), t, [0, 1.65 * s + 0.2, 0], 0);
+    const tri = new THREE.Shape(); tri.moveTo(0, 0); tri.lineTo(0.42, -0.12); tri.lineTo(0, -0.24); tri.closePath();
+    const f = mesh(new THREE.ExtrudeGeometry(tri, { depth: 0.03, bevelEnabled: false }), toon(flag), t, [0.02, 1.65 * s + 0.44, 0], 0.02);
+    anim.push(tt => { f.rotation.y = Math.sin(tt * 3 + x) * 0.35; });
+  }
+  tent(-0.35, 3.25, 1.1, C.coral, C.burg);
+  tent(-1.55, 5.0, 0.72, C.teal, C.coral);
+  // speaker stack
+  const stack = new THREE.Group(); stack.position.set(1.45, top, 4.85); stack.rotation.y = -0.25; fest.add(stack);
+  for (let r = 0; r < 2; r++) for (let c = 0; c < 2; c++) {
+    mesh(new THREE.BoxGeometry(0.52, 0.52, 0.5), toon(C.ink), stack, [c * 0.54 - 0.27, r * 0.54 + 0.26, 0], 0.03);
+    const cone = mesh(new THREE.CylinderGeometry(0.17, 0.17, 0.04, 20), toon(C.paper), stack, [c * 0.54 - 0.27, r * 0.54 + 0.24, 0.26], 0);
+    cone.rotation.x = Math.PI / 2;
+    const dust = mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.05, 14), toon(C.ink), stack, [c * 0.54 - 0.27, r * 0.54 + 0.24, 0.28], 0);
+    dust.rotation.x = Math.PI / 2;
+  }
+  // bunting between two poles
+  const poleA = new THREE.Vector3(-2.1, top, 3.6), poleB = new THREE.Vector3(1.75, top, 3.2);
+  [poleA, poleB].forEach(p => mesh(new THREE.CylinderGeometry(0.035, 0.035, 1.9, 8), toon(C.ink), fest, [p.x, p.y + 0.95, p.z], 0));
+  const flagCols = [C.coral, C.teal, C.burg, C.paper];
+  const bunting = new THREE.Group(); fest.add(bunting);
+  const pts = [];
+  for (let i = 0; i <= 16; i++) { const t = i / 16; const p = poleA.clone().lerp(poleB, t); p.y += 1.85 - Math.sin(t * Math.PI) * 0.42; pts.push(p); }
+  bunting.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({ color: C.ink })));
+  for (let i = 1; i < 16; i += 1.5) {
+    const p = pts[Math.round(i)];
+    const tri = new THREE.Shape(); tri.moveTo(-0.11, 0); tri.lineTo(0.11, 0); tri.lineTo(0, -0.24); tri.closePath();
+    const fl = mesh(new THREE.ExtrudeGeometry(tri, { depth: 0.02, bevelEnabled: false }), toon(flagCols[Math.round(i) % 4]), bunting, [p.x, p.y, p.z], 0.015);
+    fl.rotation.y = Math.atan2(poleB.z - poleA.z, poleB.x - poleA.x) * -1;
+    anim.push(tt => { fl.rotation.x = Math.sin(tt * 3.4 + i) * 0.25; });
+  }
+
+  // ---------- 4. the lighthouse: rocks, sea, a little boat ----------
+  const light = makeWorld(Math.PI * 1.5);
+  patch(light, C.teal);
+  const rocks = [[0.2, 3.45, 0.62], [0.9, 3.9, 0.44], [-0.45, 3.95, 0.4], [0.55, 4.55, 0.32], [-0.1, 2.85, 0.34]];
+  rocks.forEach(([x, z, r], i) => { const rk = mesh(new THREE.DodecahedronGeometry(r, 0), toon(C.stone), light, [x, top + r * 0.45, z], 0.035); rk.rotation.set(i, i * 2, 0); });
+  const lh = new THREE.Group(); lh.position.set(0.25, top + 0.5, 3.55); light.add(lh);
+  mesh(new THREE.CylinderGeometry(0.42, 0.62, 2.5, 24), toon(null, stripes(C.paper, C.burg, 3, false)), lh, [0, 1.25, 0]);
+  mesh(new THREE.CylinderGeometry(0.62, 0.62, 0.1, 24), toon(C.ink), lh, [0, 2.55, 0], 0);
+  const lamp = mesh(new THREE.CylinderGeometry(0.34, 0.34, 0.46, 20), new THREE.MeshBasicMaterial({ color: C.yellow }), lh, [0, 2.83, 0], 0.03);
+  mesh(new THREE.ConeGeometry(0.5, 0.48, 20), toon(C.burg), lh, [0, 3.3, 0]);
+  mesh(new THREE.SphereGeometry(0.08, 10, 8), toon(C.ink), lh, [0, 3.57, 0], 0);
+  const beamPivot = new THREE.Group(); beamPivot.position.set(0, 2.83, 0); lh.add(beamPivot);
+  const beamGeo = new THREE.ConeGeometry(0.42, 2.6, 24, 1, true); beamGeo.translate(0, -1.3, 0); beamGeo.rotateZ(Math.PI / 2);
+  const beam = new THREE.Mesh(beamGeo, new THREE.MeshBasicMaterial({ color: C.yellow, transparent: true, opacity: 0.2, depthWrite: false, side: THREE.DoubleSide }));
+  beamPivot.add(beam);
+  anim.push(t => { beamPivot.rotation.y = t * 0.9; });
+  const boat = new THREE.Group(); boat.position.set(-1.15, top + 0.04, 5.05); boat.rotation.y = 0.6; light.add(boat);
+  const hullShape = new THREE.Shape(); hullShape.moveTo(-0.5, 0.18); hullShape.lineTo(0.5, 0.18); hullShape.lineTo(0.36, 0); hullShape.lineTo(-0.36, 0); hullShape.closePath();
+  const hullGeo = new THREE.ExtrudeGeometry(hullShape, { depth: 0.34, bevelEnabled: false }); hullGeo.translate(0, 0, -0.17);
+  mesh(hullGeo, toon(C.coral), boat, null, 0.03);
+  mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.8, 6), toon(C.ink), boat, [0, 0.58, 0], 0);
+  const sail = new THREE.Shape(); sail.moveTo(0, 0); sail.lineTo(0.42, 0); sail.lineTo(0, 0.62); sail.closePath();
+  mesh(new THREE.ExtrudeGeometry(sail, { depth: 0.02, bevelEnabled: false }), toon(C.paper), boat, [0.03, 0.26, 0], 0.025);
+  anim.push(t => { boat.position.y = top + 0.04 + Math.sin(t * 1.8) * 0.03; boat.rotation.z = Math.sin(t * 1.4) * 0.06; });
+  // two gulls
+  const gulls = [];
+  for (let i = 0; i < 2; i++) {
+    const gl = new THREE.Group(); light.add(gl); gulls.push(gl);
+    [-1, 1].forEach(sd => { const w = mesh(new THREE.BoxGeometry(0.26, 0.025, 0.08), toon(C.paper), gl, [sd * 0.12, 0, 0], 0.018); w.rotation.z = sd * 0.35; });
+  }
+  anim.push(t => gulls.forEach((gl, i) => { gl.position.set(-0.6 + i * 0.9 + Math.sin(t * .5 + i) * 0.3, 3.1 + i * 0.4 + Math.sin(t * 1.6 + i) * 0.1, 4.4 + i * 0.4); gl.rotation.y = t * .3 + i; }));
+
+  // ---------- scroll choreography ----------
+  // rot: record angle (worlds face the camera when rot = -phi). cam: camera position. side: which side the scene sits on (desktop; bigger for wide panels).
+  const P = Math.PI;
+  const CFG = {
+    'seafront':        { rot: 0,        cam: [0, 14.5, 30],   look: [0, 0.9, 0.6],  side: 1 },
+    'bandstand':       { rot: -P / 2,   cam: [0, 14.5, 30],   look: [0, 0.9, 0.6],  side: -1 },
+    'bandstand-close': { rot: -P / 2,   cam: [0, 5.0, 14.5],  look: [0, 1.15, 3.9], side: 1 },
+    'label':           { rot: -P,       cam: [0, 31, 4.4],    look: [0, 0, 0.3],    side: -1 },
+    'festival':        { rot: -P,       cam: [0, 14.8, 31],   look: [0, 1.0, 0.7],  side: 1.18 },
+    'lighthouse':      { rot: -P * 1.5, cam: [0, 14.4, 31],   look: [0, 1.4, 0.7],  side: -1.05 },
+    'town':            { rot: -P * 2,   cam: [0, 17, 33],     look: [0, 0.6, 0],    side: 1.25 }
+  };
+  const sections = [...document.querySelectorAll('[data-world]')];
+  const cfgs = sections.map(s => CFG[s.dataset.world]);
+  let tops = [];
+  function measure(){ tops = sections.map(s => s.getBoundingClientRect().top + scrollY); }
+  const sm = x => x * x * (3 - 2 * x);
+  const target = { rot: 0, cam: new THREE.Vector3(), look: new THREE.Vector3(), side: 1 };
+  function computeTarget(){
+    const vh = innerHeight, y = scrollY;
+    let f = 0;
+    for (let i = 1; i < tops.length; i++) f += sm(Math.min(1, Math.max(0, (y + vh * 0.62 - tops[i]) / (vh * 0.55))));
+    const i0 = Math.min(cfgs.length - 1, Math.floor(f)), i1 = Math.min(cfgs.length - 1, i0 + 1), k = f - i0;
+    const a = cfgs[i0], b = cfgs[i1];
+    target.rot = a.rot + (b.rot - a.rot) * k;
+    target.cam.set(...a.cam).lerp(new THREE.Vector3(...b.cam), k);
+    target.look.set(...a.look).lerp(new THREE.Vector3(...b.look), k);
+    target.side = a.side + (b.side - a.side) * k;
+  }
+  const cur = { rot: 0, cam: new THREE.Vector3(...cfgs[0].cam), look: new THREE.Vector3(...cfgs[0].look), side: cfgs[0].side };
+
+  let W = 1, H = 1, mobile = false;
+  function resize(){
+    W = innerWidth; H = innerHeight; mobile = W <= 760;
+    renderer.setSize(W, H, false);
+    camera.aspect = W / H; camera.updateProjectionMatrix();
+    measure(); computeTarget();
+  }
+  addEventListener('resize', resize);
+  addEventListener('scroll', computeTarget, { passive: true });
+  resize();
+  Object.assign(cur, { rot: target.rot, side: target.side }); cur.cam.copy(target.cam); cur.look.copy(target.look);
+
+  const tmp = new THREE.Vector3();
+  const clock = new THREE.Clock();
+  let raf = 0;
+  function frame(){
+    raf = requestAnimationFrame(frame);
+    const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
+    const k = 1 - Math.exp(-dt * 3.2);
+    cur.rot += (target.rot - cur.rot) * k;
+    cur.cam.lerp(target.cam, k); cur.look.lerp(target.look, k);
+    cur.side += (target.side - cur.side) * k;
+
+    spin.rotation.y = cur.rot + Math.sin(t * 0.35) * 0.025;
+    world.position.y = Math.sin(t * 1.1) * 0.08;
+    world.rotation.x = Math.sin(t * 0.6) * 0.012;
+    anim.forEach(fn => fn(t));
+
+    // Narrow or portrait screens pull the camera back so the whole record fits.
+    const aspect = W / H;
+    const pull = Math.pow(Math.max(1, (mobile ? 0.98 : 1.7) / aspect), 0.9);
+    tmp.copy(cur.cam).sub(cur.look).multiplyScalar(pull).add(cur.look);
+    camera.position.copy(tmp);
+    camera.lookAt(cur.look);
+    if (mobile) camera.setViewOffset(W, H, 0, H * 0.16, W, H);
+    else camera.setViewOffset(W, H, -cur.side * W * 0.21, H * 0.02, W, H);
+
+    renderer.render(scene, camera);
+  }
+  root.classList.add('webgl');
+  frame();
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { cancelAnimationFrame(raf); raf = 0; }
+    else if (!raf) { clock.getDelta(); frame(); }
+  });
+  // Fonts or images can shift section positions after load.
+  addEventListener('load', () => { measure(); computeTarget(); });
+  if (document.fonts) document.fonts.ready.then(() => { measure(); computeTarget(); });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Simmertones · Site Concepts</title>
+<link rel="icon" href="../samples/boss-sounds/assets/roundel.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0b0b0b; --fg:#f4f1ea; --muted:#9a958b; --card:#161616; --line:#2a2a2a; --accent:#e2401e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:Inter,system-ui,sans-serif; line-height:1.5; }
+  main { max-width:1100px; margin:0 auto; padding:28px 16px 64px; }
+  .tabs { display:inline-flex; gap:4px; padding:4px; background:var(--card); border:1px solid var(--line); border-radius:999px; margin:0 0 36px; }
+  .tabs a { color:var(--muted); text-decoration:none; font-weight:600; font-size:.95rem; padding:8px 18px; border-radius:999px; transition:background .2s,color .2s; }
+  .tabs a:hover { color:var(--fg); }
+  .tabs a[aria-current="page"] { background:var(--fg); color:var(--bg); }
+  .tabs a:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  h1 { font-size:clamp(2rem,6vw,3.5rem); font-weight:800; margin:0 0 8px; letter-spacing:-.02em; }
+  h1 span { color:var(--accent); }
+  p.lead { color:var(--muted); max-width:62ch; margin:0 0 36px; }
+  h2.group { font-size:clamp(1.4rem,3.6vw,2rem); font-weight:800; letter-spacing:-.01em; margin:56px 0 6px; }
+  h2.group:first-of-type { margin-top:8px; }
+  h2.group + p.lead { margin-bottom:24px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr)); gap:16px; }
+  a.card { display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:24px; color:inherit; text-decoration:none; transition:transform .2s, border-color .2s; }
+  a.card:hover, a.card:focus-visible { transform:translateY(-3px); border-color:var(--accent); outline:none; }
+  .tag { font-size:.75rem; text-transform:uppercase; letter-spacing:.12em; color:var(--accent); font-weight:600; }
+  .card h3 { margin:6px 0 8px; font-size:1.4rem; }
+  .card p { margin:0 0 14px; color:var(--muted); font-size:.95rem; }
+  .shots { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:4px; }
+  .shots figure { margin:0; position:relative; border-radius:8px; overflow:hidden; border:1px solid var(--line); background:#000; }
+  .shots .s1 { grid-column:1 / -1; }
+  .shots img { display:block; width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; transition:transform .4s; }
+  a.card:hover .shots img { transform:scale(1.03); }
+  .shots figcaption { position:absolute; left:6px; bottom:6px; font-size:.68rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; background:#000c; color:#fff; padding:2px 7px; border-radius:4px; }
+  footer { margin-top:48px; color:var(--muted); font-size:.85rem; }
+  @media (prefers-reduced-motion:reduce){ a.card,.shots img,.tabs a{transition:none;} }
+</style>
+</head>
+<body>
+<main>
+  <nav class="tabs" aria-label="Concept sets"><a href="../">Combined</a><a href="../simmertones/" aria-current="page">Simmertones</a></nav>
+  <h1>The Simmertones <span>·</span> band sites</h1>
+  <p class="lead">Six concepts for the nine-piece Torbay ska band Glyn fronts. All of them use the research of 24 November 2026: the named line-up, the full <i>Ten Feet Tall</i> tracklist, and the confirmed live history.</p>
+  <h2 class="group">Modern restyles</h2>
+  <p class="lead">Three 2026 restyles. Each takes its technique from an award-winning artist site and keeps the ska heritage.</p>
+  <div class="grid">
+    <a class="card" href="two-tone/"><span class="tag">2026 · Editorial</span><h3>Two Tone</h3><p>Strict black and white. The band name crosses a checkerboard, inverting square by square, and stretches as you scroll.</p><div class="shots"><figure class="s1"><img src="../shots/simmertones-two-tone-1.jpg" alt="Two Tone: Hero section" width="640" height="400" loading="lazy"><figcaption>Hero</figcaption></figure><figure class="s2"><img src="../shots/simmertones-two-tone-2.jpg" alt="Two Tone: Line-up section" width="640" height="400" loading="lazy"><figcaption>Line-up</figcaption></figure><figure class="s3"><img src="../shots/simmertones-two-tone-3.jpg" alt="Two Tone: Press section" width="640" height="400" loading="lazy"><figcaption>Press</figcaption></figure></div></a>
+    <a class="card" href="toon-torbay/"><span class="tag">2026 · WebGL</span><h3>Toon Torbay</h3><p>A toon-shaded 3D Torbay of beach huts, a bandstand and a festival field, built on a spinning 7&quot; record that turns as you scroll.</p><div class="shots"><figure class="s1"><img src="../shots/simmertones-toon-torbay-1.jpg" alt="Toon Torbay: Hero section" width="640" height="400" loading="lazy"><figcaption>Hero</figcaption></figure><figure class="s2"><img src="../shots/simmertones-toon-torbay-2.jpg" alt="Toon Torbay: Line-up section" width="640" height="400" loading="lazy"><figcaption>Line-up</figcaption></figure><figure class="s3"><img src="../shots/simmertones-toon-torbay-3.jpg" alt="Toon Torbay: Records section" width="640" height="400" loading="lazy"><figcaption>Records</figcaption></figure></div></a>
+    <a class="card" href="windrush/"><span class="tag">2026 · Label shop</span><h3>Windrush</h3><p>The band&#x27;s own label as a premium record shop, with 3D records you can spin and a crate to collect them.</p><div class="shots"><figure class="s1"><img src="../shots/simmertones-windrush-1.jpg" alt="Windrush: Hero section" width="640" height="400" loading="lazy"><figcaption>Hero</figcaption></figure><figure class="s2"><img src="../shots/simmertones-windrush-2.jpg" alt="Windrush: Catalogue section" width="640" height="400" loading="lazy"><figcaption>Catalogue</figcaption></figure><figure class="s3"><img src="../shots/simmertones-windrush-3.jpg" alt="Windrush: The band section" width="640" height="400" loading="lazy"><figcaption>The band</figcaption></figure></div></a>
+  </div>
+  <h2 class="group">First round</h2>
+  <p class="lead">The original three band concepts, updated with the new facts.</p>
+  <div class="grid">
+    <a class="card" href="something-for-the-weekend/"><span class="tag">On-brand</span><h3>Something for the Weekend</h3><p>A 1960s barbershop taken from their 2013 album cover, with gilt window lettering, a turning barber pole and a felt letterboard for gigs.</p><div class="shots"><figure class="s1"><img src="../shots/simmertones-something-for-the-weekend-1.jpg" alt="Something for the Weekend: Hero section" width="640" height="400" loading="lazy"><figcaption>Hero</figcaption></figure><figure class="s2"><img src="../shots/simmertones-something-for-the-weekend-2.jpg" alt="Something for the Weekend: The chairs section" width="640" height="400" loading="lazy"><figcaption>The chairs</figcaption></figure><figure class="s3"><img src="../shots/simmertones-something-for-the-weekend-3.jpg" alt="Something for the Weekend: What’s on section" width="640" height="400" loading="lazy"><figcaption>What’s on</figcaption></figure></div></a>
+    <a class="card" href="main-stage/"><span class="tag">Modern</span><h3>Main Stage</h3><p>A cobalt festival identity built for promoters, with a rider-style fact sheet, an interactive stage plot and a copy-ready bio.</p><div class="shots"><figure class="s1"><img src="../shots/simmertones-main-stage-1.jpg" alt="Main Stage: Hero section" width="640" height="400" loading="lazy"><figcaption>Hero</figcaption></figure><figure class="s2"><img src="../shots/simmertones-main-stage-2.jpg" alt="Main Stage: Stage plot section" width="640" height="400" loading="lazy"><figcaption>Stage plot</figcaption></figure><figure class="s3"><img src="../shots/simmertones-main-stage-3.jpg" alt="Main Stage: Records section" width="640" height="400" loading="lazy"><figcaption>Records</figcaption></figure></div></a>
+    <a class="card" href="master-tape/"><span class="tag">Craft</span><h3>Master Tape</h3><p>The band as a recording session: a nine-channel mixing desk, tape boxes with track sheets, and a take log.</p><div class="shots"><figure class="s1"><img src="../shots/simmertones-master-tape-1.jpg" alt="Master Tape: Hero section" width="640" height="400" loading="lazy"><figcaption>Hero</figcaption></figure><figure class="s2"><img src="../shots/simmertones-master-tape-2.jpg" alt="Master Tape: Tape shelf section" width="640" height="400" loading="lazy"><figcaption>Tape shelf</figcaption></figure><figure class="s3"><img src="../shots/simmertones-master-tape-3.jpg" alt="Master Tape: Take log section" width="640" height="400" loading="lazy"><figcaption>Take log</figcaption></figure></div></a>
+  </div>
+  <footer>Concept samples. Facts come from public sources; items marked [Placeholder] are not real data.</footer>
+</main>
+</body>
+</html>

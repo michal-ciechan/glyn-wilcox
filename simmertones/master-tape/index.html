@@ -196,6 +196,7 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
 .sheet-head dt{font:700 .64rem/1 var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--panel)}
 .sheet-head dd{padding:.2rem 0 .3rem;border-bottom:1px solid var(--rule);font:400 1.15rem/1.2 var(--marker)}
 .tracks{list-style:none;margin:0;padding:0}
+.airplay-note{margin-top:clamp(1.75rem,4vw,2.5rem)}
 .tracks li{display:grid;grid-template-columns:2.6rem minmax(0,1fr) auto;gap:.75rem;align-items:baseline;padding:.55rem 1.25rem;border-bottom:1px solid var(--rule)}
 .tracks .no{font:700 .9rem/1 var(--cond);color:var(--panel)}
 .tracks .tt{font:400 1.12rem/1.25 var(--marker)}
@@ -371,61 +372,61 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
             <div class="fader"><input type="range" min="0" max="100" value="82" data-target="82" aria-label="Channel 1 fader, Glyn Wilcox, vocals"></div>
             <p class="tape-label" id="l1" style="--tilt:-2deg"><span>Vox</span><span>Glyn</span></p>
           </div>
-          <div class="strip" role="group" aria-labelledby="l2" data-ch="2" data-role="Trumpet">
+          <div class="strip" role="group" aria-labelledby="l2" data-ch="2" data-role="Trumpet" data-name="Sam Massey">
             <span class="ch" aria-hidden="true">2</span>
             <div class="pots" aria-hidden="true"><span class="pot red" data-l="GAIN" style="--a:-40deg"></span><span class="pot" data-l="EQ" style="--a:-8deg"></span></div>
-            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 2, trumpet">Solo</button>
-            <div class="fader"><input type="range" min="0" max="100" value="74" data-target="74" aria-label="Channel 2 fader, trumpet"></div>
-            <p class="tape-label" id="l2" style="--tilt:1.5deg"><span>Tpt</span><span>[name]</span></p>
+            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 2, Sam Massey, trumpet">Solo</button>
+            <div class="fader"><input type="range" min="0" max="100" value="74" data-target="74" aria-label="Channel 2 fader, Sam Massey, trumpet"></div>
+            <p class="tape-label" id="l2" style="--tilt:1.5deg"><span>Tpt</span><span>Sam M.</span></p>
           </div>
-          <div class="strip" role="group" aria-labelledby="l3" data-ch="3" data-role="Trombone">
+          <div class="strip" role="group" aria-labelledby="l3" data-ch="3" data-role="Trombone" data-name="Sam Smith">
             <span class="ch" aria-hidden="true">3</span>
             <div class="pots" aria-hidden="true"><span class="pot red" data-l="GAIN" style="--a:-18deg"></span><span class="pot" data-l="EQ" style="--a:34deg"></span></div>
-            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 3, trombone">Solo</button>
-            <div class="fader"><input type="range" min="0" max="100" value="70" data-target="70" aria-label="Channel 3 fader, trombone"></div>
-            <p class="tape-label" id="l3" style="--tilt:-1deg"><span>Tbn</span><span>[name]</span></p>
+            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 3, Sam Smith, trombone">Solo</button>
+            <div class="fader"><input type="range" min="0" max="100" value="70" data-target="70" aria-label="Channel 3 fader, Sam Smith, trombone"></div>
+            <p class="tape-label" id="l3" style="--tilt:-1deg"><span>Tbn</span><span>Sam S.</span></p>
           </div>
-          <div class="strip" role="group" aria-labelledby="l4" data-ch="4" data-role="Tenor sax">
+          <div class="strip" role="group" aria-labelledby="l4" data-ch="4" data-role="Tenor sax" data-name="Keith Waller">
             <span class="ch" aria-hidden="true">4</span>
             <div class="pots" aria-hidden="true"><span class="pot red" data-l="GAIN" style="--a:-34deg"></span><span class="pot" data-l="EQ" style="--a:12deg"></span></div>
-            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 4, tenor sax">Solo</button>
-            <div class="fader"><input type="range" min="0" max="100" value="72" data-target="72" aria-label="Channel 4 fader, tenor sax"></div>
-            <p class="tape-label" id="l4" style="--tilt:2deg"><span>Tenor</span><span>[name]</span></p>
+            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 4, Keith Waller, tenor sax">Solo</button>
+            <div class="fader"><input type="range" min="0" max="100" value="72" data-target="72" aria-label="Channel 4 fader, Keith Waller, tenor sax"></div>
+            <p class="tape-label" id="l4" style="--tilt:2deg"><span>Tenor</span><span>Keith</span></p>
           </div>
-          <div class="strip" role="group" aria-labelledby="l5" data-ch="5" data-role="Keys and organ">
+          <div class="strip" role="group" aria-labelledby="l5" data-ch="5" data-role="Tenor sax" data-name="Jade Gall">
             <span class="ch" aria-hidden="true">5</span>
             <div class="pots" aria-hidden="true"><span class="pot red" data-l="GAIN" style="--a:-12deg"></span><span class="pot" data-l="EQ" style="--a:-30deg"></span></div>
-            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 5, keys and organ">Solo</button>
-            <div class="fader"><input type="range" min="0" max="100" value="64" data-target="64" aria-label="Channel 5 fader, keys and organ"></div>
-            <p class="tape-label" id="l5" style="--tilt:-1.5deg"><span>Keys</span><span>[name]</span></p>
+            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 5, Jade Gall, tenor sax">Solo</button>
+            <div class="fader"><input type="range" min="0" max="100" value="64" data-target="64" aria-label="Channel 5 fader, Jade Gall, tenor sax"></div>
+            <p class="tape-label" id="l5" style="--tilt:-1.5deg"><span>Tenor 2</span><span>Jade</span></p>
           </div>
-          <div class="strip" role="group" aria-labelledby="l6" data-ch="6" data-role="Guitar">
+          <div class="strip" role="group" aria-labelledby="l6" data-ch="6" data-role="Keys" data-name="Pete Morris">
             <span class="ch" aria-hidden="true">6</span>
             <div class="pots" aria-hidden="true"><span class="pot red" data-l="GAIN" style="--a:-46deg"></span><span class="pot" data-l="EQ" style="--a:40deg"></span></div>
-            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 6, guitar">Solo</button>
-            <div class="fader"><input type="range" min="0" max="100" value="60" data-target="60" aria-label="Channel 6 fader, guitar"></div>
-            <p class="tape-label" id="l6" style="--tilt:1deg"><span>Gtr</span><span>[name]</span></p>
+            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 6, Pete Morris, keys">Solo</button>
+            <div class="fader"><input type="range" min="0" max="100" value="60" data-target="60" aria-label="Channel 6 fader, Pete Morris, keys"></div>
+            <p class="tape-label" id="l6" style="--tilt:1deg"><span>Keys</span><span>Pete</span></p>
           </div>
-          <div class="strip" role="group" aria-labelledby="l7" data-ch="7" data-role="Bass">
+          <div class="strip" role="group" aria-labelledby="l7" data-ch="7" data-role="Guitar" data-name="Martin Vowles">
             <span class="ch" aria-hidden="true">7</span>
             <div class="pots" aria-hidden="true"><span class="pot red" data-l="GAIN" style="--a:-22deg"></span><span class="pot" data-l="EQ" style="--a:-44deg"></span></div>
-            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 7, bass">Solo</button>
-            <div class="fader"><input type="range" min="0" max="100" value="78" data-target="78" aria-label="Channel 7 fader, bass"></div>
-            <p class="tape-label" id="l7" style="--tilt:-2.5deg"><span>Bass</span><span>[name]</span></p>
+            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 7, Martin Vowles, guitar">Solo</button>
+            <div class="fader"><input type="range" min="0" max="100" value="78" data-target="78" aria-label="Channel 7 fader, Martin Vowles, guitar"></div>
+            <p class="tape-label" id="l7" style="--tilt:-2.5deg"><span>Gtr</span><span>Martin</span></p>
           </div>
-          <div class="strip" role="group" aria-labelledby="l8" data-ch="8" data-role="Drums">
+          <div class="strip" role="group" aria-labelledby="l8" data-ch="8" data-role="Bass" data-name="Del “Del Boy” Anning">
             <span class="ch" aria-hidden="true">8</span>
             <div class="pots" aria-hidden="true"><span class="pot red" data-l="GAIN" style="--a:-36deg"></span><span class="pot" data-l="EQ" style="--a:6deg"></span></div>
-            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 8, drums">Solo</button>
-            <div class="fader"><input type="range" min="0" max="100" value="76" data-target="76" aria-label="Channel 8 fader, drums"></div>
-            <p class="tape-label" id="l8" style="--tilt:1.5deg"><span>Drums</span><span>[name]</span></p>
+            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 8, Del “Del Boy” Anning, bass">Solo</button>
+            <div class="fader"><input type="range" min="0" max="100" value="76" data-target="76" aria-label="Channel 8 fader, Del “Del Boy” Anning, bass"></div>
+            <p class="tape-label" id="l8" style="--tilt:1.5deg"><span>Bass</span><span>Del</span></p>
           </div>
-          <div class="strip" role="group" aria-labelledby="l9" data-ch="9" data-role="Percussion">
+          <div class="strip" role="group" aria-labelledby="l9" data-ch="9" data-role="Drums" data-name="Rob “Big Rob” Murphy">
             <span class="ch" aria-hidden="true">9</span>
             <div class="pots" aria-hidden="true"><span class="pot red" data-l="GAIN" style="--a:-8deg"></span><span class="pot" data-l="EQ" style="--a:26deg"></span></div>
-            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 9, percussion">Solo</button>
-            <div class="fader"><input type="range" min="0" max="100" value="58" data-target="58" aria-label="Channel 9 fader, percussion"></div>
-            <p class="tape-label" id="l9" style="--tilt:-1deg"><span>Perc</span><span>[name]</span></p>
+            <button class="solo" type="button" aria-pressed="false" aria-controls="m-other" aria-label="Solo channel 9, Rob “Big Rob” Murphy, drums">Solo</button>
+            <div class="fader"><input type="range" min="0" max="100" value="58" data-target="58" aria-label="Channel 9 fader, Rob “Big Rob” Murphy, drums"></div>
+            <p class="tape-label" id="l9" style="--tilt:-1deg"><span>Drums</span><span>Big Rob</span></p>
           </div>
         </div>
       </div>
@@ -446,14 +447,14 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
             <div class="slot" aria-hidden="true">[Player photo placeholder]</div>
             <div>
               <p class="chno">Channel <span data-f="ch">2</span></p>
-              <h3><span class="ph">[Name placeholder]</span></h3>
-              <p class="role"><span data-f="role">Trumpet</span> (example role)</p>
-              <p class="more"><span class="ph">[Placeholder: a line about the player]</span></p>
+              <h3 data-f="name">Sam Massey</h3>
+              <p class="role" data-f="role">Trumpet</p>
+              <p class="more">In the line-up as last published, around 2016–17. <span class="ph">[Placeholder: confirm, and add a line about the player]</span></p>
             </div>
           </div>
         </div>
         <div>
-          <p class="legend-note"><strong>Channel 1 is Glyn.</strong> Channels 2 to 9 show an example nine-piece line-up, so their names and instruments are placeholders. The faders are real, so push them about.</p>
+          <p class="legend-note"><strong>Channel 1 is Glyn.</strong> Channels 2 to 9 are the line-up as last published, around 2016–17, so check it with the band. The faders are real, so push them about.</p>
           <p class="swipe">Swipe the desk to see all nine channels</p>
         </div>
       </div>
@@ -470,13 +471,15 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
         <header><span class="printed">Session notes</span><span class="printed">Sheet 1 of 1</span></header>
         <div class="notes-body">
           <p>The Simmertones are a nine-piece ska band from Torbay in South Devon, and they've been playing since about 2007. Their sets mix original songs with classic ska, rocksteady and reggae covers. The horns sit up front, and Glyn Wilcox sings and toasts.</p>
-          <p>Their cover of the <i>Doctor Who</i> theme was played on BBC Radio 1, Radio 2 and 6 Music. They've played Bestival, Camp Bestival, Looe Music Festival, the London International Ska Festival, Respect Festival in Plymouth and Kingsbridge Music Fest, and in 2018 they supported Madness at the House of Fun Weekender.</p>
-          <p>There are four records so far, from the 2009 mini-album <i>Presenting The Simmertones, Volume 1</i> to <i>Ten Feet Tall</i> in 2019.</p>
+          <p>They've played Bestival, Boomtown Fair, Looe Music Festival, the London International Ska Festival and Respect Festival in Exeter, and Madness's House of Fun Weekender in 2016 and 2018. The band says the 2011 EP was played on BBC Radio 2 and 6 Music.</p>
+          <p>There are four records and four singles so far, from the 2009 mini-album <i>Presenting The Simmertones, Volume 1</i> to <i>Ten Feet Tall</i> in 2019, mostly on their own label, Windrush Recordings.</p>
+          <p>Earlier players include Jamie “Stretch” Watkin (guitar), Tom Crowe (keys), Ray Beavis (tenor sax) and Rich Mills (trumpet), who wrote the music for the EP's originals.</p>
         </div>
         <dl class="fields">
           <div><dt>Based</dt><dd>Torbay, South Devon</dd></div>
           <div><dt>Playing since</dt><dd>About 2007</dd></div>
           <div><dt>Line-up</dt><dd>Nine</dd></div>
+          <div><dt>Label</dt><dd>Windrush Recordings</dd></div>
         </dl>
       </article>
       <div class="contact-wrap">
@@ -500,7 +503,7 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
 <section class="sec sec--slate" id="records" aria-labelledby="records-h">
   <div class="wrap">
     <h2 class="tape-h" id="records-h"><span>Tape shelf</span></h2>
-    <p class="lede">Four records and a single. Pull a tape off the shelf to read its track sheet.</p>
+    <p class="lede">Four records and four singles. Pull a tape off the shelf to read its track sheet.</p>
     <ul class="shelf">
       <li><button class="box" type="button" aria-expanded="true" aria-controls="sheet-vol1">
         <span class="box-print"><span>Recording tape</span><span class="state" aria-hidden="true"></span></span>
@@ -528,8 +531,8 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
       </button></li>
       <li><button class="box small" type="button" aria-expanded="false" aria-controls="sheet-single">
         <span class="box-print"><span>Single</span><span class="state" aria-hidden="true"></span></span>
-        <span class="box-field"><span class="k">Title</span><span class="v">Perhaps Perhaps Perhaps</span></span>
-        <span class="box-field"><span class="k">Date</span><span class="v"><span class="ph">[Year]</span></span></span>
+        <span class="box-field"><span class="k">Title</span><span class="v">The singles</span></span>
+        <span class="box-field"><span class="k">Date</span><span class="v">2014–19</span></span>
         <span class="print blank" style="--r:-2deg">[Sleeve placeholder]</span>
       </button></li>
     </ul>
@@ -540,18 +543,18 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
           <h3>Track sheet</h3>
           <dl>
             <div><dt>Title</dt><dd>Presenting The Simmertones, Volume 1</dd></div>
-            <div><dt>Date</dt><dd>2009</dd></div>
+            <div><dt>Date</dt><dd>12 Nov 2009</dd></div>
             <div><dt>Format</dt><dd>Mini-album, seven tracks</dd></div>
-            <div><dt>Producer</dt><dd>With Richard Digby Smith</dd></div>
+            <div><dt>Label, cat. no.</dt><dd>Self-released, Windrush1</dd></div>
           </dl>
         </div>
         <ol class="tracks">
           <li><span class="no">–</span><span class="tt">One Time Soon</span><span class="tn">Original</span></li>
           <li><span class="no">–</span><span class="tt">Warm Your Bones</span><span class="tn">Original</span></li>
-          <li><span class="no">–</span><span class="tt">Sammy Dead</span><span class="tn">Cover</span></li>
+          <li><span class="no">–</span><span class="tt">Over The River</span><span class="tn">Justin Hinds &amp; the Dominoes cover</span></li>
+          <li><span class="no">–</span><span class="tt">Ball of Fire</span><span class="tn">The Skatalites cover</span></li>
+          <li><span class="no">–</span><span class="tt">Sammy Dead</span><span class="tn">Traditional</span></li>
           <li><span class="no">–</span><span class="tt"><i>Doctor Who</i> theme</span><span class="tn">Cover</span></li>
-          <li><span class="no">–</span><span class="tt"><span class="ph">[Justin Hinds cover: title placeholder]</span></span><span class="tn">Cover</span></li>
-          <li><span class="no">–</span><span class="tt"><span class="ph">[Skatalites cover: title placeholder]</span></span><span class="tn">Cover</span></li>
           <li><span class="no">7</span><span class="tt">Do What You Got To Do</span><span class="tn">Original, closing track</span></li>
         </ol>
         <div class="sheet-notes">
@@ -566,19 +569,19 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
           <dl>
             <div><dt>Title</dt><dd>Everything's Comin' Up Ska</dd></div>
             <div><dt>Date</dt><dd>2011</dd></div>
-            <div><dt>Format</dt><dd>EP, four tracks</dd></div>
-            <div><dt>Label</dt><dd>Self-released</dd></div>
+            <div><dt>Format</dt><dd>EP, four tracks, CD</dd></div>
+            <div><dt>Label</dt><dd>Windrush Recordings</dd></div>
           </dl>
         </div>
         <ol class="tracks">
-          <li><span class="no">1</span><span class="tt">Bring Your Love To Me</span><span class="tn">Original</span></li>
-          <li><span class="no">2</span><span class="tt">Blam Blam Fever</span><span class="tn">The Valentines cover</span></li>
-          <li><span class="no">3</span><span class="tt">King of Ska</span><span class="tn">Desmond Dekker cover</span></li>
-          <li><span class="no">4</span><span class="tt">A Little Time</span><span class="tn">Original</span></li>
+          <li><span class="no">1</span><span class="tt">Bring Your Love To Me</span><span class="tn">Original, 4:13</span></li>
+          <li><span class="no">2</span><span class="tt">Blam Blam Fever</span><span class="tn">The Valentines cover, 3:22</span></li>
+          <li><span class="no">3</span><span class="tt">King Of Ska</span><span class="tn">Desmond Dekker cover, 2:41</span></li>
+          <li><span class="no">4</span><span class="tt">A Little Time</span><span class="tn">Original, 3:28</span></li>
         </ol>
         <div class="sheet-notes">
           <span class="printed">Notes</span>
-          <span class="red">Two originals, two covers. Order as listed in ReadJunk's 2011 review.</span>
+          <span class="red">Engineered and co-produced by Richard Digby Smith at The Music Mill, Devon. Steve Cradock (Ocean Colour Scene) credited on guest lead guitar. Originals: music by Rich Mills with the band, words by Glyn Wilcox.</span>
         </div>
       </section>
 
@@ -587,28 +590,17 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
           <h3>Track sheet</h3>
           <dl>
             <div><dt>Title</dt><dd>Something for the Weekend?</dd></div>
-            <div><dt>Date</dt><dd>10 May 2013</dd></div>
-            <div><dt>Format</dt><dd>12-inch vinyl LP, twelve tracks</dd></div>
-            <div><dt>Label, cat. no.</dt><dd>Music Mill Records, MMTONES1</dd></div>
+            <div><dt>Date</dt><dd>2013</dd></div>
+            <div><dt>Format</dt><dd>Album</dd></div>
+            <div><dt>Label, cat. no.</dt><dd><span class="ph">[Placeholder]</span></dd></div>
           </dl>
         </div>
-        <ol class="tracks two">
-          <li><span class="no">1</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">2</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">3</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">4</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">5</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">6</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">7</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">8</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">9</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">10</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">11</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
-          <li><span class="no">12</span><span class="tt"><span class="ph">[Track title placeholder]</span></span></li>
+        <ol class="tracks">
+          <li><span class="no">–</span><span class="tt"><span class="ph">[Tracklist placeholder]</span></span></li>
         </ol>
         <div class="sheet-notes">
           <span class="printed">Notes</span>
-          <span class="red">The first full album. Track titles still to be filled in.</span>
+          <span class="red">The first full album. Label, catalogue number and track titles still to be confirmed.</span>
         </div>
       </section>
 
@@ -617,35 +609,50 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
           <h3>Track sheet</h3>
           <dl>
             <div><dt>Title</dt><dd>Ten Feet Tall</dd></div>
-            <div><dt>Date</dt><dd>2019</dd></div>
-            <div><dt>Format</dt><dd>Album</dd></div>
-            <div><dt>Label</dt><dd><span class="ph">[Placeholder]</span></dd></div>
+            <div><dt>Date</dt><dd>9 Aug 2019</dd></div>
+            <div><dt>Format</dt><dd>Album, thirteen tracks</dd></div>
+            <div><dt>Label</dt><dd>Windrush Recordings</dd></div>
           </dl>
         </div>
-        <ol class="tracks">
-          <li><span class="no">–</span><span class="tt"><span class="ph">[Tracklist placeholder]</span></span></li>
+        <ol class="tracks two">
+          <li><span class="no">1</span><span class="tt">El Gringo</span><span class="tn">3:43</span></li>
+          <li><span class="no">2</span><span class="tt">Travelling Man</span><span class="tn">2:49</span></li>
+          <li><span class="no">3</span><span class="tt">Silly Girl</span><span class="tn">3:11</span></li>
+          <li><span class="no">4</span><span class="tt">What I Need</span><span class="tn">3:37</span></li>
+          <li><span class="no">5</span><span class="tt">Missing You</span><span class="tn">3:42</span></li>
+          <li><span class="no">6</span><span class="tt">Bring It Down</span><span class="tn">3:55</span></li>
+          <li><span class="no">7</span><span class="tt">Fat Back (Tear It Up)</span><span class="tn">2:57</span></li>
+          <li><span class="no">8</span><span class="tt">Lullaby</span><span class="tn">2:57</span></li>
+          <li><span class="no">9</span><span class="tt">Stand Firm</span><span class="tn">2:54</span></li>
+          <li><span class="no">10</span><span class="tt">Down By the Shore</span><span class="tn">3:14</span></li>
+          <li><span class="no">11</span><span class="tt">Ten Feet Tall</span><span class="tn">3:16</span></li>
+          <li><span class="no">12</span><span class="tt">The Place That I Know</span><span class="tn">3:09</span></li>
+          <li><span class="no">13</span><span class="tt">Winter's Call</span><span class="tn">5:42</span></li>
         </ol>
         <div class="sheet-notes">
           <span class="printed">Notes</span>
-          <span class="red">The latest album. Tracklist to be confirmed with the band.</span>
+          <span class="red">The latest album. “Travelling Man” and “Winter's Call” came out as singles first. CD barcode 5060366787637.</span>
         </div>
       </section>
 
-      <section class="sheet" id="sheet-single" aria-label="Track sheet: Perhaps Perhaps Perhaps">
+      <section class="sheet" id="sheet-single" aria-label="Track sheet: the singles">
         <div class="sheet-head">
           <h3>Track sheet</h3>
           <dl>
-            <div><dt>Title</dt><dd>Perhaps Perhaps Perhaps</dd></div>
-            <div><dt>Date</dt><dd><span class="ph">[Year placeholder]</span></dd></div>
-            <div><dt>Format</dt><dd>Single</dd></div>
+            <div><dt>Title</dt><dd>The singles</dd></div>
+            <div><dt>Date</dt><dd>2014–19</dd></div>
+            <div><dt>Format</dt><dd>Four digital singles</dd></div>
           </dl>
         </div>
         <ol class="tracks">
-          <li><span class="no">1</span><span class="tt">Perhaps Perhaps Perhaps</span><span class="tn">2:28</span></li>
+          <li><span class="no">1</span><span class="tt">Perhaps Perhaps Perhaps</span><span class="tn">25 Aug 2014</span></li>
+          <li><span class="no">2</span><span class="tt">Run For Your Life</span><span class="tn">25 Mar 2016</span></li>
+          <li><span class="no">3</span><span class="tt">Travelling Man</span><span class="tn">18 May 2018</span></li>
+          <li><span class="no">4</span><span class="tt">Winter's Call</span><span class="tn">4 Jan 2019</span></li>
         </ol>
         <div class="sheet-notes">
           <span class="printed">Notes</span>
-          <span class="red">Listed on Last.fm. Release year to be confirmed.</span>
+          <span class="red">The last two went on to <i>Ten Feet Tall</i>. Release dates from Apple Music.</span>
         </div>
       </section>
     </div>
@@ -656,26 +663,35 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
 <section class="sec sec--board" id="live" aria-labelledby="live-h">
   <div class="wrap">
     <h2 class="tape-h" id="live-h"><span>Take log</span></h2>
-    <p class="lede">Every show goes in the log. These are the takes on record so far, and the next ones are waiting for a date.</p>
+    <p class="lede">Every show goes in the log. These are the takes on record so far, oldest first, and the next ones are waiting for a date.</p>
     <table class="log">
       <caption class="vh">Live shows, oldest first, with upcoming dates at the end</caption>
       <thead><tr><th scope="col">Take</th><th scope="col">Date</th><th scope="col">Where</th><th scope="col">Notes</th></tr></thead>
       <tbody>
-        <tr><td class="take">1</td><td class="when">Sat 28 Jan 2017</td><td class="where">Exeter Phoenix</td><td class="what">Headline show, 8pm, £8/£10/£12</td></tr>
-        <tr><td class="take">2</td><td class="when">2018</td><td class="where">House of Fun Weekender</td><td class="what">Supporting Madness</td></tr>
-        <tr><td class="take">3</td><td class="when">Sat 2 Feb 2019</td><td class="where">Exeter Phoenix</td><td class="what">With The Embezzlers and Skatatones</td></tr>
-        <tr><td class="take">4</td><td class="when">Sat 1 Feb 2020</td><td class="where">Exeter Phoenix</td><td class="what">With The Embezzlers and The Mighty Offbeats</td></tr>
-        <tr class="next"><td class="take">5</td><td class="when"><span class="ph">[Date placeholder]</span></td><td class="where"><span class="ph">[Venue placeholder]</span></td><td class="what"><span class="lamp">Upcoming</span></td></tr>
-        <tr class="next"><td class="take">6</td><td class="when"><span class="ph">[Date placeholder]</span></td><td class="where"><span class="ph">[Venue placeholder]</span></td><td class="what"><span class="lamp">Upcoming</span></td></tr>
+        <tr><td class="take">1</td><td class="when">30 Aug 2013</td><td class="where">The Fleece, Bristol</td><td class="what">With The Clunks</td></tr>
+        <tr><td class="take">2</td><td class="when">31 May 2014</td><td class="where">Respect Festival, Exeter</td><td class="what">Festival</td></tr>
+        <tr><td class="take">3</td><td class="when">16 Aug 2015</td><td class="where">Boomtown Fair</td><td class="what">The band says they headlined the Chinatown stage</td></tr>
+        <tr><td class="take">4</td><td class="when">Mar 2016</td><td class="where">London International Ska Festival</td><td class="what">Festival, Camden</td></tr>
+        <tr><td class="take">5</td><td class="when">26 Mar 2016</td><td class="where">The Garage, London</td><td class="what">With U-Roy, Dennis Bovell and Sonic Boom Six</td></tr>
+        <tr><td class="take">6</td><td class="when">Nov 2016</td><td class="where">House of Fun Weekender</td><td class="what">Madness's weekender</td></tr>
+        <tr><td class="take">7</td><td class="when">Sat 28 Jan 2017</td><td class="where">Exeter Phoenix</td><td class="what">Headline show, 8pm, £8/£10/£12</td></tr>
+        <tr><td class="take">8</td><td class="when">2017</td><td class="where">Looe Music Festival</td><td class="what">Festival</td></tr>
+        <tr><td class="take">9</td><td class="when">2017</td><td class="where">Bestival</td><td class="what">Festival</td></tr>
+        <tr><td class="take">10</td><td class="when">2018</td><td class="where">House of Fun Weekender</td><td class="what">Madness's weekender, again</td></tr>
+        <tr><td class="take">11</td><td class="when">Sat 2 Feb 2019</td><td class="where">Exeter Phoenix</td><td class="what">With The Embezzlers and Skatatones</td></tr>
+        <tr><td class="take">12</td><td class="when">Sat 1 Feb 2020</td><td class="where">Exeter Phoenix</td><td class="what">With The Embezzlers and The Mighty Offbeats</td></tr>
+        <tr><td class="take">13</td><td class="when">21 Aug 2021</td><td class="where">The Big Sheep, Devon</td><td class="what">With RatRace</td></tr>
+        <tr class="next"><td class="take">14</td><td class="when"><span class="ph">[Date placeholder]</span></td><td class="where"><span class="ph">[Venue placeholder]</span></td><td class="what"><span class="lamp">Upcoming</span></td></tr>
+        <tr class="next"><td class="take">15</td><td class="when"><span class="ph">[Date placeholder]</span></td><td class="where"><span class="ph">[Venue placeholder]</span></td><td class="what"><span class="lamp">Upcoming</span></td></tr>
       </tbody>
     </table>
-    <h3 class="reels-h">Festivals on the reel <small>Festivals the band has played. The dates aren't in the log yet.</small></h3>
+    <h3 class="reels-h">Festivals on the reel <small>Festivals the band has played. Kingsbridge has no date on record yet.</small></h3>
     <ul class="reels">
       <li style="--r:-1.5deg">Bestival</li>
-      <li style="--r:1deg">Camp Bestival</li>
+      <li style="--r:1deg">Boomtown Fair</li>
       <li style="--r:-.5deg">Looe Music Festival</li>
       <li style="--r:1.5deg">London International Ska Festival</li>
-      <li style="--r:-1deg">Respect Festival, Plymouth</li>
+      <li style="--r:-1deg">Respect Festival, Exeter</li>
       <li style="--r:.8deg">Kingsbridge Music Fest</li>
     </ul>
   </div>
@@ -696,10 +712,11 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
         <figcaption>ReadJunk, 2011 <span>Review of <i>Everything's Comin' Up</i></span></figcaption>
       </figure></li>
       <li><figure class="idx" style="--r:-.5deg">
-        <p class="note">On air: the <i>Doctor Who</i> theme cover, on BBC Radio 1, Radio 2 and 6 Music.</p>
-        <figcaption>Airplay <span>BBC national radio</span></figcaption>
+        <blockquote><p>“a Devon-based authentic ska ’n’ reggae outfit”</p></blockquote>
+        <figcaption>Scootering, July 2019 <span>Review of <i>Ten Feet Tall</i></span></figcaption>
       </figure></li>
     </ul>
+    <p class="lede airplay-note">On air: the band says the 2011 EP was played on BBC Radio 2 and 6 Music.</p>
   </div>
 </section>
 
@@ -725,8 +742,9 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
         <h3 id="direct-h">Direct line</h3>
         <dl>
           <div><dt>Email</dt><dd><span class="ph">[email placeholder]</span></dd></div>
-          <div><dt>Facebook</dt><dd><span class="ph">[Facebook placeholder]</span></dd></div>
+          <div><dt>Facebook</dt><dd><a href="https://www.facebook.com/simmertones" rel="noopener">facebook.com/simmertones</a></dd></div>
           <div><dt>Instagram</dt><dd><span class="ph">[Instagram placeholder]</span></dd></div>
+          <div><dt>Apple Music</dt><dd><a href="https://music.apple.com/gb/artist/the-simmertones/445546495" rel="noopener">The Simmertones on Apple Music</a></dd></div>
           <div><dt>Last.fm</dt><dd><a href="https://www.last.fm/music/The+Simmertones" rel="noopener">The Simmertones on Last.fm</a></dd></div>
         </dl>
         <div class="onair">
@@ -745,7 +763,7 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
     <p class="stamp" aria-label="Master, do not erase">Master<span>Do not erase</span></p>
     <div>
       <p>The Simmertones: nine-piece authentic ska from Torbay, South Devon.</p>
-      <p>Concept sample. The facts come from public sources, and anything marked [Placeholder] is not real data. <a href="../../index.html">See all the concepts</a></p>
+      <p>Concept sample. The facts come from public sources, and anything marked [Placeholder] is not real data. <a href="../">All Simmertones concepts</a></p>
     </div>
   </div>
 </footer>
@@ -826,6 +844,7 @@ html:not(.js) .sheet + .sheet{margin-top:1.5rem}
         else {
           other.querySelector('[data-f="ch"]').textContent = s.dataset.ch;
           other.querySelector('[data-f="role"]').textContent = s.dataset.role;
+          other.querySelector('[data-f="name"]').textContent = s.dataset.name;
           other.classList.add('is-on');
         }
       }

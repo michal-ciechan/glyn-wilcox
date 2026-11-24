@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Simmertones | Nine-piece authentic ska from Torbay</title>
+<meta name="description" content="The Simmertones are a nine-piece authentic ska band from Torbay, South Devon, playing since about 2007. Records, line-up, live dates and bookings.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath d='M0 0h2v2H0zM2 2h2v2H2z'/%3E%3Cpath fill='%23fff' d='M2 0h2v2H2zM0 2h2v2H0z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Instrument+Sans:ital,wdth,wght@0,75..100,400..700;1,75..100,400..700&display=swap" rel="stylesheet">
+<style>
+/* Two Tone: strictly #000 and #fff. Greys come only from opacity. */
+:root{
+  --disp:"Anybody","Arial Narrow",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:clamp(16px,4vw,56px);
+  --max:1360px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:#fff;color:#000;font:400 1.0625rem/1.6 var(--body)}
+h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1.5px}
+::selection{background:#000;color:#fff}
+.s-black ::selection{background:#fff;color:#000}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:#000;color:#fff;padding:12px 16px;font-weight:600}
+.skip:focus{left:8px}
+section[id]{scroll-margin-top:64px}
+.wrap{max-width:var(--max);margin-inline:auto}
+.muted{opacity:.66}
+.ph{display:inline;border:1.5px dashed currentColor;padding:0 .3em;font-size:.94em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* ---------- header: blended with difference, so it inverts over whatever it crosses ---------- */
+.top{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);padding:14px var(--gut);color:#fff;mix-blend-mode:difference;pointer-events:none}
+.top a,.top button{pointer-events:auto}
+.mark{margin-right:auto;font:900 1rem/1 var(--disp);font-stretch:150%;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+.links{display:flex;gap:clamp(14px,2vw,30px)}
+.links a{font-weight:600;font-size:.95rem;text-decoration:none}
+.links a:hover{text-decoration:underline}
+.book-link{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border:2px solid #fff;font-weight:600;font-size:.95rem;text-decoration:none;white-space:nowrap}
+.book-link:hover{background:#fff;color:#000}
+.menu-btn{display:none;min-height:40px;padding:0 14px;border:2px solid #fff;background:none;color:#fff;font:600 .95rem/1 var(--body);cursor:pointer}
+@media (max-width:860px){.links{display:none}.menu-btn{display:inline-flex;align-items:center}}
+@media (max-width:480px){.book-link{display:none}}
+
+.menu{position:fixed;inset:0;z-index:60;background:#000;color:#fff;padding:14px var(--gut) 40px;display:flex;flex-direction:column;overflow:auto}
+.menu[hidden]{display:none}
+.menu-close{align-self:flex-end;min-height:40px;padding:0 14px;border:2px solid #fff;background:none;color:#fff;font:600 .95rem/1 var(--body);cursor:pointer}
+.menu nav{display:flex;flex-direction:column;margin-top:8vh}
+.menu nav a{font:800 clamp(2.4rem,12vw,4rem)/1.05 var(--disp);font-stretch:120%;text-decoration:none;padding:.08em 0}
+.menu nav a:hover{text-decoration:underline}
+
+/* ---------- hero: the checkerboard, and the name in difference ---------- */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-rows:1fr auto;container-type:inline-size;view-timeline:--hero block}
+.stage{--sq:12.5cqi;position:relative;display:grid;place-items:center;overflow:clip;padding:clamp(76px,12vh,120px) 0 clamp(28px,5vh,56px);
+  background:repeating-conic-gradient(#000 0 25%,#fff 0 50%) 0 0/calc(var(--sq) * 2) calc(var(--sq) * 2)}
+@container (max-width:700px){.stage{--sq:25cqi}}
+.name{width:100%;color:#fff;mix-blend-mode:difference;text-align:center;font-family:var(--disp);text-transform:uppercase;line-height:.8}
+.name .the{display:block;font-size:calc(var(--fs,16cqi) * .3);font-weight:900;font-stretch:150%;letter-spacing:.04em;margin-bottom:.12em}
+.name .big{display:block;font-size:var(--fs,16cqi);font-weight:720;font-stretch:50%;white-space:nowrap;letter-spacing:.025em}
+.name .w{display:inline}
+@container (max-width:700px){.name .w{display:block}}
+/* The one orchestrated motion: as the hero scrolls away, the width axis stretches. */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion:no-preference){
+    .name .big{animation:stretch linear both;animation-timeline:--hero;animation-range:exit 0% exit 100%}
+    .name .the{animation:squeeze linear both;animation-timeline:--hero;animation-range:exit 0% exit 100%}
+  }
+}
+@keyframes stretch{to{font-stretch:150%}}
+@keyframes squeeze{to{font-stretch:50%}}
+
+.strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 32px;padding:clamp(18px,2.6vw,28px) var(--gut);background:#fff;color:#000;border-top:2px solid #000}
+.strip .lede{font:700 clamp(1.15rem,2vw,1.6rem)/1.2 var(--disp);font-stretch:108%;max-width:36ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* buttons (only ever used on white) */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:2px solid #000;background:#fff;color:#000;font:600 1rem/1 var(--body);text-decoration:none;cursor:pointer}
+.btn:hover{background:#000;color:#fff}
+.btn.solid{background:#000;color:#fff}
+.btn.solid:hover{background:#fff;color:#000}
+
+/* ---------- sections ---------- */
+.sec{padding:clamp(80px,11vw,150px) var(--gut)}
+.s-white{background:#fff;color:#000}
+.s-black{background:#000;color:#fff}
+.h2{font:800 clamp(2.6rem,7.4vw,6.8rem)/.9 var(--disp);font-stretch:125%;letter-spacing:-.025em}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,24rem);gap:20px 48px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.sec-head p{max-width:42ch}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr}}
+
+/* band */
+.band-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(32px,5vw,88px);margin-top:clamp(40px,6vw,72px)}
+.band-copy p{max-width:60ch;margin-bottom:1em}
+.band-copy .lead{font-size:clamp(1.2rem,1.8vw,1.45rem);line-height:1.45}
+.facts{border-top:2px solid #000}
+.facts div{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:12px;padding:13px 0;border-bottom:1px solid rgb(0 0 0 / .25)}
+.facts dt{font-weight:600}
+.photo{max-width:var(--max);margin:clamp(56px,8vw,104px) auto 0;aspect-ratio:21/9;border:2px solid #000;display:grid;place-content:center;gap:6px;text-align:center;padding:24px;
+  background:repeating-linear-gradient(135deg,rgb(0 0 0 / .07) 0 2px,transparent 2px 14px)}
+.photo b{font:800 clamp(1.2rem,2.4vw,2rem)/1.1 var(--disp);font-stretch:110%}
+@media (max-width:820px){.band-grid{grid-template-columns:1fr}.photo{aspect-ratio:4/3}}
+
+/* line-up: a 3x3 checker */
+.nine{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:2px solid #fff}
+.cell{container-type:inline-size;min-height:clamp(200px,21vw,290px);padding:clamp(16px,2vw,28px);display:flex;flex-direction:column;justify-content:space-between;gap:18px;background:#000;color:#fff}
+.cell:nth-child(odd){background:#fff;color:#000}
+.inst{font:850 17cqi/.86 var(--disp);font-stretch:72%;text-transform:uppercase;letter-spacing:-.01em}
+.who{font-weight:600;font-size:1.05rem;line-height:1.35}
+.who span{display:block;font-weight:400;font-size:.92rem;opacity:.7}
+.former{margin-top:28px;max-width:72ch;opacity:.8}
+@media (max-width:640px){.nine{grid-template-columns:1fr}.cell{min-height:0;flex-direction:row;align-items:flex-end;justify-content:space-between}.inst{font-size:12cqi}.who{text-align:right}}
+
+/* records */
+.rec-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.rec-list{border-top:2px solid #000}
+.rec-row{display:grid;grid-template-columns:4.9rem minmax(0,1fr) auto;align-items:baseline;gap:6px 20px;width:100%;margin:0;padding:clamp(16px,2.2vw,26px) 12px;border:0;border-bottom:1px solid #000;border-radius:0;background:#fff;color:#000;text-align:left;font:inherit;cursor:pointer}
+.rec-row .yr{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.rec-row .tt{font:800 clamp(1.45rem,3vw,2.6rem)/1 var(--disp);font-stretch:112%;letter-spacing:-.015em}
+.rec-row .fmt{font-size:.95rem;opacity:.7;text-align:right;white-space:nowrap}
+.rec-row[aria-pressed="true"]{background:#000;color:#fff}
+@media (hover:hover){.rec-row:hover{background:#000;color:#fff}}
+.rec-row:focus-visible{outline:3px solid currentColor;outline-offset:-8px}
+.rec-note{margin-top:18px;max-width:46ch}
+.rd{container-type:inline-size;border:2px solid #000;padding:clamp(18px,2.4vw,32px);scroll-margin-top:72px}
+.rd-top{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:22px;align-items:start}
+.rd-cover{width:100%;max-width:200px;aspect-ratio:1;border:1px solid #000;view-transition-name:rd-cover}
+.rd-cover img{width:100%;filter:grayscale(1) contrast(1.08)}
+@media (prefers-reduced-motion:no-preference){.rd-cover img{transition:filter .35s}}
+.rd-cover:hover img,.rec-grid:has(.rec-row:hover,.rec-row:focus-visible) .rd-cover img{filter:none}
+.rd-cover.blank{display:grid;place-content:center;text-align:center;padding:12px;font-size:.9rem;background:repeating-linear-gradient(135deg,rgb(0 0 0 / .08) 0 2px,transparent 2px 12px)}
+.rd h3{font:800 clamp(1.6rem,2.6vw,2.4rem)/1 var(--disp);font-stretch:108%;letter-spacing:-.015em;margin-bottom:14px;view-transition-name:rd-title}
+.meta div{display:grid;grid-template-columns:5.6rem minmax(0,1fr);gap:10px;padding:4px 0;font-size:.95rem}
+.meta dt{opacity:.66}
+.meta dd{overflow-wrap:anywhere}
+@container (max-width:430px){.rd-top{grid-template-columns:1fr}.rd-cover{max-width:220px}}
+.tracks{margin-top:22px;border-top:2px solid #000}
+.tracks li{display:grid;grid-template-columns:2rem minmax(0,1fr) auto;gap:10px;padding:8px 0;border-bottom:1px solid rgb(0 0 0 / .2);font-size:.98rem}
+.tracks.unordered li{grid-template-columns:minmax(0,1fr) auto}
+.tracks .n,.tracks .d{font-variant-numeric:tabular-nums}
+.tracks .n{opacity:.55}
+.tracks .x{opacity:.66;font-size:.88rem;text-align:right}
+.rd-notes{margin-top:16px;font-size:.95rem}
+.rd-notes p{margin-bottom:.5em}
+.rd-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+@media (max-width:900px){.rec-grid{grid-template-columns:1fr}}
+@media (max-width:520px){
+  .rec-row{grid-template-columns:4.4rem minmax(0,1fr)}
+  .rec-row .fmt{grid-column:2;text-align:left;white-space:normal}
+  .rd-top{grid-template-columns:1fr}
+  .rd-cover{max-width:220px}
+  .tracks .x{grid-column:2 / -1;text-align:left}
+  .tracks.unordered .x{grid-column:1 / -1}
+}
+::view-transition-old(rd-cover),::view-transition-new(rd-cover),::view-transition-old(rd-title),::view-transition-new(rd-title){animation-duration:.32s}
+
+/* live */
+.live-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.9fr);gap:clamp(40px,6vw,96px);align-items:start}
+.h3{font:800 clamp(1.5rem,2.4vw,2rem)/1 var(--disp);font-stretch:118%;margin-bottom:18px}
+.rows{border-top:2px solid currentColor}
+.row{display:grid;grid-template-columns:7.6rem minmax(0,1fr);gap:2px 22px;padding:15px 10px;border-bottom:1px solid rgb(255 255 255 / .3)}
+.row .when{font-variant-numeric:tabular-nums;opacity:.72;padding-top:.3em;font-size:.95rem}
+.row .where{font:750 clamp(1.2rem,2.3vw,1.9rem)/1.08 var(--disp);font-stretch:110%}
+.row .what{grid-column:2;font-size:.95rem;opacity:.72}
+@media (hover:hover){.row:hover{background:#fff;color:#000}}
+.row.yours .where a{text-decoration:underline}
+.row .ph{font:600 .95rem/1.5 var(--body);font-stretch:100%}
+.fests{margin-top:28px;font-size:.98rem;opacity:.85;max-width:60ch}
+@media (max-width:820px){.live-cols{grid-template-columns:1fr}}
+@media (max-width:480px){.row{grid-template-columns:1fr}.row .what{grid-column:1}.row .when{padding-top:0}}
+
+/* press: the split pull-quote */
+.press-q{isolation:isolate;background:linear-gradient(90deg,#000 50%,#fff 50%);padding:clamp(96px,13vw,180px) var(--gut)}
+.press-q figure{max-width:var(--max);margin-inline:auto;color:#fff;mix-blend-mode:difference}
+.press-q blockquote p{font:800 clamp(2.4rem,9vw,9rem)/.92 var(--disp);font-stretch:96%;letter-spacing:-.025em;max-width:14ch}
+.press-q figcaption{margin-top:28px;font-size:1.05rem}
+.press-more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid #000}
+.pm{padding:26px 28px 6px 0}
+.pm + .pm{padding-left:28px;border-left:1px solid rgb(0 0 0 / .25)}
+.pm q{display:block;font:750 clamp(1.25rem,2vw,1.7rem)/1.15 var(--disp);font-stretch:104%;quotes:"\201C" "\201D"}
+.pm p{margin-top:12px;font-size:.95rem}
+@media (max-width:820px){.press-more{grid-template-columns:1fr}.pm,.pm + .pm{padding:22px 0;border-left:0;border-bottom:1px solid rgb(0 0 0 / .25)}}
+
+/* book */
+.book-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(40px,6vw,96px);align-items:start}
+.book-grid .intro{margin-top:24px;max-width:44ch;font-size:1.1rem}
+.contact{margin-top:28px;border-top:2px solid #000}
+.contact div{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid rgb(0 0 0 / .25)}
+.contact dt{font-weight:600}
+.contact dd{overflow-wrap:anywhere}
+.radio{margin-top:28px;padding:18px 20px;border:2px solid #000;max-width:44ch}
+.form{border:2px solid #000;padding:clamp(20px,3vw,36px)}
+.f{display:grid;gap:6px;margin-bottom:18px}
+.f label{font-weight:600}
+.f input,.f textarea{width:100%;min-height:48px;padding:11px 13px;border:2px solid #000;border-radius:0;background:#fff;color:#000;font:inherit}
+.f textarea{min-height:140px;resize:vertical}
+.f input:focus-visible,.f textarea:focus-visible{outline:3px solid #000;outline-offset:2px}
+.f2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
+.sent{margin-top:16px;padding:14px 16px;background:#000;color:#fff}
+@media (max-width:860px){.book-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.f2{grid-template-columns:1fr}}
+
+/* footer */
+.foot{background:#000;color:#fff}
+.checks{height:28px;background:repeating-conic-gradient(#fff 0 25%,#000 0 50%) 0 0/28px 28px}
+.foot-in{max-width:var(--max);margin-inline:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 32px;padding:36px var(--gut) 44px}
+.foot .fmark{font:900 1.2rem/1 var(--disp);font-stretch:150%;text-transform:uppercase}
+.foot p{font-size:.95rem;opacity:.8}
+
+@media (prefers-reduced-motion:reduce){
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <a class="mark" href="#top">The Simmertones</a>
+  <nav class="links" aria-label="Sections">
+    <a href="#band">Band</a><a href="#lineup">Line-up</a><a href="#records">Records</a><a href="#live">Live</a><a href="#press">Press</a>
+  </nav>
+  <a class="book-link" href="#book">Book the band</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <button class="menu-close" type="button">Close</button>
+  <nav aria-label="Sections">
+    <a href="#band">Band</a><a href="#lineup">Line-up</a><a href="#records">Records</a><a href="#live">Live</a><a href="#press">Press</a><a href="#book">Book the band</a>
+  </nav>
+</div>
+
+<main id="main">
+
+<!-- 1. HERO -->
+<section class="hero" id="top" aria-labelledby="h1">
+  <div class="stage">
+    <h1 class="name" id="h1"><span class="vh">The Simmertones</span><span aria-hidden="true"><span class="the">The</span><span class="big"><span class="w">Simmer</span><span class="w">tones</span></span></span></h1>
+  </div>
+  <div class="strip">
+    <p class="lede">Nine-piece authentic ska from Torbay, South Devon. Playing since about 2007.</p>
+    <div class="ctas"><a class="btn solid" href="#book">Book the band</a><a class="btn" href="#records">Hear the records</a></div>
+  </div>
+</section>
+
+<!-- 2. THE BAND -->
+<section class="sec s-white" id="band" aria-labelledby="band-h">
+  <div class="wrap">
+    <h2 class="h2" id="band-h">Authentic ska, played the old way.</h2>
+    <div class="band-grid">
+      <div class="band-copy">
+        <p class="lead">The Simmertones are nine musicians from Torbay in South Devon, and they have been playing together since about 2007.</p>
+        <p>They write their own songs and play the classics too: ska, rocksteady and reggae, with a four-piece horn section out front. Glyn Wilcox sings lead and toasts.</p>
+        <p>The band puts its records out on its own label, Windrush Recordings. The latest album is <i>Ten Feet Tall</i> (2019).</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Based</dt><dd>Torbay, South Devon</dd></div>
+        <div><dt>Playing since</dt><dd>About 2007</dd></div>
+        <div><dt>Players</dt><dd>Nine: vocals, four horns and a rhythm section</dd></div>
+        <div><dt>Label</dt><dd>Windrush Recordings, their own</dd></div>
+        <div><dt>Latest album</dt><dd><i>Ten Feet Tall</i>, 2019</dd></div>
+      </dl>
+    </div>
+  </div>
+  <figure class="photo" aria-label="Band photo placeholder">
+    <b>[Band photo placeholder]</b>
+    <span class="muted">A full-bleed black-and-white live shot of all nine goes here.</span>
+  </figure>
+</section>
+
+<!-- 3. LINE-UP -->
+<section class="sec s-black" id="lineup" aria-labelledby="lineup-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="lineup-h">Nine players</h2>
+      <p class="muted">This is the line-up as last published, around 2016–17. It is still to be confirmed with the band.</p>
+    </div>
+    <ul class="nine">
+      <li class="cell"><p class="inst">Vocals</p><p class="who">Glyn Wilcox<span>Lead vocals and toasting</span></p></li>
+      <li class="cell"><p class="inst">Trumpet</p><p class="who">Sam Massey</p></li>
+      <li class="cell"><p class="inst">Trombone</p><p class="who">Sam Smith</p></li>
+      <li class="cell"><p class="inst">Tenor sax</p><p class="who">Keith Waller</p></li>
+      <li class="cell"><p class="inst">Tenor sax</p><p class="who">Jade Gall</p></li>
+      <li class="cell"><p class="inst">Keys</p><p class="who">Pete Morris</p></li>
+      <li class="cell"><p class="inst">Guitar</p><p class="who">Martin Vowles</p></li>
+      <li class="cell"><p class="inst">Bass</p><p class="who">Del “Del Boy” Anning</p></li>
+      <li class="cell"><p class="inst">Drums</p><p class="who">Rob “Big Rob” Murphy</p></li>
+    </ul>
+    <p class="former">On the 2011 EP the line-up also included Jamie “Stretch” Watkin (guitar), Tom Crowe (keys), Ray Beavis (lead tenor sax) and Rich Mills (trumpet and cornet). Glyn, Rob, Del, Keith and Sam Smith appear in every line-up on record.</p>
+  </div>
+</section>
+
+<!-- 4. RECORDS -->
+<section class="sec s-white" id="records" aria-labelledby="records-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="records-h">Records</h2>
+      <p class="muted">Two albums, an EP, a mini-album and four singles. Pick one to see what’s on it.</p>
+    </div>
+    <div class="rec-grid">
+      <div>
+        <ul class="rec-list">
+          <li><button class="rec-row" type="button" data-rec="tft" aria-pressed="true" aria-controls="rd-tft"><span class="yr">2019</span><span class="tt">Ten Feet Tall</span><span class="fmt">Album</span></button></li>
+          <li><button class="rec-row" type="button" data-rec="singles" aria-pressed="false" aria-controls="rd-singles"><span class="yr">2014–19</span><span class="tt">Four singles</span><span class="fmt">Singles</span></button></li>
+          <li><button class="rec-row" type="button" data-rec="sftw" aria-pressed="false" aria-controls="rd-sftw"><span class="yr">2013</span><span class="tt">Something For The Weekend?</span><span class="fmt">Album</span></button></li>
+          <li><button class="rec-row" type="button" data-rec="ep" aria-pressed="false" aria-controls="rd-ep"><span class="yr">2011</span><span class="tt">Everything’s Comin’ Up Ska</span><span class="fmt">EP</span></button></li>
+          <li><button class="rec-row" type="button" data-rec="vol1" aria-pressed="false" aria-controls="rd-vol1"><span class="yr">2009</span><span class="tt">Presenting The Simmertones, Volume 1</span><span class="fmt">Mini-album</span></button></li>
+        </ul>
+        <p class="rec-note muted">Listen to The Simmertones on <a href="https://music.apple.com/gb/artist/the-simmertones/445546495">Apple Music</a> or <a href="https://www.last.fm/music/The+Simmertones">Last.fm</a>. Spotify: <span class="ph">[Placeholder: Spotify link]</span></p>
+      </div>
+
+      <div class="rd-col">
+        <article class="rd" id="rd-tft" aria-label="Ten Feet Tall">
+          <div class="rd-top">
+            <figure class="rd-cover"><img src="assets/ten-feet-tall.jpg" width="300" height="300" alt="Ten Feet Tall cover: a man in a burgundy suit and pork-pie hat strides toward the camera, his boot sole filling the foreground."></figure>
+            <div>
+              <h3>Ten Feet Tall</h3>
+              <dl class="meta">
+                <div><dt>Released</dt><dd>9 August 2019</dd></div>
+                <div><dt>Label</dt><dd>Windrush Recordings</dd></div>
+                <div><dt>Format</dt><dd>Album, CD and digital, 13 tracks</dd></div>
+                <div><dt>CD barcode</dt><dd>5060366787637</dd></div>
+              </dl>
+            </div>
+          </div>
+          <ol class="tracks">
+            <li><span class="n">1</span><span>El Gringo</span><span class="d">3:43</span></li>
+            <li><span class="n">2</span><span>Travelling Man</span><span class="d">2:49</span></li>
+            <li><span class="n">3</span><span>Silly Girl</span><span class="d">3:11</span></li>
+            <li><span class="n">4</span><span>What I Need</span><span class="d">3:37</span></li>
+            <li><span class="n">5</span><span>Missing You</span><span class="d">3:42</span></li>
+            <li><span class="n">6</span><span>Bring It Down</span><span class="d">3:55</span></li>
+            <li><span class="n">7</span><span>Fat Back (Tear It Up)</span><span class="d">2:57</span></li>
+            <li><span class="n">8</span><span>Lullaby</span><span class="d">2:57</span></li>
+            <li><span class="n">9</span><span>Stand Firm</span><span class="d">2:54</span></li>
+            <li><span class="n">10</span><span>Down By the Shore</span><span class="d">3:14</span></li>
+            <li><span class="n">11</span><span>Ten Feet Tall</span><span class="d">3:16</span></li>
+            <li><span class="n">12</span><span>The Place That I Know</span><span class="d">3:09</span></li>
+            <li><span class="n">13</span><span>Winter’s Call</span><span class="d">5:42</span></li>
+          </ol>
+          <div class="rd-notes muted"><p>“Travelling Man” and “Winter’s Call” came out as singles first, in 2018 and 2019.</p></div>
+          <div class="rd-links"><a class="btn" href="https://music.apple.com/gb/album/ten-feet-tall/1475400789">Listen on Apple Music</a></div>
+        </article>
+
+        <article class="rd" id="rd-singles" aria-label="Singles, 2014 to 2019">
+          <div class="rd-top">
+            <figure class="rd-cover blank"><span>[Sleeve placeholder]</span></figure>
+            <div>
+              <h3>Four singles</h3>
+              <dl class="meta">
+                <div><dt>Released</dt><dd>2014 to 2019</dd></div>
+                <div><dt>Format</dt><dd>Digital singles</dd></div>
+              </dl>
+            </div>
+          </div>
+          <ol class="tracks">
+            <li><span class="n">1</span><span>Perhaps Perhaps Perhaps</span><span class="d">25 Aug 2014</span></li>
+            <li><span class="n">2</span><span>Run For Your Life</span><span class="d">25 Mar 2016</span></li>
+            <li><span class="n">3</span><span>Travelling Man<span class="vh">,</span> <span class="muted">also on <i>Ten Feet Tall</i></span></span><span class="d">18 May 2018</span></li>
+            <li><span class="n">4</span><span>Winter’s Call<span class="vh">,</span> <span class="muted">also on <i>Ten Feet Tall</i></span></span><span class="d">4 Jan 2019</span></li>
+          </ol>
+          <div class="rd-links"><a class="btn" href="https://music.apple.com/gb/artist/the-simmertones/445546495">Listen on Apple Music</a></div>
+        </article>
+
+        <article class="rd" id="rd-sftw" aria-label="Something For The Weekend?">
+          <div class="rd-top">
+            <figure class="rd-cover"><img src="assets/something-for-the-weekend.jpg" width="300" height="300" alt="Something For The Weekend? cover: a grinning cartoon barber holds a cut-throat razor beside a barber pole, on green."></figure>
+            <div>
+              <h3>Something For The Weekend?</h3>
+              <dl class="meta">
+                <div><dt>Released</dt><dd>2013</dd></div>
+                <div><dt>Format</dt><dd>Album</dd></div>
+                <div><dt>Label</dt><dd><span class="ph">[Placeholder: label and cat. no.]</span></dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="rd-notes"><p><span class="ph">[Placeholder: tracklist and track count, to confirm with the band]</span></p></div>
+          <div class="rd-links"><a class="btn" href="https://music.apple.com/gb/artist/the-simmertones/445546495">The Simmertones on Apple Music</a></div>
+        </article>
+
+        <article class="rd" id="rd-ep" aria-label="Everything’s Comin’ Up Ska">
+          <div class="rd-top">
+            <figure class="rd-cover"><img src="assets/everythings-comin-up-ska.jpg" width="300" height="300" alt="Everything’s Comin’ Up Ska cover: a band photo inside giant black letters spelling ska, on orange."></figure>
+            <div>
+              <h3>Everything’s Comin’ Up Ska</h3>
+              <dl class="meta">
+                <div><dt>Released</dt><dd>2011</dd></div>
+                <div><dt>Format</dt><dd>EP, CD, 4 tracks</dd></div>
+                <div><dt>Label</dt><dd>Windrush Recordings</dd></div>
+              </dl>
+            </div>
+          </div>
+          <ol class="tracks">
+            <li><span class="n">1</span><span>Bring Your Love To Me</span><span class="d">4:13</span></li>
+            <li><span class="n">2</span><span>Blam Blam Fever <span class="muted">(The Valentines)</span></span><span class="d">3:22</span></li>
+            <li><span class="n">3</span><span>King Of Ska <span class="muted">(Desmond Dekker)</span></span><span class="d">2:41</span></li>
+            <li><span class="n">4</span><span>A Little Time</span><span class="d">3:28</span></li>
+          </ol>
+          <div class="rd-notes muted">
+            <p>Two originals, with music by Rich Mills and the band and words by Glyn Wilcox, and two covers.</p>
+            <p>Engineered and co-produced by Richard Digby Smith at The Music Mill, Devon. Guest lead guitar is credited to Steve Cradock (Ocean Colour Scene, Paul Weller).</p>
+            <p>Also listed as <i>Everything’s Comin’ Up</i>.</p>
+          </div>
+        </article>
+
+        <article class="rd" id="rd-vol1" aria-label="Presenting The Simmertones, Volume 1">
+          <div class="rd-top">
+            <figure class="rd-cover blank"><span>[Cover placeholder]</span></figure>
+            <div>
+              <h3>Presenting The Simmertones, Volume 1</h3>
+              <dl class="meta">
+                <div><dt>Released</dt><dd>12 November 2009, digital</dd></div>
+                <div><dt>Format</dt><dd>Mini-album, 7 tracks</dd></div>
+                <div><dt>Label</dt><dd>Self-released</dd></div>
+              </dl>
+            </div>
+          </div>
+          <ul class="tracks unordered">
+            <li><span>One Time Soon</span><span class="x">Original</span></li>
+            <li><span>Warm Your Bones</span><span class="x">Original</span></li>
+            <li><span>Over The River</span><span class="x">Justin Hinds &amp; the Dominoes</span></li>
+            <li><span>Ball of Fire</span><span class="x">The Skatalites</span></li>
+            <li><span>Sammy Dead</span><span class="x">Traditional</span></li>
+            <li><span><i>Doctor Who</i> theme</span><span class="x">Cover</span></li>
+            <li><span>Do What You Got To Do</span><span class="x">Original, the closer</span></li>
+          </ul>
+          <div class="rd-notes muted"><p>Three originals and four covers. The running order isn’t confirmed, apart from the closing track.</p></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. LIVE -->
+<section class="sec s-black" id="live" aria-labelledby="live-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="live-h">Live</h2>
+      <p class="muted">Festival fields, Madness’s House of Fun Weekender and winter nights at the Exeter Phoenix.</p>
+    </div>
+    <div class="live-cols">
+      <div>
+        <h3 class="h3">Coming up</h3>
+        <ul class="rows">
+          <li class="row"><span class="when"><span class="ph">[Date]</span></span><span class="where"><span class="ph">[Placeholder: venue, town]</span></span></li>
+          <li class="row"><span class="when"><span class="ph">[Date]</span></span><span class="where"><span class="ph">[Placeholder: festival]</span></span></li>
+          <li class="row yours"><span class="when">Your date</span><span class="where"><a href="#book">Book the band</a></span><span class="what">Festivals, venues and private events.</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="h3">Played</h3>
+        <ul class="rows">
+          <li class="row"><span class="when">21 Aug 2021</span><span class="where">The Big Sheep, Devon</span><span class="what">With RatRace</span></li>
+          <li class="row"><span class="when">1 Feb 2020</span><span class="where">Exeter Phoenix</span><span class="what">With The Embezzlers and The Mighty Offbeats</span></li>
+          <li class="row"><span class="when">2 Feb 2019</span><span class="where">Exeter Phoenix</span><span class="what">With The Embezzlers and Skatatones</span></li>
+          <li class="row"><span class="when">2018</span><span class="where">House of Fun Weekender</span><span class="what">Madness’s weekender</span></li>
+          <li class="row"><span class="when">2017</span><span class="where">Bestival</span></li>
+          <li class="row"><span class="when">2017</span><span class="where">Looe Music Festival</span></li>
+          <li class="row"><span class="when">28 Jan 2017</span><span class="where">Exeter Phoenix</span></li>
+          <li class="row"><span class="when">Nov 2016</span><span class="where">House of Fun Weekender</span><span class="what">Madness’s weekender</span></li>
+          <li class="row"><span class="when">26 Mar 2016</span><span class="where">The Garage, London</span><span class="what">On a bill with U-Roy, Dennis Bovell and Sonic Boom Six</span></li>
+          <li class="row"><span class="when">Mar 2016</span><span class="where">London International Ska Festival</span></li>
+          <li class="row"><span class="when">16 Aug 2015</span><span class="where">Boomtown Fair</span><span class="what">The band says they headlined the Chinatown stage</span></li>
+          <li class="row"><span class="when">31 May 2014</span><span class="where">Respect Festival, Exeter</span></li>
+          <li class="row"><span class="when">30 Aug 2013</span><span class="where">The Fleece, Bristol</span><span class="what">With The Clunks</span></li>
+        </ul>
+        <p class="fests">Also Kingsbridge Music Fest <span class="ph">[year to confirm]</span>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PRESS -->
+<section id="press" aria-labelledby="press-h">
+  <h2 class="vh" id="press-h">Press</h2>
+  <div class="press-q">
+    <figure>
+      <blockquote><p>“The vocals are good, the horns are perfect…”</p></blockquote>
+      <figcaption>ReadJunk, reviewing the <i>Everything’s Comin’ Up</i> EP, October 2011</figcaption>
+    </figure>
+  </div>
+  <div class="sec s-white" style="padding-top:clamp(48px,6vw,80px)">
+    <div class="wrap press-more">
+      <div class="pm"><q>a Devon-based authentic ska ’n’ reggae outfit</q><p class="muted">Sarge, <i>Scootering</i> magazine, July 2019, reviewing <i>Ten Feet Tall</i></p></div>
+      <div class="pm"><q>the magical vocals of Glyn Wilcox</q><p class="muted">Last.fm</p></div>
+      <div class="pm"><p style="margin-top:0">The band says the 2011 EP was played on BBC Radio 2 and 6 Music.</p><p class="muted">Punktastic reviewed <i>Volume 1</i> in March 2010.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. BOOK -->
+<section class="sec s-white" id="book" aria-labelledby="book-h" style="border-top:2px solid #000">
+  <div class="wrap book-grid">
+    <div>
+      <h2 class="h2" id="book-h">Book the band</h2>
+      <p class="intro">Festivals, venues and private events. Tell us the date and the place, and the band will get back to you.</p>
+      <dl class="contact">
+        <div><dt>Email</dt><dd><span class="ph">[Placeholder: bookings email]</span></dd></div>
+        <div><dt>Facebook</dt><dd><a href="https://www.facebook.com/simmertones">facebook.com/simmertones</a></dd></div>
+        <div><dt>Instagram</dt><dd><span class="ph">[Placeholder]</span></dd></div>
+        <div><dt>Listen</dt><dd><a href="https://music.apple.com/gb/artist/the-simmertones/445546495">Apple Music</a></dd></div>
+      </dl>
+      <p class="radio">Glyn is on the radio too. He presents <i>The Ultimate Ska &amp; Reggae Show</i> on Palm Torbay, Sundays 7–9pm. <a href="https://player.aiir.com/palmtorbay/">Listen live on Palm Torbay</a></p>
+    </div>
+    <form class="form" id="enquiry" novalidate>
+      <div class="f2">
+        <div class="f"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="f"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="f2">
+        <div class="f"><label for="f-date">Date of the event</label><input id="f-date" name="date" type="date"></div>
+        <div class="f"><label for="f-venue">Venue or event</label><input id="f-venue" name="venue"></div>
+      </div>
+      <div class="f"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message"></textarea></div>
+      <button class="btn solid" type="submit">Send enquiry</button>
+      <p class="sent" id="sent" role="status" hidden></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="checks" aria-hidden="true"></div>
+  <div class="foot-in">
+    <div><p class="fmark">The Simmertones</p><p style="margin-top:10px">Nine-piece authentic ska from Torbay, South Devon.</p></div>
+    <div><p>Concept sample. Items marked [Placeholder] are not real data.</p><p><a href="../">All Simmertones concepts</a></p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  // Fit the name so the condensed line spans the width (and never more than ~half the screen height).
+  var hero = document.querySelector('.hero'), big = document.querySelector('.name .big');
+  function fit(){
+    var probe = big.cloneNode(true);
+    probe.style.cssText = 'position:absolute;left:0;top:0;visibility:hidden;font-size:100px;font-stretch:50%;animation:none;display:inline-block;white-space:nowrap';
+    big.parentNode.appendChild(probe);
+    var r = probe.getBoundingClientRect();
+    probe.remove();
+    var w = hero.clientWidth, narrow = w <= 700;
+    var byWidth = 100 * w * (narrow ? .9 : .94) / r.width;
+    var byHeight = 100 * window.innerHeight * (narrow ? .42 : .5) / r.height;
+    hero.style.setProperty('--fs', Math.min(byWidth, byHeight).toFixed(1) + 'px');
+  }
+  fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  var t; window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(fit, 120); });
+
+  // Records: swap the detail panel, with a view transition where supported.
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.rec-row'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.rd'));
+  var narrowQ = window.matchMedia('(max-width: 900px)');
+  function apply(id){
+    rows.forEach(function(r){ r.setAttribute('aria-pressed', String(r.dataset.rec === id)); });
+    panels.forEach(function(p){ p.hidden = p.id !== 'rd-' + id; });
+  }
+  function show(id){
+    var panel = document.getElementById('rd-' + id);
+    if (narrowQ.matches){
+      apply(id);
+      panel.scrollIntoView({block:'start', behavior: reduce.matches ? 'auto' : 'smooth'});
+    } else if (document.startViewTransition && !reduce.matches){
+      document.startViewTransition(function(){ apply(id); });
+    } else {
+      apply(id);
+    }
+  }
+  rows.forEach(function(r){ r.addEventListener('click', function(){ show(r.dataset.rec); }); });
+  apply('tft');
+
+  // Mobile menu
+  var btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu'), close = menu.querySelector('.menu-close');
+  function openMenu(){ menu.hidden = false; btn.setAttribute('aria-expanded','true'); document.body.style.overflow = 'hidden'; close.focus(); }
+  function shut(focusBtn){ menu.hidden = true; btn.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; if (focusBtn) btn.focus(); }
+  btn.addEventListener('click', openMenu);
+  close.addEventListener('click', function(){ shut(true); });
+  menu.addEventListener('click', function(e){ if (e.target.closest('a')) shut(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !menu.hidden) shut(true); });
+
+  // Enquiry form: no backend in this sample.
+  var form = document.getElementById('enquiry'), sent = document.getElementById('sent');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!form.checkValidity()){ form.reportValidity(); return; }
+    var name = form.elements.name.value.trim();
+    sent.textContent = 'Thanks' + (name ? ', ' + name : '') + '. This is a sample site, so nothing was sent. When it goes live, enquiries will go to the band’s booking email [Placeholder].';
+    sent.hidden = false;
+  });
+})();
+</script>
+</body>
+</html>

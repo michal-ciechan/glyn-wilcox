@@ -18,26 +18,70 @@ Glyn Wilcox is a ska and reggae singer, vinyl DJ and radio presenter from Torbay
 - His Palm Torbay bio describes him as "DJ, Singer, Songwriter".
 
 ### Band: The Simmertones
-- He is the **lead vocalist** of The Simmertones, a **nine-piece ska band from Devon/Torbay**, active since about 2007. He sings and also toasts.
-- Discography (from Last.fm):
-  - *Presenting The Simmertones, Volume 1* (EP, 2009, produced with Richard Digby Smith)
-  - *Everything's Comin' Up Ska* (EP, 2011)
-  - *Something for the Weekend?* (album, 2013)
-  - *Ten Feet Tall* (album, 2019)
-- Press line from Last.fm: "the magical vocals of Glyn Wilcox".
-- Festivals the band has played: Bestival, Camp Bestival, Looe Music Festival, London International Ska Festival, Respect Festival (Plymouth), Kingsbridge Music Fest.
-- They supported **Madness** at the House of Fun Weekender in 2018.
-- Their *Doctor Who* theme cover got plays on BBC Radio 1, Radio 2 and 6 Music.
+Source: the deep-research run of 2026-11-24, with every claim checked by three verifiers. This section **replaces** the earlier band notes. Where it disagrees with older copy, this section wins.
 
-#### Band extras (research run of 2026-11-24, for the band-site concepts)
-- *Presenting The Simmertones, Vol. 1*: a "seven track mini-album featuring three original tracks and four cover versions" (Punktastic review, March 2010). Originals: "One Time Soon", "Warm Your Bones" and "Do What You Got To Do" (the closing track). The covers include "Sammy Dead", the *Doctor Who* theme, and reworks of Justin Hinds and The Skatalites. The full track order is not confirmed.
-- *Everything's Comin' Up (Ska)* EP (2011, self-released): four tracks: "Bring Your Love To Me" (original), "Blam Blam Fever" (The Valentines cover), "King of Ska" (Desmond Dekker cover) and "A Little Time" (original). Review quote: "The vocals are good, the horns are perfect…" (ReadJunk, 1 Oct 2011).
-- *Something for the Weekend?*: a 12" vinyl LP with 12 tracks, released 10 May 2013 on Music Mill Records, catalogue number MMTONES1 (MusicBrainz, via a search snippet). The track titles are not confirmed.
-- *Ten Feet Tall* (2019): the tracklist is not confirmed.
-- Single: "Perhaps Perhaps Perhaps" (Last.fm, 2:28). The year is not confirmed.
-- Past headline dates at Exeter Phoenix (Phonic FM listings): Sat 28 Jan 2017 (8pm, £8/£10/£12); Sat 2 Feb 2019 with The Embezzlers and Skatatones; Sat 1 Feb 2020 with The Embezzlers and The Mighty Offbeats.
-- Not found: band member names and instruments, streaming or Bandcamp links, and band socials. Use `[Placeholder]` for these. A guest spot by Steve Cradock appeared in one search summary but could not be verified, so don't use it.
-- Support credits: only **Madness (2018)** is confirmed as a Simmertones support. The longer list (Skatalites, Desmond Dekker…) comes from Glyn's own bio and covers all of his bands, so on a band site present it as Glyn's history and not as the band's.
+- **Who they are:** a nine-piece authentic ska and reggae band from Torbay / South Devon. They have been gigging since about 2007, and band-written bios say they formed in 2007. Glyn Wilcox sings lead and toasts.
+- **Line-up as last published, about 2016–17** (Discogs artist profile and the band's 2016 web page; medium confidence). Nothing confirms who is in the band in 2025–26, so present this as "line-up, to be confirmed":
+  - Glyn Wilcox: lead vocals and toasting
+  - Rob "Big Rob" Murphy: drums
+  - Del "Del Boy" Anning: bass
+  - Pete Morris: keys
+  - Martin Vowles: guitar
+  - Keith Waller: tenor sax
+  - Jade Gall: tenor sax
+  - Sam Smith: trombone
+  - Sam Massey: trumpet
+- **Line-up on the 2011 EP** (high confidence): Glyn Wilcox (vocals), Rob Murphy (drums and percussion), Del Anning (bass), Jamie "Stretch" Watkin (guitar), Tom Crowe (keys), Keith Waller (tenor sax), Ray Beavis (lead tenor sax), Sam Smith (trombone) and Rich Mills (trumpet/cornet). Wilcox, Murphy, Anning, Waller and Smith appear in every line-up found.
+- **Records:**
+  - *Presenting The Simmertones, Volume 1*: a self-released seven-track **mini-album**, issued digitally on 12 Nov 2009 (MusicBrainz cat. Windrush1). It has three originals ("One Time Soon", "Warm Your Bones", and "Do What You Got To Do", the closer) and four covers ("Over The River" by Justin Hinds & the Dominoes, "Ball of Fire" by The Skatalites, the traditional "Sammy Dead", and the *Doctor Who* theme). The running order is not confirmed. No surviving source confirms a producer.
+  - *Everything's Comin' Up Ska* EP (2011; also titled "Everything's Comin' Up"): a CD on **Windrush Recordings**, the band's own imprint. Tracks:
+    1. "Bring Your Love To Me" (4:13)
+    2. "Blam Blam Fever" (3:22, The Valentines cover)
+    3. "King Of Ska" (2:41, Desmond Dekker cover)
+    4. "A Little Time" (3:28)
+    The originals have music by Rich Mills with the band and words by Glyn Wilcox. The EP was engineered and co-produced by **Richard Digby Smith at The Music Mill**, Devon. **Steve Cradock** (Ocean Colour Scene, Paul Weller) is credited as guest lead guitarist, but only on Discogs and in band-written bios, so say "credited". The band says actor Phil Daniels voiced the "Bring Your Love To Me" promo (a band claim only).
+  - *Something For The Weekend?* (2013): an album. The label and catalogue number disagree between databases (Music Mill Records or Windrush), and the track count and titles are not confirmed. Say "album, 2013" and leave the label, catalogue number and track count as placeholders. Don't use MMTONES1, "12 tracks" or "10 May 2013".
+  - Singles: "Perhaps Perhaps Perhaps" (25 Aug 2014), "Run For Your Life" (25 Mar 2016), "Travelling Man" (18 May 2018) and "Winter's Call" (4 Jan 2019). The last two are also on *Ten Feet Tall*.
+  - *Ten Feet Tall*: an album on Windrush Recordings, released 9 Aug 2019, 13 tracks (CD barcode 5060366787637). Tracks:
+    1. El Gringo (3:43)
+    2. Travelling Man (2:49)
+    3. Silly Girl (3:11)
+    4. What I Need (3:37)
+    5. Missing You (3:42)
+    6. Bring It Down (3:55)
+    7. Fat Back (Tear It Up) (2:57)
+    8. Lullaby (2:57)
+    9. Stand Firm (2:54)
+    10. Down By the Shore (3:14)
+    11. Ten Feet Tall (3:16)
+    12. The Place That I Know (3:09)
+    13. Winter's Call (5:42)
+- **Live (confirmed):**
+  - Respect Festival, **Exeter** (31 May 2014; not Plymouth)
+  - Boomtown Fair (16 Aug 2015; the band says they headlined the Chinatown stage)
+  - London International Ska Festival (Mar 2016)
+  - The Garage, London (26 Mar 2016, on a bill with U-Roy, Dennis Bovell and Sonic Boom Six)
+  - Madness's **House of Fun Weekender** (Nov 2016 and 2018)
+  - Looe Music Festival (2017)
+  - Bestival (2017)
+  - Exeter Phoenix: 28 Jan 2017; 2 Feb 2019 with The Embezzlers and Skatatones; 1 Feb 2020 with The Embezzlers and The Mighty Offbeats
+  - The Fleece, Bristol (30 Aug 2013, with The Clunks)
+  - The Big Sheep, Devon (21 Aug 2021, with RatRace; the last show listed on Bandsintown)
+  - Kingsbridge Music Fest (from Last.fm, no year)
+  - **Camp Bestival is not confirmed**: it appears only in the band's bio and not in the 2014–18 line-ups, so don't list it.
+- **Press:**
+  - "the magical vocals of Glyn Wilcox" (Last.fm).
+  - "The vocals are good, the horns are perfect…" (ReadJunk, Oct 2011).
+  - Scootering magazine (Jul 2019, by "Sarge") reviewed *Ten Feet Tall* and called them "a Devon-based authentic ska 'n' reggae outfit".
+  - Punktastic (Mar 2010) reviewed Vol. 1.
+- **Airplay is reported only by the band:** their bio says the 2011 EP was played on BBC Radio 2 and 6 Music. **Don't say the *Doctor Who* cover was played on Radio 1, 2 or 6 Music**, because that was not confirmed. A safe line is "The band says the 2011 EP was played on BBC Radio 2 and 6 Music."
+- **Links:**
+  - Facebook https://www.facebook.com/simmertones (confirmed)
+  - Apple Music https://music.apple.com/gb/artist/the-simmertones/445546495 (confirmed)
+  - Last.fm https://www.last.fm/music/The+Simmertones
+  - The Bandcamp page **no longer exists** (it redirects to a signup page), and thesimmertones.co.uk returns 403.
+  - Instagram, Spotify and YouTube were not found, so use placeholders.
+- **Madness wording:** "played Madness's House of Fun Weekender (2016 and 2018)". The longer list of support acts (Skatalites, Desmond Dekker…) is from Glyn's own bio and covers all of his bands, so present it as his history.
 
 ### DJ: Ska Au Go Go nights
 - He plays as **"DJ Glyn Wilcox"** at "Ska-au-go-go" vinyl nights. Example listing: Richard Newton Hall, Teignmouth, Saturday 16 Dec 2023, 8–11pm ("get dressed up and start skanking").

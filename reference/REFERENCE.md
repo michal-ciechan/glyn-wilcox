@@ -29,6 +29,16 @@ Glyn Wilcox is a ska and reggae singer, vinyl DJ and radio presenter from Torbay
 - They supported **Madness** at the House of Fun Weekender in 2018.
 - Their *Doctor Who* theme cover got plays on BBC Radio 1, Radio 2 and 6 Music.
 
+#### Band extras (research run of 2026-11-24, for the band-site concepts)
+- *Presenting The Simmertones, Vol. 1*: a "seven track mini-album featuring three original tracks and four cover versions" (Punktastic review, March 2010). Originals: "One Time Soon", "Warm Your Bones" and "Do What You Got To Do" (the closing track). The covers include "Sammy Dead", the *Doctor Who* theme, and reworks of Justin Hinds and The Skatalites. The full track order is not confirmed.
+- *Everything's Comin' Up (Ska)* EP (2011, self-released): four tracks: "Bring Your Love To Me" (original), "Blam Blam Fever" (The Valentines cover), "King of Ska" (Desmond Dekker cover) and "A Little Time" (original). Review quote: "The vocals are good, the horns are perfect…" (ReadJunk, 1 Oct 2011).
+- *Something for the Weekend?*: a 12" vinyl LP with 12 tracks, released 10 May 2013 on Music Mill Records, catalogue number MMTONES1 (MusicBrainz, via a search snippet). The track titles are not confirmed.
+- *Ten Feet Tall* (2019): the tracklist is not confirmed.
+- Single: "Perhaps Perhaps Perhaps" (Last.fm, 2:28). The year is not confirmed.
+- Past headline dates at Exeter Phoenix (Phonic FM listings): Sat 28 Jan 2017 (8pm, £8/£10/£12); Sat 2 Feb 2019 with The Embezzlers and Skatatones; Sat 1 Feb 2020 with The Embezzlers and The Mighty Offbeats.
+- Not found: band member names and instruments, streaming or Bandcamp links, and band socials. Use `[Placeholder]` for these. A guest spot by Steve Cradock appeared in one search summary but could not be verified, so don't use it.
+- Support credits: only **Madness (2018)** is confirmed as a Simmertones support. The longer list (Skatalites, Desmond Dekker…) comes from Glyn's own bio and covers all of his bands, so on a band site present it as Glyn's history and not as the band's.
+
 ### DJ: Ska Au Go Go nights
 - He plays as **"DJ Glyn Wilcox"** at "Ska-au-go-go" vinyl nights. Example listing: Richard Newton Hall, Teignmouth, Saturday 16 Dec 2023, 8–11pm ("get dressed up and start skanking").
 - Another listing: "Reggae Ska-a-go-go", Cantina, Torquay, 17 Aug 2026.
